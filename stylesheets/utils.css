@@ -1,0 +1,244 @@
+/* Définition des polices d'écritures */
+
+@font-face {
+    font-family: "Overpass";
+    font-style: normal;
+    src: url("../assets/fonts/Overpass/Overpass-VariableFont_wght.ttf");
+}
+
+@font-face {
+    font-family: "Overpass";
+    font-style: italic;
+    src: url("../assets/fonts/Overpass/Overpass-Italic-VariableFont_wght.ttf");
+}
+
+@font-face {
+    font-family: "Roboto";
+    font-weight: 300;
+    src: url("../assets/fonts/Roboto/Roboto-Light.ttf");
+}
+
+@font-face {
+    font-family: "Roboto";
+    font-weight: 400;
+    src: url("../assets/fonts/Roboto/Roboto-Regular.ttf");
+}
+
+/* Définition des variables */
+
+:root {
+    /* Couleurs de la charte graphique */
+    --main-color-marron-bois: #281910;
+    --main-color-orange-ensoleille: #DB7F13;
+    --main-color-jaune-ensoleille: #FAFF01;
+    --main-color-vert-feuillage: #117C3C;
+    --main-color-rouge-annulation: #CB5747;
+    --main-color-vert-validation: #17AA52;
+    --main-color-gris-bloque: #B1A39B;
+    --main-color-blanc-muguet: #FFFCFB;
+    --main-color-blanc-champignon: #FFFAF8;
+    --main-color-blanc-lichen: #F4ECE7;
+
+    /* Variations de couleur de hover */
+    --main-color-hover-orange-ensoleille: #F58E15;
+    --main-color-hover-rouge-annulation: #E56250;
+    --main-color-hover-vert-validation: #1BC45F;
+
+    /* Effets d'ombre */
+    --main-shadow-classic: 0px 4px 5px rgba(0, 0, 0, 0.2);
+    --main-shadow-modal: 0px 4px 12px rgba(0, 0, 0, 0.25);
+    --main-shadow-pressed: inset 0px 0px 8px rgba(0, 0, 0, 0.4);
+
+    /* Transitions */
+    --main-bezier: cubic-bezier(0.8, 0.17, 0.25, 0.81);
+}
+
+/* Éléments principaux */
+.small {
+    transform: scale(0.75);
+}
+
+
+/* Boutons */
+button,
+a[type="button"] {
+    display: flex;
+    align-items: center;
+    width: fit-content;
+    height: fit-content;
+    padding: 10px 30px;
+    border: none;
+    border-radius: 10px;
+    font-family: "Roboto";
+    font-size: 25px;
+    font-weight: 400;
+    color: var(--main-color-blanc-muguet);
+    transition-duration: 200ms;
+    transition-timing-function: var(--main-bezier);
+    gap: 15px;
+}
+
+a[type="button"] {
+    padding-right: 18px;
+}
+
+button:hover,
+a[type="button"]:hover {
+    transition-duration: 300ms;
+    transition-timing-function: var(--main-bezier);
+    cursor: pointer;
+}
+
+button:active:not(:disabled),
+a[type="button"]:active:not(.disabled) {
+    /* Bouton pressé mais pas désactivé */
+    box-shadow: var(--main-shadow-pressed);
+}
+
+button:disabled,
+button:disabled:hover,
+a[type="button"]:is(.disabled),
+a[type="button"]:is(.disabled) {
+    background-color: var(--main-color-gris-bloque);
+    cursor: default;
+}
+
+/* Boutons classiques */
+.classicButton {
+    background-color: var(--main-color-orange-ensoleille);
+}
+
+.classicButton:not(.select):hover {
+    background-color: var(--main-color-hover-orange-ensoleille);
+}
+
+/* Boutons validation */
+.acceptButton {
+    background-color: var(--main-color-vert-validation);
+}
+
+.acceptButton:not(.select):hover {
+    background-color: var(--main-color-hover-vert-validation);
+}
+
+/* Boutons refus */
+.denyButton {
+    background-color: var(--main-color-rouge-annulation);
+}
+
+.denyButton:not(.select):hover {
+    background-color: var(--main-color-hover-rouge-annulation);
+}
+
+/* Boutons de sélection */
+.select {
+    position: relative;
+    height: fit-content;
+    padding: 10px 10px 10px 30px;
+    border-radius: 10px;
+    font-family: "Roboto";
+    font-size: 25px;
+    font-weight: 400;
+    color: var(--main-color-blanc-muguet);
+    transition-duration: 300ms;
+    user-select: none;
+    -moz-user-select: none;
+    -webkit-user-select: none;
+}
+
+.select:hover {
+    cursor: pointer;
+}
+
+.selectActive>.selectTitle>img {
+    transition-duration: 300ms;
+    transform: rotate(90deg);
+}
+
+.selectInactive>.selectTitle>img {
+    transition-duration: 300ms;
+    transform: rotate(0deg);
+}
+
+.selectTitle {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.selectActive {
+    border-radius: 10px 10px 0 0;
+}
+
+.selectOption {
+    z-index: 10;
+    position: absolute;
+    left: 0;
+    /* top: 0; */
+    width: calc(100% - 60px);
+    padding: 10px 30px;
+    background-color: var(--main-color-blanc-muguet);
+}
+
+.selectOption:hover {
+    box-shadow: none;
+}
+
+.selectOption:last-of-type {
+    border-radius: 0 0 10px 10px;
+}
+
+.selectInactive>.selectOption {
+    animation: fadeIn 300ms ease-in;
+    display: none;
+}
+
+.selectActive>.selectOption {
+    animation: fadeIn 300ms ease-in;
+}
+
+/* Classic select */
+.classicButton>.selectOption {
+    color: var(--main-color-marron-bois);
+    box-shadow:
+        1px 0 0 0 var(--main-color-orange-ensoleille) inset,
+        -1px 0 0 0 var(--main-color-orange-ensoleille) inset;
+    /* 0 1px 0 0 var(--main-color-orange-ensoleille) inset; */
+}
+
+.classicButton>.selectOption:last-of-type {
+    color: var(--main-color-marron-bois);
+    box-shadow:
+        1px 0 0 0 var(--main-color-orange-ensoleille) inset,
+        -1px 0 0 0 var(--main-color-orange-ensoleille) inset,
+        0 -1px 0 0 var(--main-color-orange-ensoleille) inset;
+    /* 0 1px 0 0 var(--main-color-orange-ensoleille) inset; */
+}
+
+.classicButton>.selectOption:hover {
+    background-color: var(--main-color-hover-orange-ensoleille);
+    color: var(--main-color-blanc-muguet);
+}
+
+/* Accept select */
+
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes fadeOut {
+    from {
+        opacity: 1;
+    }
+
+    to {
+        opacity: 0;
+    }
+}
