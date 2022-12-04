@@ -11,62 +11,285 @@
 </head>
 
 <body style="display: flex; flex-direction: column; gap: 20px;" onload="init();">
-    <!-- Classic buttons -->
-    <div style="display: flex; gap: 5px;">
+    <!-- Basic buttons -->
+    <div style="display: flex; flex-wrap: wrap; gap: 5px;">
         <button class="classicButton" disabled>Bouton d'action</button>
         <button class="classicButton">Bouton d'action</button>
         <button class="acceptButton">Bouton d'action</button>
         <button class="denyButton">Bouton d'action</button>
     </div>
     <!-- Icon buttons -->
-    <div style="display: flex; gap: 5px;">
-        <a type="button" class="classicButton disabled">Bouton d'action <img src="assets/icons/download.svg"
+    <div style="display: flex; flex-wrap: wrap; gap: 5px;">
+        <a type="button" class="classicButton disabled"><label>Bouton d'action</label><img
+                src="assets/icons/download.svg" alt="Download icon"></a>
+        <a type="button" class="classicButton"><label>Bouton d'action</label><img src="assets/icons/download.svg"
                 alt="Download icon"></a>
-        <a type="button" class="classicButton">Bouton d'action <img src="assets/icons/download.svg"
+        <a type="button" class="acceptButton"><label>Bouton d'action</label><img src="assets/icons/valid.svg"
                 alt="Download icon"></a>
-        <a type="button" class="acceptButton">Bouton d'action <img src="assets/icons/valid.svg" alt="Download icon"></a>
-        <a type="button" class="denyButton">Bouton d'action <img src="assets/icons/cancel.svg" alt="Download icon"></a>
-    </div>
-    <!-- Small buttons -->
-    <div style="display: flex; gap: 5px;">
-        <a type="button" class="classicButton small disabled">Bouton d'action <img src="assets/icons/download.svg"
-                alt="Download icon"></a>
-        <a type="button" class="classicButton small">Bouton d'action <img src="assets/icons/download.svg"
-                alt="Download icon"></a>
-        <a type="button" class="acceptButton small">Bouton d'action <img src="assets/icons/valid.svg"
-                alt="Download icon"></a>
-        <a type="button" class="denyButton small">Bouton d'action <img src="assets/icons/cancel.svg"
+        <a type="button" class="denyButton"><label>Bouton d'action</label><img src="assets/icons/cancel.svg"
                 alt="Download icon"></a>
     </div>
     <!-- Select buttons -->
-    <div style="display: flex; gap: 5px;">
-        <div class="select selectInactive classicButton">
-            <div class="selectTitle">Bouton de sélection <img src="assets/icons/rightArrow.svg" alt=""></div>
+    <div style="display: flex; flex-wrap: wrap; gap: 5px;">
+        <div class="select selectInactive classicButton disabled">
+            <div class="selectTitle"><label>Bouton de sélection</label><img src="assets/icons/rightArrow.svg" alt="">
+            </div>
             <!-- Input hidden pour enregistrer le choix -->
-            <input type="hidden" name="example">
+            <input type="hidden" name="example" value="">
             <div class="selectOption">Option 1</div>
             <div class="selectOption">Option 2</div>
             <div class="selectOption">Option 3</div>
         </div>
         <div class="select selectInactive classicButton">
-            <div class="selectTitle">Bouton de sélection <img src="assets/icons/rightArrow.svg" alt=""></div>
+            <div class="selectTitle"><label>Bouton de sélection</label><img src="assets/icons/rightArrow.svg" alt="">
+            </div>
             <!-- Input hidden pour enregistrer le choix -->
-            <input type="hidden" name="example">
+            <input type="hidden" name="example" value="">
+            <div class="selectOption">Option 1</div>
+            <div class="selectOption">Option 2</div>
+            <div class="selectOption">Option 3</div>
+        </div>
+        <div class="select selectInactive acceptButton">
+            <div class="selectTitle"><label>Bouton de sélection</label><img src="assets/icons/rightArrow.svg" alt="">
+            </div>
+            <!-- Input hidden pour enregistrer le choix -->
+            <input type="hidden" name="example" value="">
+            <div class="selectOption">Option 1</div>
+            <div class="selectOption">Option 2</div>
+            <div class="selectOption">Option 3</div>
+        </div>
+        <div class="select selectInactive denyButton">
+            <div class="selectTitle"><label>Bouton de sélection</label><img src="assets/icons/rightArrow.svg" alt="">
+            </div>
+            <!-- Input hidden pour enregistrer le choix -->
+            <input type="hidden" name="example" value="">
             <div class="selectOption">Option 1</div>
             <div class="selectOption">Option 2</div>
             <div class="selectOption">Option 3</div>
         </div>
     </div>
-    <div style="display: flex; gap: 5px;">
-        <a type="button" class="classicButton small disabled">Bouton d'action <img src="assets/icons/download.svg"
+    <!-- Small basic buttons -->
+    <div style="display: flex; flex-wrap: wrap; gap: 5px;">
+        <button class="classicButton small" disabled>Bouton d'action</button>
+        <button class="classicButton small">Bouton d'action</button>
+        <button class="acceptButton small">Bouton d'action</button>
+        <button class="denyButton small">Bouton d'action</button>
+    </div>
+    <!-- Small buttons -->
+    <div style="display: flex; flex-wrap: wrap; gap: 5px;">
+        <a type="button" class="classicButton small disabled"><label>Bouton d'action</label><img
+                src="assets/icons/download.svg" alt="Download icon"></a>
+        <a type="button" class="classicButton small"><label>Bouton d'action</label><img src="assets/icons/download.svg"
                 alt="Download icon"></a>
-        <a type="button" class="classicButton small">Bouton d'action <img src="assets/icons/download.svg"
+        <a type="button" class="acceptButton small"><label>Bouton d'action</label><img src="assets/icons/valid.svg"
                 alt="Download icon"></a>
-        <a type="button" class="acceptButton small">Bouton d'action <img src="assets/icons/valid.svg"
-                alt="Download icon"></a>
-        <a type="button" class="denyButton small">Bouton d'action <img src="assets/icons/cancel.svg"
+        <a type="button" class="denyButton small"><label>Bouton d'action</label><img src="assets/icons/cancel.svg"
                 alt="Download icon"></a>
     </div>
+    <!-- Small select buttons -->
+    <div style="display: flex; flex-wrap: wrap; gap: 5px;">
+        <div class="select selectInactive classicButton small disabled">
+            <div class="selectTitle"><label>Bouton de sélection</label><img src="assets/icons/rightArrow.svg" alt="">
+            </div>
+            <!-- Input hidden pour enregistrer le choix -->
+            <input type="hidden" name="example" value="">
+            <div class="selectOption">Option 1</div>
+            <div class="selectOption">Option 2</div>
+            <div class="selectOption">Option 3</div>
+        </div>
+        <div class="select selectInactive classicButton small">
+            <div class="selectTitle"><label>Bouton de sélection</label><img src="assets/icons/rightArrow.svg" alt="">
+            </div>
+            <!-- Input hidden pour enregistrer le choix -->
+            <input type="hidden" name="example" value="">
+            <div class="selectOption">Option 1</div>
+            <div class="selectOption">Option 2</div>
+            <div class="selectOption">Option 3</div>
+        </div>
+        <div class="select selectInactive acceptButton small">
+            <div class="selectTitle"><label>Bouton de sélection</label><img src="assets/icons/rightArrow.svg" alt="">
+            </div>
+            <!-- Input hidden pour enregistrer le choix -->
+            <input type="hidden" name="example" value="">
+            <div class="selectOption">Option 1</div>
+            <div class="selectOption">Option 2</div>
+            <div class="selectOption">Option 3</div>
+        </div>
+        <div class="select selectInactive denyButton small">
+            <div class="selectTitle"><label>Bouton de sélection refus</label><img src="assets/icons/rightArrow.svg"
+                    alt=""></div>
+            <!-- Input hidden pour enregistrer le choix -->
+            <input type="hidden" name="example" value="">
+            <div class="selectOption">Option 1</div>
+            <div class="selectOption">Option 2</div>
+            <div class="selectOption">Option 3</div>
+        </div>
+    </div>
+    <!-- Basic input -->
+    <div style="display: flex; flex-wrap: wrap; gap: 5px;">
+        <input type="text" placeholder="Input text">
+        <div class="inputIcon">
+            <svg width="25" height="25" viewBox="0 0 25 25" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path
+                    d="M12.5 6.14591C13.7084 6.14591 14.6875 7.12508 14.6875 8.33342C14.6875 9.54175 13.7084 10.5209 12.5 10.5209C11.2917 10.5209 10.3125 9.54175 10.3125 8.33342C10.3125 7.12508 11.2917 6.14591 12.5 6.14591ZM12.5 15.5209C15.5938 15.5209 18.8542 17.0417 18.8542 17.7084V18.8542H6.14585V17.7084C6.14585 17.0417 9.40627 15.5209 12.5 15.5209ZM12.5 4.16675C10.1979 4.16675 8.33335 6.03133 8.33335 8.33342C8.33335 10.6355 10.1979 12.5001 12.5 12.5001C14.8021 12.5001 16.6667 10.6355 16.6667 8.33342C16.6667 6.03133 14.8021 4.16675 12.5 4.16675ZM12.5 13.5417C9.71877 13.5417 4.16669 14.9376 4.16669 17.7084V20.8334H20.8334V17.7084C20.8334 14.9376 15.2813 13.5417 12.5 13.5417Z" />
+            </svg>
+            <input type="text" placeholder="Input text with icon">
+        </div>
+    </div>
+    <!-- Shadow input -->
+    <div style="display: flex; flex-wrap: wrap; gap: 5px;">
+        <input class="inputShadow" type="text" placeholder="Input text">
+        <div class="inputShadow inputIcon">
+            <svg width="25" height="25" viewBox="0 0 25 25" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path
+                    d="M12.5 6.14591C13.7084 6.14591 14.6875 7.12508 14.6875 8.33342C14.6875 9.54175 13.7084 10.5209 12.5 10.5209C11.2917 10.5209 10.3125 9.54175 10.3125 8.33342C10.3125 7.12508 11.2917 6.14591 12.5 6.14591ZM12.5 15.5209C15.5938 15.5209 18.8542 17.0417 18.8542 17.7084V18.8542H6.14585V17.7084C6.14585 17.0417 9.40627 15.5209 12.5 15.5209ZM12.5 4.16675C10.1979 4.16675 8.33335 6.03133 8.33335 8.33342C8.33335 10.6355 10.1979 12.5001 12.5 12.5001C14.8021 12.5001 16.6667 10.6355 16.6667 8.33342C16.6667 6.03133 14.8021 4.16675 12.5 4.16675ZM12.5 13.5417C9.71877 13.5417 4.16669 14.9376 4.16669 17.7084V20.8334H20.8334V17.7084C20.8334 14.9376 15.2813 13.5417 12.5 13.5417Z" />
+            </svg>
+            <input type="text" placeholder="Input text with icon">
+        </div>
+    </div>
+    <!-- Checkboxes -->
+    <div style="display: flex;  flex-direction: column; flex-wrap: wrap; gap: 5px;">
+        <div class="checkBox">
+            <div></div>
+            <label>Case à cocher</label>
+            <input type="checkbox" name="testCheckbox" id="testCheckbox">
+        </div>
+        <div class="checkBox">
+            <div></div>
+            <label>Case à cocher</label>
+            <input type="checkbox" name="testCheckbox" id="testCheckbox">
+        </div>
+        <div class="checkBox">
+            <div></div>
+            <label>Case à cocher</label>
+            <input type="checkbox" name="testCheckbox" id="testCheckbox">
+        </div>
+    </div>
+
+    <hr>
+
+    <div id="calendar">
+        <div>
+            <label>Novembre 2022</label>
+            <div class="calendarMonth">
+                <div class="calendarHeader">
+                    <div class="calendarDay">L</div>
+                    <div class="calendarDay">M</div>
+                    <div class="calendarDay">M</div>
+                    <div class="calendarDay">J</div>
+                    <div class="calendarDay">V</div>
+                    <div class="calendarDay">S</div>
+                    <div class="calendarDay">D</div>
+                </div>
+                <div class="calendarDay">
+                    <div>A</div>
+                </div>
+                <div class="calendarDay">
+                    <div>A</div>
+                </div>
+                <div class="calendarDay">
+                    <div>A</div>
+                </div>
+                <div class="calendarDay">
+                    <div>A</div>
+                </div>
+                <div class="calendarDay">
+                    <div>A</div>
+                </div>
+                <div class="calendarDay">
+                    <div>A</div>
+                </div>
+                <div class="calendarDay">
+                    <div>A</div>
+                </div>
+                <div class="calendarDay">
+                    <div>A</div>
+                </div>
+                <div class="calendarDay">
+                    <div>A</div>
+                </div>
+                <div class="calendarDay">
+                    <div>A</div>
+                </div>
+                <div class="calendarDay">
+                    <div>A</div>
+                </div>
+                <div class="calendarDay">
+                    <div>A</div>
+                </div>
+                <div class="calendarDay">
+                    <div>A</div>
+                </div>
+                <div class="calendarDay">
+                    <div>A</div>
+                </div>
+                <div class="calendarDay">
+                    <div>A</div>
+                </div>
+                <div class="calendarDay">
+                    <div>A</div>
+                </div>
+                <div class="calendarDay">
+                    <div>A</div>
+                </div>
+                <div class="calendarDay">
+                    <div>A</div>
+                </div>
+                <div class="calendarDay">
+                    <div>A</div>
+                </div>
+                <div class="calendarDay">
+                    <div>A</div>
+                </div>
+                <div class="calendarDay">
+                    <div>A</div>
+                </div>
+                <div class="calendarDay">
+                    <div>A</div>
+                </div>
+                <div class="calendarDay">
+                    <div>A</div>
+                </div>
+                <div class="calendarDay">
+                    <div>A</div>
+                </div>
+                <div class="calendarDay">
+                    <div>A</div>
+                </div>
+                <div class="calendarDay">
+                    <div>A</div>
+                </div>
+                <div class="calendarDay">
+                    <div>A</div>
+                </div>
+                <div class="calendarDay">
+                    <div>A</div>
+                </div>
+                <div class="calendarDay">
+                    <div>A</div>
+                </div>
+                <div class="calendarDay">
+                    <div>A</div>
+                </div>
+                <div class="calendarDay">
+                    <div>A</div>
+                </div>
+                <div class="calendarDay">
+                    <div>A</div>
+                </div>
+                <div class="calendarDay">
+                    <div>A</div>
+                </div>
+                <div class="calendarDay">
+                    <div>A</div>
+                </div>
+                <div class="calendarDay">
+                    <div>A</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
 </body>
 
 </html>
