@@ -439,6 +439,10 @@ hr {
 
 #calendar {
     background-color: var(--main-color-blanc-muguet);
+    display: flex;
+    align-items: top;
+    gap: 20px;
+    width: fit-content;
 }
 
 #calendar>div {
@@ -470,6 +474,7 @@ hr {
     box-shadow: 1px 2px 1px rgba(0, 0, 0, 0.1);
     background-color: var(--main-color-blanc-muguet);
     position: relative;
+    color: var(--main-color-gris-bloque);
 }
 
 .calendarHeader .calendarDay:last-child:after {
@@ -478,7 +483,6 @@ hr {
     height: 50px;
     right: -2px;
     width: 3px;
-    font-size: 85px;
     background-color: var(--main-color-blanc-muguet);
 }
 
@@ -489,6 +493,11 @@ hr {
     display: flex;
     width: 50px;
     height: 50px;
+    color: var(--main-color-marron-bois);
+}
+
+.calendarDay:is(.disabled){
+    color: var(--main-color-gris-bloque);
 }
 
 .calendarDay div {
@@ -498,5 +507,12 @@ hr {
     width: 40px;
     height: 40px;
     border-radius: 30px;
-    background-color: #F4ECE7;
+    /* background-color: #F4ECE7; */
+}
+
+.calendarDay:not(:is(.disabled)):hover div{
+    /* background-color: #F4ECE7; */
+    outline: 2px solid var(--main-color-orange-ensoleille);
+    outline-offset: -2px;
+    cursor: pointer;
 }
