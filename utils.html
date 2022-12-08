@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Créateur de commentaire</title>
+    <link rel='stylesheet' href='stylesheets/utils.css' type='text/css' media='screen' charset='utf-8' />
+    <script type="text/javascript" src="scripts/utils.js"></script>
+    <script>
+        // let taille = 50;
+
+        function beatifyComment() {
+            let taille = document.getElementById("3").value;
+            let content = document.getElementById("1").value;
+            let result = "/*";
+            let length = content.length;
+            for (let a = 0; a < Math.ceil((taille - 6 - length) / 2); a++) {
+                result += "*";
+            }
+            result += " " + content + " ";
+            for (let a = 0; a < Math.floor((taille - 6 - length) / 2); a++) {
+                result += "*";
+            }
+            document.getElementById("2").value = result += "*/";
+        }
+    </script>
+</head>
+
+<body onload="initUtils();">
+    <div style="padding: 50px 100px;">
+        <textarea id=1 onkeyup="beatifyComment();" style="width: 500px; height: 100px"
+            placeholder="Enter comment here"></textarea>
+        <textarea id=2 style="width: 500px; height: 100px" placeholder="Result will be here" disabled></textarea>
+        <input id=3 type="number" placeholder="Nombre de caractères" value="50" />
+        <button class="classicButton" onclick=" navigator.clipboard.writeText(document.getElementById('2').value);">Click me to copy</button>
+        <section>
+            <h1>Titre de niveau h1</h1>
+            <h2>Titre de niveau h2</h2>
+            <h3>Titre de niveau h3</h3>
+            <h4>Sous titre de niveau h4</h4>
+            <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quam ad, porro libero fuga accusamus soluta
+                saepe quod quae quo eveniet impedit eos doloremque sapiente accusantium vel laudantium asperiores
+                dignissimos repudiandae?</p>
+            <p>Paragraphe en une ligne</p>
+            <dfn>Explication de terme ou de concept</dfn>
+            <p>Paragraphe avec un <strong>élément important</strong> à l'intérieur</p>
+        </section>
+        <section>
+            <input type="text" placeholder="Input de texte" />
+            <div class="inputIcon">
+                <svg width="25" height="25" viewBox="0 0 25 25" fill="black" xmlns="http://www.w3.org/2000/svg">
+                    <path
+                        d="M12.5 6.14591C13.7084 6.14591 14.6875 7.12508 14.6875 8.33342C14.6875 9.54175 13.7084 10.5209 12.5 10.5209C11.2917 10.5209 10.3125 9.54175 10.3125 8.33342C10.3125 7.12508 11.2917 6.14591 12.5 6.14591ZM12.5 15.5209C15.5938 15.5209 18.8542 17.0417 18.8542 17.7084V18.8542H6.14585V17.7084C6.14585 17.0417 9.40627 15.5209 12.5 15.5209ZM12.5 4.16675C10.1979 4.16675 8.33335 6.03133 8.33335 8.33342C8.33335 10.6355 10.1979 12.5001 12.5 12.5001C14.8021 12.5001 16.6667 10.6355 16.6667 8.33342C16.6667 6.03133 14.8021 4.16675 12.5 4.16675ZM12.5 13.5417C9.71877 13.5417 4.16669 14.9376 4.16669 17.7084V20.8334H20.8334V17.7084C20.8334 14.9376 15.2813 13.5417 12.5 13.5417Z" />
+                </svg>
+                <input type="text" placeholder="Input de texte" />
+            </div>
+            <input class="inputShadow" type="text" placeholder="Input de texte" />
+            <div class="inputIcon inputShadow">
+                <svg width="25" height="25" viewBox="0 0 25 25" fill="black" xmlns="http://www.w3.org/2000/svg">
+                    <path
+                        d="M12.5 6.14591C13.7084 6.14591 14.6875 7.12508 14.6875 8.33342C14.6875 9.54175 13.7084 10.5209 12.5 10.5209C11.2917 10.5209 10.3125 9.54175 10.3125 8.33342C10.3125 7.12508 11.2917 6.14591 12.5 6.14591ZM12.5 15.5209C15.5938 15.5209 18.8542 17.0417 18.8542 17.7084V18.8542H6.14585V17.7084C6.14585 17.0417 9.40627 15.5209 12.5 15.5209ZM12.5 4.16675C10.1979 4.16675 8.33335 6.03133 8.33335 8.33342C8.33335 10.6355 10.1979 12.5001 12.5 12.5001C14.8021 12.5001 16.6667 10.6355 16.6667 8.33342C16.6667 6.03133 14.8021 4.16675 12.5 4.16675ZM12.5 13.5417C9.71877 13.5417 4.16669 14.9376 4.16669 17.7084V20.8334H20.8334V17.7084C20.8334 14.9376 15.2813 13.5417 12.5 13.5417Z" />
+                </svg>
+                <input type="text" placeholder="Input de texte" />
+            </div>
+        </section>
+        <section>
+            <div class="checkBox">
+                <div></div>
+                <label>Case à cocher</label>
+                <input type="checkbox" name="testCheckbox" id="testCheckbox">
+            </div>
+            <div class="checkBox">
+                <div></div>
+                <label>Case à cocher</label>
+                <input type="checkbox" name="testCheckbox" id="testCheckbox">
+            </div>
+            <div class="checkBox">
+                <div></div>
+                <div><label>Case à cocher</label><dfn>Avec description éventuelle qui peut<br/>éventuellement prendre plusieurs lignes</dfn></div>
+                <input type="checkbox" name="testCheckbox" id="testCheckbox">
+            </div>
+            <div class="checkBox disabled">
+                <div></div>
+                <label>Case à cocher désactivée</label>
+                <input type="checkbox" name="testCheckbox" id="testCheckbox">
+            </div>
+        </section>
+        <section>
+            <a href="Google.com">Lien classique</a>
+            <a class="discreet" href="Google.com">Lien classique</a>
+        </section>
+        <section>
+            <div style="display: flex; gap: 10px;">
+                <button class="aButton classicButton" disabled>Bouton d'action</button>
+                <a type="button" class="classicButton disabled"><label>Bouton d'action</label><img
+                    src="assets/icons/download.svg" alt="Download icon"></a>
+            </div>
+            <div style="display: flex; gap: 10px;">
+                <button class="aButton classicButton">Bouton d'action</button>
+                <a type="button" class="classicButton"><label>Bouton d'action</label><img
+                    src="assets/icons/download.svg" alt="Download icon"></a>
+            </div>
+            <div style="display: flex; gap: 10px;">
+                <button class="aButton acceptButton">Bouton d'action</button>
+                <a type="button" class="acceptButton"><label>Bouton d'action</label><img
+                    src="assets/icons/download.svg" alt="Download icon"></a>
+            </div>
+            <div style="display: flex; gap: 10px;">
+                <button class="aButton denyButton">Bouton d'action</button>
+                <a type="button" class="denyButton" disabled><label>Bouton d'action</label><img
+                    src="assets/icons/download.svg" alt="Download icon"></a>
+            </div>
+        </section>
+        <section>
+            <div class="select selectInactive classicButton disabled">
+                <div class="selectTitle"><label>Bouton de sélection</label><img src="assets/icons/rightArrow.svg"
+                        alt="">
+                </div>
+                <!-- Input hidden pour enregistrer le choix -->
+                <input type="hidden" name="example" value="">
+                <div class="selectOption">Option 1</div>
+                <div class="selectOption">Option 2</div>
+                <div class="selectOption">Option 3</div>
+            </div>
+            <div class="select selectInactive classicButton">
+                <div class="selectTitle"><label>Bouton de sélection</label><img src="assets/icons/rightArrow.svg"
+                        alt="">
+                </div>
+                <!-- Input hidden pour enregistrer le choix -->
+                <input type="hidden" name="example" value="">
+                <div class="selectOption">Option 1</div>
+                <div class="selectOption">Option 2</div>
+                <div class="selectOption">Option 3</div>
+            </div>
+            <div class="select selectInactive acceptButton">
+                <div class="selectTitle"><label>Bouton de sélection</label><img src="assets/icons/rightArrow.svg"
+                        alt="">
+                </div>
+                <!-- Input hidden pour enregistrer le choix -->
+                <input type="hidden" name="example" value="">
+                <div class="selectOption">Option 1</div>
+                <div class="selectOption">Option 2</div>
+                <div class="selectOption">Option 3</div>
+            </div>
+            <div class="select selectInactive denyButton">
+                <div class="selectTitle"><label>Bouton de sélection</label><img src="assets/icons/rightArrow.svg"
+                        alt="">
+                </div>
+                <!-- Input hidden pour enregistrer le choix -->
+                <input type="hidden" name="example" value="">
+                <div class="selectOption">Option 1</div>
+                <div class="selectOption">Option 2</div>
+                <div class="selectOption">Option 3</div>
+            </div>
+        </section>
+    </div>
+</body>
+
+</html>

@@ -1,0 +1,674 @@
+
+/* Boutons */
+button,
+a[type="button"] {
+    display: flex;
+    align-items: center;
+    width: fit-content;
+    height: fit-content;
+    padding: 10px 30px;
+    border: none;
+    border-radius: 10px;
+    font-family: "Roboto";
+    font-size: 25px;
+    font-weight: 400;
+    color: var(--main-color-blanc-muguet);
+    transition-duration: 200ms;
+    transition-timing-function: var(--main-bezier);
+    gap: 15px;
+}
+
+a[type="button"] {
+    padding-right: 18px;
+}
+
+button:hover,
+a[type="button"]:hover,
+a[type="button"] label:hover {
+    transition-duration: 300ms;
+    transition-timing-function: var(--main-bezier);
+    cursor: pointer;
+}
+
+button:active:not(:disabled),
+a[type="button"]:active:not(.disabled) {
+    /* Bouton pressé mais pas désactivé */
+    box-shadow: var(--main-shadow-pressed);
+}
+
+button:disabled,
+button:disabled:hover,
+a[type="button"]:is(.disabled),
+a[type="button"]:is(.disabled):hover,
+a[type="button"]:is(.disabled) label:hover {
+    background-color: var(--main-color-gris-bloque) !important;
+    cursor: default;
+}
+
+/* Boutons classiques */
+.classicButton {
+    background-color: var(--main-color-orange-ensoleille);
+}
+
+.classicButton:not(.select):hover {
+    background-color: var(--main-color-hover-orange-ensoleille);
+}
+
+/* Boutons validation */
+.acceptButton {
+    background-color: var(--main-color-vert-validation);
+}
+
+.acceptButton:not(.select):hover {
+    background-color: var(--main-color-hover-vert-validation);
+}
+
+/* Boutons refus */
+.denyButton {
+    background-color: var(--main-color-rouge-annulation);
+}
+
+.denyButton:not(.select):hover {
+    background-color: var(--main-color-hover-rouge-annulation);
+}
+
+/* Boutons de sélection */
+.select {
+    position: relative;
+    height: fit-content;
+    border-radius: 10px;
+    font-family: "Roboto";
+    font-size: 25px;
+    font-weight: 400;
+    color: var(--main-color-blanc-muguet);
+    transition-duration: 300ms;
+    user-select: none;
+    -moz-user-select: none;
+    -webkit-user-select: none;
+    border-radius: 0;
+    background: none;
+}
+
+.select:hover {
+    cursor: pointer;
+}
+
+.selectActive>.selectTitle>img {
+    transition-duration: 300ms;
+    transform: rotate(90deg);
+}
+
+.selectInactive>.selectTitle>img {
+    transition-duration: 300ms;
+    transform: rotate(0deg);
+}
+
+.selectTitle {
+    display: flex;
+    align-items: center;
+    padding: 10px 10px 10px 30px;
+    gap: 15px;
+    border-radius: 10px;
+    transition-duration: 300ms;
+    transition-timing-function: var(--main-bezier);
+    justify-content: space-between;
+}
+
+.selectTitle>label,
+.selectOption {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    width: 100%;
+}
+
+.selectTitle:hover,
+.selectTitle:hover>label,
+.selectTitle:hover>img {
+    cursor: pointer;
+}
+
+.selectActive>.selectTitle {
+    border-radius: 10px 10px 0 0;
+}
+
+.selectOption {
+    z-index: 10;
+    position: absolute;
+    left: 0;
+    /* top: 0; */
+    width: calc(100% - 60px);
+    padding: 0 30px;
+    display: flex;
+    align-items: center;
+    background-color: var(--main-color-blanc-muguet);
+}
+
+.selectOption:hover {
+    box-shadow: none !important;
+}
+
+.selectOption:last-of-type {
+    border-radius: 0 0 10px 10px;
+}
+
+.selectInactive>.selectOption {
+    animation: fadeIn 300ms ease-in;
+    display: none;
+}
+
+.selectActive>.selectOption {
+    animation: fadeIn 300ms ease-in;
+}
+
+/* Classic select */
+.classicButton>.selectTitle {
+    background-color: var(--main-color-orange-ensoleille);
+}
+
+.classicButton>.selectOption {
+    color: var(--main-color-marron-bois);
+    box-shadow:
+        1px 0 0 0 var(--main-color-orange-ensoleille) inset,
+        -1px 0 0 0 var(--main-color-orange-ensoleille) inset;
+}
+
+.classicButton>.selectOption:last-of-type {
+    color: var(--main-color-marron-bois);
+    box-shadow:
+        1px 0 0 0 var(--main-color-orange-ensoleille) inset,
+        -1px 0 0 0 var(--main-color-orange-ensoleille) inset,
+        0 -1px 0 0 var(--main-color-orange-ensoleille) inset;
+}
+
+.classicButton>.selectOption:hover,
+.classicButton>.selectTitle:hover {
+    background-color: var(--main-color-hover-orange-ensoleille);
+    color: var(--main-color-blanc-muguet);
+}
+
+/* Accept select */
+.acceptButton>.selectTitle {
+    background-color: var(--main-color-vert-validation);
+}
+
+.acceptButton>.selectOption {
+    color: var(--main-color-marron-bois);
+    box-shadow:
+        1px 0 0 0 var(--main-color-vert-validation) inset,
+        -1px 0 0 0 var(--main-color-vert-validation) inset;
+}
+
+.acceptButton>.selectOption:last-of-type {
+    color: var(--main-color-marron-bois);
+    box-shadow:
+        1px 0 0 0 var(--main-color-vert-validation) inset,
+        -1px 0 0 0 var(--main-color-vert-validation) inset,
+        0 -1px 0 0 var(--main-color-vert-validation) inset;
+}
+
+.acceptButton>.selectOption:hover,
+.acceptButton>.selectTitle:hover {
+    background-color: var(--main-color-hover-vert-validation);
+    color: var(--main-color-blanc-muguet);
+}
+
+/* Deny select */
+.denyButton>.selectTitle {
+    background-color: var(--main-color-rouge-annulation);
+}
+
+.denyButton>.selectOption {
+    color: var(--main-color-marron-bois);
+    box-shadow:
+        1px 0 0 0 var(--main-color-rouge-annulation) inset,
+        -1px 0 0 0 var(--main-color-rouge-annulation) inset;
+}
+
+.denyButton>.selectOption:last-of-type {
+    color: var(--main-color-marron-bois);
+    box-shadow:
+        1px 0 0 0 var(--main-color-rouge-annulation) inset,
+        -1px 0 0 0 var(--main-color-rouge-annulation) inset,
+        0 -1px 0 0 var(--main-color-rouge-annulation) inset;
+}
+
+.denyButton>.selectOption:hover,
+.denyButton>.selectTitle:hover {
+    background-color: var(--main-color-hover-rouge-annulation);
+    color: var(--main-color-blanc-muguet);
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+.select:is(.small) .selectTitle,
+button:is(.small),
+a[type="button"]:is(.small) {
+    gap: 10px;
+    padding: 8px 24px;
+    font-size: 22px;
+}
+
+.select:is(.small) .selectOption {
+    font-size: 22px;
+    padding-left: 24px;
+    padding-right: 36px;
+}
+
+.select:is(.small) .selectTitle,
+a[type="button"]:is(.small) {
+    padding-right: 10px;
+}
+
+.select:is(.small) .selectTitle img,
+a[type="button"]:is(.small) img {
+    width: 22px;
+}
+
+.select:is(.disabled) .selectTitle {
+    background-color: var(--main-color-gris-bloque);
+}
+
+.select:is(.disabled):hover,
+.select:is(.disabled) .selectTitle:hover,
+.select:is(.disabled) label:hover,
+.select:is(.disabled) img:hover {
+    cursor: default !important;
+}
+
+
+/* Inputs */
+/* Basic input */
+input {
+    padding: 10px 15px;
+    border-radius: 10px;
+    outline: 2px solid var(--main-color-orange-ensoleille);
+    outline-offset: -2px;
+    font-size: 25px;
+    color: var(--main-color-marron-bois);
+    border: none;
+}
+
+input:placeholder-shown {
+    color: var(--main-color-gris-bloque);
+    font-weight: 300;
+}
+
+.inputIcon {
+    position: relative;
+    width: fit-content;
+}
+
+.inputIcon input {
+    padding-left: 45px;
+}
+
+.inputIcon svg {
+    position: absolute;
+    left: 15px;
+    top: 14px;
+    fill: var(--main-color-orange-ensoleille);
+}
+
+/* Shadow input */
+input:is(.inputShadow),
+.inputIcon:is(.inputShadow) input {
+    outline: none;
+    background-color: var(--main-color-blanc-champignon);
+    box-shadow: var(--main-shadow-classic);
+}
+
+.inputIcon:is(.inputShadow) svg {
+    fill: var(--main-color-marron-bois);
+}
+
+/* Checkboxes */
+.checkBox {
+    display: flex;
+    align-items: center;
+    justify-content: left;
+    gap: 5px;
+    user-select: none;
+}
+
+.checkBox div {
+    border-radius: 5px;
+    height: 25px;
+    width: 25px;
+    outline: 2px solid var(--main-color-orange-ensoleille);
+    outline-offset: -2px;
+    transition-duration: 200ms;
+    transition-timing-function: var(--main-bezier);
+}
+
+.checkBox:hover div {
+    outline: 3px solid var(--main-color-orange-ensoleille);
+    outline-offset: -3px;
+    cursor: pointer;
+}
+
+.checkBox label {
+    font-family: "Roboto";
+    color: var(--main-color-marron-bois);
+    font-size: 25px;
+    font-weight: 400;
+}
+
+.checkBox div:is(.checked) {
+    background-color: var(--main-color-orange-ensoleille);
+}
+
+.checkBox input {
+    display: none;
+}
+
+hr {
+    width: 100%;
+    margin: 20px 0;
+    color: var(--main-color-marron-bois);
+}
+
+/************/
+/* Calendar */
+
+#calendar {
+    background-color: var(--main-color-blanc-muguet);
+    display: flex;
+    align-items: top;
+    gap: 20px;
+    width: fit-content;
+}
+
+#calendar>div {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#calendar label {
+    font-family: 'Overpass';
+    font-size: 15px;
+    color: var(--main-color-gris-bloque);
+    font-weight: 400;
+    margin-bottom: 5px;
+}
+
+.calendarMonth {
+    display: grid;
+    grid-template-columns: repeat(7, fit-content(50px));
+    grid-template-rows: repeat(5, fit-content(50px));
+    overflow: visible;
+}
+
+.calendarHeader {
+    display: contents;
+}
+
+.calendarHeader .calendarDay {
+    z-index: 9;
+    box-shadow: 1px 2px 1px rgba(0, 0, 0, 0.1);
+    background-color: var(--main-color-blanc-muguet);
+    position: relative;
+    color: var(--main-color-gris-bloque);
+}
+
+.calendarHeader .calendarDay:last-child:after {
+    content: "";
+    position: absolute;
+    height: 50px;
+    right: -2px;
+    width: 3px;
+    background-color: var(--main-color-blanc-muguet);
+}
+
+.calendarDay {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 50px;
+    height: 50px;
+    font-family: 'Roboto';
+    color: var(--main-color-marron-bois);
+    user-select: none;
+    -moz-user-select: none;
+    -webkit-user-select: none;
+}
+
+.calendarDay:is(.disabled) {
+    color: var(--main-color-gris-bloque);
+}
+
+.calendarDay div {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    border-radius: 30px;
+    /* background-color: #F4ECE7; */
+}
+
+.calendarDay:not(:is(.disabled)):hover div {
+    /* background-color: #F4ECE7; */
+    outline: 2px solid var(--main-color-orange-ensoleille);
+    outline-offset: -2px;
+    cursor: pointer;
+}
+
+.calendarClicked div {
+    background-color: var(--main-color-orange-ensoleille);
+    color: var(--main-color-blanc-muguet);
+}
+
+.calendarStart div {
+    padding-right: 5px;
+    margin-left: 5px;
+    border-radius: 30px 0 0 30px;
+}
+
+.calendarEnd div {
+    padding-left: 5px;
+    margin-right: 5px;
+    border-radius: 0 30px 30px 0;
+}
+
+.calendarMiddle div {
+    width: 50px;
+    background-color: var(--main-color-orange-ensoleille);
+    border-radius: 0;
+    color: var(--main-color-blanc-muguet);
+}
+
+
+
+
+/* Header */
+header {
+    width: calc(100vw - 40px);
+    height: 100px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 20px;
+    background-color: var(--main-color-blanc-muguet);
+    box-shadow: var(--main-shadow-classic);
+}
+
+header>a>img {
+    height: 72px;
+    width: auto;
+}
+
+header nav {
+    display: flex;
+    flex-direction: row-reverse;
+    align-items: center;
+    gap: 60px;
+}
+
+header nav a,
+header nav a:link,
+header nav a:visited,
+header nav a:active {
+    font-family: 'Overpass';
+    font-size: 30px;
+    font-weight: 400;
+    text-decoration: none;
+    color: var(--main-color-marron-bois);
+    transition: var(--main-bezier);
+    transition-duration: 200ms;
+}
+
+header nav a:hover {
+    color: var(--main-color-hover-marron-bois);
+}
+
+header>div {
+    display: flex;
+    align-items: center;
+    gap: 60px;
+}
+
+header>div>div {
+    position: relative;
+}
+
+header>div>div svg {
+    fill: var(--main-color-marron-bois);
+    transition: var(--main-bezier);
+    transition-duration: 200ms;
+}
+
+header>div>div svg:hover {
+    fill: var(--main-color-hover-marron-bois);
+    cursor: pointer;
+}
+
+#languageChoice {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: absolute;
+    left: -12px;
+    /* padding: 15px 15px; */
+    padding: 0;
+    height: 0px;
+    background-color: var(--main-color-blanc-muguet);
+    gap: 8px;
+    box-shadow: var(--main-shadow-modal);
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.languageShown {
+    animation: showLanguage 800ms var(--main-bezier);
+    animation-fill-mode: forwards;
+}
+
+.languageHidden {
+    animation: hideLanguage 800ms var(--main-bezier);
+    animation-fill-mode: forwards;
+}
+
+#languageChoice img:hover {
+    cursor: pointer;
+}
+
+@keyframes showLanguage {
+    from {
+        height: 0;
+        padding: 0 15px;
+    }
+
+    to {
+        padding: 15px 15px;
+        height: 184px;
+    }
+}
+
+@keyframes hideLanguage {
+
+    from {
+        padding: 15px 15px;
+        height: 184px;
+    }
+
+    to {
+        height: 0;
+        padding: 0 15px;
+    }
+}
+
+/* Cookie PopUp */
+#cookiePopup {
+    display: flex;
+    position: fixed;
+    top: auto;
+    bottom: auto;
+    left: auto;
+    right: auto;
+    border-radius: 30px;
+    box-shadow: var(--main-shadow-modal);
+    border: none;
+    align-items: center;
+    gap: 30px;
+}
+
+#cookiePopup div {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+a.denyLink {
+    font-family: 'Roboto';
+    font-weight: 400;
+    font-size: 15px;
+    color: var(--main-color-rouge-annulation);
+}
+
+a.denyLink:hover {
+    color: var(--main-color-hover-rouge-annulation);
+}
+
+/* Footer */
+footer {
+    width: 80vw;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 80px 10vw 30px 10vw;
+    background-color: var(--main-color-blanc-muguet);
+    box-shadow: var(--main-shadow-modal);
+}
+
+footer div {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+}
+
+footer p,
+footer a {
+    font-family: 'Overpass';
+    font-size: 25px;
+    font-weight: 500;
+    text-align: justify;
+    text-decoration: none;
+    color: var(--main-color-marron-bois);
+    /* text-justify: auto; No standard */
+}
+
+footer a:hover {
+    text-decoration: underline;
+    cursor: pointer;
+}
