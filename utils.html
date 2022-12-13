@@ -9,8 +9,6 @@
     <link rel='stylesheet' href='stylesheets/utils.css' type='text/css' media='screen' charset='utf-8' />
     <script type="text/javascript" src="scripts/utils.js"></script>
     <script>
-        // let taille = 50;
-
         function beatifyComment() {
             let taille = document.getElementById("3").value;
             let content = document.getElementById("1").value;
@@ -34,7 +32,8 @@
             placeholder="Enter comment here"></textarea>
         <textarea id=2 style="width: 500px; height: 100px" placeholder="Result will be here" disabled></textarea>
         <input id=3 type="number" placeholder="Nombre de caractères" value="50" />
-        <button class="classicButton" onclick=" navigator.clipboard.writeText(document.getElementById('2').value);">Click me to copy</button>
+        <button class="classicButton"
+            onclick=" navigator.clipboard.writeText(document.getElementById('2').value);">Click me to copy</button>
         <section>
             <h1>Titre de niveau h1</h1>
             <h2>Titre de niveau h2</h2>
@@ -78,7 +77,8 @@
             </div>
             <div class="checkBox">
                 <div></div>
-                <div><label>Case à cocher</label><dfn>Avec description éventuelle qui peut<br/>éventuellement prendre plusieurs lignes</dfn></div>
+                <div><label>Case à cocher</label><dfn>Avec description éventuelle qui peut<br />éventuellement prendre
+                        plusieurs lignes</dfn></div>
                 <input type="checkbox" name="testCheckbox" id="testCheckbox">
             </div>
             <div class="checkBox disabled">
@@ -95,64 +95,125 @@
             <div style="display: flex; gap: 10px;">
                 <button class="aButton classicButton" disabled>Bouton d'action</button>
                 <a type="button" class="classicButton disabled"><label>Bouton d'action</label><img
-                    src="assets/icons/download.svg" alt="Download icon"></a>
+                        src="assets/icons/download.svg" alt="Download icon"></a>
+                <button class="aButton classicButton small" disabled>Bouton d'action</button>
+                <a type="button" class="classicButton disabled small"><label>Bouton d'action</label><img
+                        src="assets/icons/download.svg" alt="Download icon"></a>
             </div>
             <div style="display: flex; gap: 10px;">
                 <button class="aButton classicButton">Bouton d'action</button>
                 <a type="button" class="classicButton"><label>Bouton d'action</label><img
-                    src="assets/icons/download.svg" alt="Download icon"></a>
+                        src="assets/icons/download.svg" alt="Download icon"></a>
+                <button class="aButton classicButton small">Bouton d'action</button>
+                <a type="button" class="classicButton small"><label>Bouton d'action</label><img
+                        src="assets/icons/download.svg" alt="Download icon"></a>
             </div>
             <div style="display: flex; gap: 10px;">
                 <button class="aButton acceptButton">Bouton d'action</button>
-                <a type="button" class="acceptButton"><label>Bouton d'action</label><img
-                    src="assets/icons/download.svg" alt="Download icon"></a>
+                <a type="button" class="acceptButton"><label>Bouton d'action</label><img src="assets/icons/download.svg"
+                        alt="Download icon"></a>
+                <button class="aButton acceptButton small">Bouton d'action</button>
+                <a type="button" class="acceptButton small"><label>Bouton d'action</label><img
+                        src="assets/icons/download.svg" alt="Download icon"></a>
             </div>
             <div style="display: flex; gap: 10px;">
                 <button class="aButton denyButton">Bouton d'action</button>
                 <a type="button" class="denyButton" disabled><label>Bouton d'action</label><img
-                    src="assets/icons/download.svg" alt="Download icon"></a>
+                        src="assets/icons/download.svg" alt="Download icon"></a>
+                <button class="aButton denyButton small">Bouton d'action</button>
+                <a type="button" class="denyButton small" disabled><label>Bouton d'action</label><img
+                        src="assets/icons/download.svg" alt="Download icon"></a>
             </div>
         </section>
         <section>
-            <div class="select selectInactive classicButton disabled">
-                <div class="selectTitle"><label>Bouton de sélection</label><img src="assets/icons/rightArrow.svg"
-                        alt="">
+            <div style="display: flex; gap: 10px;">
+                <div class="select selectInactive classicButton disabled">
+                    <div class="selectTitle"><label>Bouton de sélection</label><img src="assets/icons/rightArrow.svg"
+                            alt="">
+                    </div>
+                    <!-- Input hidden pour enregistrer le choix -->
+                    <input type="hidden" name="example" value="">
+                    <div class="selectOption">Option 1</div>
+                    <div class="selectOption">Option 2</div>
+                    <div class="selectOption">Option 3</div>
                 </div>
-                <!-- Input hidden pour enregistrer le choix -->
-                <input type="hidden" name="example" value="">
-                <div class="selectOption">Option 1</div>
-                <div class="selectOption">Option 2</div>
-                <div class="selectOption">Option 3</div>
+                <div class="select selectInactive classicButton small disabled">
+                    <div class="selectTitle"><label>Bouton de sélection</label><img src="assets/icons/rightArrow.svg"
+                            alt="">
+                    </div>
+                    <!-- Input hidden pour enregistrer le choix -->
+                    <input type="hidden" name="example" value="">
+                    <div class="selectOption">Option 1</div>
+                    <div class="selectOption">Option 2</div>
+                    <div class="selectOption">Option 3</div>
+                </div>
             </div>
-            <div class="select selectInactive classicButton">
-                <div class="selectTitle"><label>Bouton de sélection</label><img src="assets/icons/rightArrow.svg"
-                        alt="">
+            <div style="display: flex; gap: 10px;">
+                <div class="select selectInactive classicButton">
+                    <div class="selectTitle"><label>Bouton de sélection</label><img src="assets/icons/rightArrow.svg"
+                            alt="">
+                    </div>
+                    <!-- Input hidden pour enregistrer le choix -->
+                    <input type="hidden" name="example" value="">
+                    <div class="selectOption">Option 1</div>
+                    <div class="selectOption">Option 2</div>
+                    <div class="selectOption">Option 3</div>
                 </div>
-                <!-- Input hidden pour enregistrer le choix -->
-                <input type="hidden" name="example" value="">
-                <div class="selectOption">Option 1</div>
-                <div class="selectOption">Option 2</div>
-                <div class="selectOption">Option 3</div>
+                <div class="select selectInactive classicButton small">
+                    <div class="selectTitle"><label>Bouton de sélection</label><img src="assets/icons/rightArrow.svg"
+                            alt="">
+                    </div>
+                    <!-- Input hidden pour enregistrer le choix -->
+                    <input type="hidden" name="example" value="">
+                    <div class="selectOption">Option 1</div>
+                    <div class="selectOption">Option 2</div>
+                    <div class="selectOption">Option 3</div>
+                </div>
             </div>
-            <div class="select selectInactive acceptButton">
-                <div class="selectTitle"><label>Bouton de sélection</label><img src="assets/icons/rightArrow.svg"
-                        alt="">
+
+            <div style="display: flex; gap: 10px;">
+                <div class="select selectInactive acceptButton">
+                    <div class="selectTitle"><label>Bouton de sélection</label><img src="assets/icons/rightArrow.svg"
+                            alt="">
+                    </div>
+                    <!-- Input hidden pour enregistrer le choix -->
+                    <input type="hidden" name="example" value="">
+                    <div class="selectOption">Option 1</div>
+                    <div class="selectOption">Option 2</div>
+                    <div class="selectOption">Option 3</div>
                 </div>
-                <!-- Input hidden pour enregistrer le choix -->
-                <input type="hidden" name="example" value="">
-                <div class="selectOption">Option 1</div>
-                <div class="selectOption">Option 2</div>
-                <div class="selectOption">Option 3</div>
+                <div class="select selectInactive acceptButton small">
+                    <div class="selectTitle"><label>Bouton de sélection</label><img src="assets/icons/rightArrow.svg"
+                            alt="">
+                    </div>
+                    <!-- Input hidden pour enregistrer le choix -->
+                    <input type="hidden" name="example" value="">
+                    <div class="selectOption">Option 1</div>
+                    <div class="selectOption">Option 2</div>
+                    <div class="selectOption">Option 3</div>
+                </div>
             </div>
-            <div class="select selectInactive denyButton">
-                <div class="selectTitle"><label>Bouton de sélection</label><img src="assets/icons/rightArrow.svg"
-                        alt="">
+            <div style="display: flex; gap: 10px;">
+                <div class="select selectInactive denyButton">
+                    <div class="selectTitle"><label>Bouton de sélection</label><img src="assets/icons/rightArrow.svg"
+                            alt="">
+                    </div>
+                    <!-- Input hidden pour enregistrer le choix -->
+                    <input type="hidden" name="example" value="">
+                    <div class="selectOption">Option 1</div>
+                    <div class="selectOption">Option 2</div>
+                    <div class="selectOption">Option 3</div>
                 </div>
-                <!-- Input hidden pour enregistrer le choix -->
-                <input type="hidden" name="example" value="">
-                <div class="selectOption">Option 1</div>
-                <div class="selectOption">Option 2</div>
-                <div class="selectOption">Option 3</div>
+                <div class="select selectInactive denyButton small">
+                    <div class="selectTitle"><label>Bouton de sélection</label><img src="assets/icons/rightArrow.svg"
+                            alt="">
+                    </div>
+                    <!-- Input hidden pour enregistrer le choix -->
+                    <input type="hidden" name="example" value="">
+                    <div class="selectOption">Option 1</div>
+                    <div class="selectOption">Option 2</div>
+                    <div class="selectOption">Option 3</div>
+                </div>
             </div>
         </section>
     </div>

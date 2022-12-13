@@ -1,10 +1,17 @@
 const frenchWeek = ['L', 'M', 'M', 'J', 'V', 'S', 'D'];
 const frenchYear = ['Janvier', 'Février', 'Mars', 'Avril', 'Mai', 'Juin', 'Juillet', 'Août', 'Septembre', 'Octobre', 'Novembre', 'Décembre'];
 const takenDay = ['2022-12-20', '2022-12-21', '2022-12-22', '2023-1-22'];
+let takenDate = [];
+
 let languageStatus = 0;
 let today = new Date();
 
+let selectionStart;
+let selectionEnd;
+
 function initAssets() {
+    // Convertir le tableau de dates prises de format string en format date
+    convertDate();
 
     // if (document.getElementById("languageChoice") !== undefined) {
     //     document.addEventListener("click", function (e) {
@@ -20,164 +27,11 @@ function initAssets() {
     //                 closeLanguage();
     //         }
     //     });
-    // }
+    // }    
 
     // Calendar
-    let firstDay = new Date(today.getFullYear(), today.getMonth());
-    console.log(firstDay.getMonth());
-    if (firstDay.getMonth == 11)
-        drawCalendar(firstDay, new Date(firstDay.getFullYear() + 1, 0));
-    else
-        drawCalendar(firstDay, new Date(firstDay.getFullYear(), firstDay.getMonth() + 1));
-
-
-
-
-    // for (let a = 0; a < calcDecallage(firstDay.getDay()); a++) {
-    //     calendarContent += '<div class="calendarDay disabled"><div></div></div>';
-    // }
-    // for (let a = 1; a < nbOfDays.getDate() + 1; a++) {
-    //     calendarContent += '<div class="calendarDay';
-    //     if (a <= today.getDate())
-    //         calendarContent += ' disabled';
-    //     else if (takenDay.indexOf(firstDay.getFullYear() + "-" + (firstDay.getMonth() + 1) + "-" + a) !== -1) {
-    //         calendarContent += ' disabled';
-    //     }
-    //     calendarContent += '"><div>' + a + '</div></div>';
-    // }
-    // calendarContent += "</div></div>"; // Pour cloturer le premier calendrier
-
-
-    // // Mois suivant : 
-    // if (today.getMonth == 11) {
-    //     firstDay = new Date(today.getFullYear() + 1, 0);
-    //     nbOfDays = new Date(today.getFullYear() + 1, 1, 0);
-    // }
-    // else {
-    //     firstDay = new Date(today.getFullYear(), today.getMonth() + 1);
-    //     nbOfDays = new Date(today.getFullYear(), today.getMonth() + 2, 0);
-    // }
-
-    // calendarContent += '<div class="calendarPart"><input type="hidden" value="' + firstDay.getFullYear() + "-" + firstDay.getMonth() + '">';
-    // calendarContent += '<label>' + frenchYear[firstDay.getMonth()] + ' ' + firstDay.getFullYear() + '</label>';
-    // calendarContent += '<div class="calendarMonth"><div class="calendarHeader"><div class="calendarDay disabled">L</div><div class="calendarDay disabled">M</div><div class="calendarDay disabled">M</div><div class="calendarDay disabled">J</div><div class="calendarDay disabled">V</div><div class="calendarDay disabled">S</div><div class="calendarDay disabled">D</div></div>';
-
-    // for (let a = 0; a < calcDecallage(firstDay.getDay()); a++) {
-    //     calendarContent += '<div class="calendarDay disabled"><div></div></div>';
-    // }
-    // for (let a = 1; a < nbOfDays.getDate() + 1; a++) {
-    //     calendarContent += '<div class="calendarDay';
-    //     if (takenDay.indexOf(firstDay.getFullYear() + "-" + (firstDay.getMonth() + 1) + "-" + a) !== -1) {
-    //         calendarContent += ' disabled';
-    //     }
-    //     calendarContent += '"><div>' + a + '</div></div>';
-    // }
-    // calendarContent += "</div></div>"; // Pour cloturer le second calendrier
-    // try {
-    //     document.getElementById("calendar").innerHTML = calendarContent;
-    // }
-    // catch {
-    //     return;
-    // }
-
-    // let dayTab = document.getElementsByClassName("calendarDay");
-    // for (let i = 0; i < dayTab.length; i++) {
-    //     dayTab[i].addEventListener("click", function (e) {
-    //         if (this.classList.contains("disabled"))
-    //             return;
-    //         if (startDay === undefined) {
-    //             startDay = new Date(this.parentNode.parentNode.querySelector('input').value.split('-')[0], this.parentNode.parentNode.querySelector('input').value.split('-')[1], this.querySelector('div').innerHTML);
-    //             endDay = startDay;
-
-    //             this.classList.toggle("calendarClicked");
-    //             startPos = this;
-    //             endPos = this;
-    //             return;
-    //         }
-    //         let clickedDay = new Date(this.parentNode.parentNode.querySelector('input').value.split('-')[0], this.parentNode.parentNode.querySelector('input').value.split('-')[1], this.querySelector('div').innerHTML);
-
-    //         if (startDay.getTime() === clickedDay.getTime() && endDay.getTime() === clickedDay.getTime()) {
-    //             this.classList.toggle("calendarClicked");
-    //             startDay = undefined;
-    //             endDay = undefined;
-    //         }
-    //         // if(startDay > clickedDay){
-    //         //     startDay = clickedDay;
-    //         //     this.classList.toggle("calendarClicked");
-    //         // }
-    //         if (endDay < clickedDay) {
-    //             if (endDay.getFullYear === clickedDay.getFullYear && endDay.getMonth === clickedDay.getMonth) {
-    //                 let flag = 0;
-    //                 let otherDay = this.parentNode.querySelectorAll(".calendarDay");
-    //                 for (let a = 0; a < otherDay.length; a++) {
-    //                     if (otherDay[a] == startPos) {
-    //                         flag = 1;
-    //                     }
-    //                     if (otherDay[a].classList.contains("disabled") && flag)
-    //                         return;
-    //                     if (otherDay[a] == this) {
-    //                         break;
-    //                     }
-    //                 }
-    //                 flag = 0;
-    //                 for (let a = 0; a < otherDay.length; a++) {
-    //                     if (otherDay[a] == startPos) {
-    //                         otherDay[a].classList.add("calendarStart");
-    //                         flag = 1;
-    //                     }
-    //                     else if (otherDay[a] == this) {
-    //                         break;
-    //                     }
-    //                     else if (flag) {
-    //                         otherDay[a].classList.add("calendarMiddle");
-    //                         otherDay[a].classList.remove("calendarEnd");
-
-    //                     }
-    //                 }
-    //                 this.classList.toggle("calendarClicked");
-    //                 this.classList.add("calendarEnd");
-    //                 endDay = clickedDay;
-    //                 endPos = this;
-    //             }
-    //         }
-    //         else if (startDay > clickedDay) {
-    //             if (endDay.getFullYear === clickedDay.getFullYear && endDay.getMonth === clickedDay.getMonth) {
-    //                 let flag = 0;
-    //                 let otherDay = this.parentNode.querySelectorAll(".calendarDay");
-    //                 for (let a = 0; a < otherDay.length; a++) {
-    //                     if (otherDay[a] == startPos) {
-    //                         flag = 1;
-    //                     }
-    //                     if (otherDay[a].classList.contains("disabled") && flag)
-    //                         return;
-    //                     if (otherDay[a] == this) {
-    //                         break;
-    //                     }
-    //                 }
-    //                 flag = 0;
-    //                 for (let a = 0; a < otherDay.length; a++) {
-    //                     if (otherDay[a] == this) {
-    //                         otherDay[a].classList.add("calendarStart");
-    //                         flag = 1;
-    //                     }
-    //                     else if (otherDay[a] == endPos) {
-    //                         break;
-    //                     }
-    //                     else if (flag) {
-    //                         otherDay[a].classList.add("calendarMiddle");
-    //                         otherDay[a].classList.remove("calendarStart");
-
-    //                     }
-    //                 }
-    //                 this.classList.toggle("calendarClicked");
-    //                 this.classList.add("calendarStart");
-    //                 startDay = clickedDay;
-    //                 startPos = this;
-    //             }
-    //         }
-
-    //     });
-    // }
+    if (document.getElementById("calendar") != undefined)
+        drawCurrentMonth();
 }
 
 function calcDecallage(jourDeDepart) {
@@ -200,72 +54,192 @@ function closeLanguage() {
     }
 }
 
-//TODO: Passer les mois (par la date du premier jour du mois)
 function drawCalendar(firstMonth, secondMonth) {
-    console.log(firstMonth);
-    console.log(secondMonth);
 
-    let calendarContent = '<div class="calendarPart">';
-    let nbOfDays = new Date(firstMonth.getFullYear(), firstMonth.getMonth() + 1, 0);
-    // Premier mois (mois actuel)
-    calendarContent += '<input type="hidden" value="' + firstMonth.getFullYear() + "-" + firstMonth.getMonth() + '">';
-    calendarContent += '<label>' + frenchYear[firstMonth.getMonth()] + ' ' + firstMonth.getFullYear() + '</label>';
-    calendarContent += '<div class="calendarMonth"><div class="calendarHeader">';
-    for (let a = 0; a < 7; a++)
-        calendarContent += '<div class="calendarDay disabled void">' + frenchWeek[a] + '</div>';
-    calendarContent += '</div>'; // On fini le header du mois
-
-    for (let a = 0; a < calcDecallage(firstMonth.getDay()); a++)  // Génération des (éventuels) espaces vides
-        calendarContent += '<div class="calendarDay disabled void"><div></div></div>';
-
-    for (let a = 1; a < nbOfDays.getDate() + 1; a++) {
-        calendarContent += '<div class="calendarDay';
-        if (a <= today.getDate())
-            calendarContent += ' disabled';
-        else if (takenDay.indexOf(firstMonth.getFullYear() + "-" + (firstMonth.getMonth() + 1) + "-" + a) !== -1) {
-            calendarContent += ' disabled';
-        }
-        calendarContent += '"><div>' + a + '</div></div>';
-    }
-    calendarContent += "</div></div>"; // Pour cloturer le premier calendrier
-
-    // calendarContent = '<div class="calendarPart">';
-    // today = new Date();
-
-
-    // firstDay = new Date(today.getFullYear(), today.getMonth());
-    // nbOfDays = new Date(today.getFullYear(), today.getMonth() + 1, 0);
-    // // Premier mois (mois actuel)
-    // calendarContent += '<input type="hidden" value="' + today.getFullYear() + "-" + today.getMonth() + '">';
-    // calendarContent += '<label>' + frenchYear[today.getMonth()] + ' ' + today.getFullYear() + '</label>';
-    // calendarContent += '<div class="calendarMonth"><div class="calendarHeader">';
-    // for (let a = 0; a < 7; a++)
-    //     calendarContent += '<div class="calendarDay disabled">' + frenchWeek[a] + '</div>';
-    // calendarContent += '</div>'; // On fini le header du mois
-
-    // for (let a = 0; a < calcDecallage(firstDay.getDay()); a++) { // Génération des (éventuels) espaces vides
-    //     calendarContent += '<div class="calendarDay disabled"><div></div></div>';
-    // }
-    // for (let a = 1; a < nbOfDays.getDate() + 1; a++) {
-    //     calendarContent += '<div class="calendarDay';
-    //     if (a <= today.getDate())
-    //         calendarContent += ' disabled';
-    //     else if (takenDay.indexOf(firstDay.getFullYear() + "-" + (firstDay.getMonth() + 1) + "-" + a) !== -1) {
-    //         calendarContent += ' disabled';
-    //     }
-    //     calendarContent += '"><div>' + a + '</div></div>';
-    // }
-    // calendarContent += "</div></div>"; // Pour cloturer le premier calendrier
-
-
+    let calendarContent = "";
+    calendarContent += drawMonth(firstMonth);
+    calendarContent += drawMonth(secondMonth);
     document.getElementById("calendar").innerHTML = calendarContent;
+
+
+    calDays = document.getElementsByClassName("calendarDay");
+    for (let a = 0; a < calDays.length; a++) {
+        calDays[a].addEventListener("click", function (e) {
+            let day = e.target;
+            if (e.target.parentNode.classList.contains("calendarDay"))
+                day = e.target.parentNode;
+
+            // On vérifie que le jour est bien disponible ou réservable
+            if (day.classList.contains("disabled"))
+                return;
+
+            let dayNb = day.getElementsByTagName("div")[0].innerHTML;
+            let monNb = day.parentNode.parentNode.getElementsByTagName("input")[0].value.split('-').map(Number)[1];
+            let yeaNb = day.parentNode.parentNode.getElementsByTagName("input")[0].value.split('-').map(Number)[0];
+            let clickedDay = new Date(yeaNb, monNb, dayNb);
+
+            if (selectionStart == undefined) {
+                selectionStart = new Date(yeaNb, monNb, dayNb);
+            }
+
+            else if (selectionEnd == undefined) {
+                if (clickedDay.getTime() == selectionStart.getTime()) {
+                    selectionEnd = selectionStart;
+                    return;
+                }
+
+                // On vérifie qu'il n'y a pas de jour déjà reservé entre le jour de début de réservation et la fin;
+                for (let a = 0; a < takenDate.length; a++) {
+                    if (takenDate[a] > selectionStart && takenDate[a] < clickedDay || takenDate[a] < selectionStart && takenDate[a] > clickedDay)
+                        return;
+                }
+
+                if (clickedDay < selectionStart) {
+                    selectionEnd = selectionStart;
+                    selectionStart = clickedDay;
+                }
+                else {
+                    selectionEnd = clickedDay;
+                }
+            }
+
+            else {
+                if (clickedDay < selectionStart) {
+                    for (let a = 0; a < takenDate.length; a++) {
+                        if (takenDate[a] > clickedDay && takenDate[a] < selectionEnd)
+                            return;
+                    }
+                    selectionStart = clickedDay;
+                }
+
+                else if (clickedDay > selectionEnd) {
+                    for (let a = 0; a < takenDate.length; a++) {
+                        if (takenDate[a] > selectionStart && takenDate[a] < clickedDay) {
+                            return;
+                        }
+                    }
+                    selectionEnd = clickedDay;
+                }
+                else if (clickedDay > selectionStart && clickedDay < selectionEnd) {
+                    if (clickedDay.getTime() - selectionStart.getTime() < selectionEnd.getTime() - clickedDay.getTime())
+                        selectionStart = clickedDay;
+                    else
+                        selectionEnd = clickedDay;
+                }
+            }
+            drawCalendar(firstMonth, secondMonth);
+        });
+    }
 }
 
-//TODO: changer le status des cases vides en 'void'
-//TODO: Pour highlight, parcourir toutes les cases entre début et fin en vérifiant si c'est possible
-//      Si oui, on ajoute les classes partout ou c'est nécessaire (tester si void)
-//TODO: Pour parcourir : vérifier mois actif à l'écran
-//TODO: Au changement de mois : réafficher sélection active
+
+
 //TODO: Cliquer pour modifier emplacement
 //TODO: Bouton pour supprimer sélection
-//TODO: Supprimer pour au click droit
+//TODO: Supprimer au click droit
+
+function drawMonth(month) {
+    let content = '<div class="calendarPart">';
+    let nbOfDays = new Date(month.getFullYear(), month.getMonth() + 1, 0); // On recupère le nombre de jour dans le mois :
+
+    // Input caché qui indique le mois affiché
+    content += '<input type="hidden" value="' + month.getFullYear() + "-" + month.getMonth() + '">';
+
+    // Label du mois - Ex: Décembre 2023
+    content += '<label>' + frenchYear[month.getMonth()] + ' ' + month.getFullYear() + '</label>';
+
+    // Mois
+    content += '<div class="calendarMonth"><div class="calendarHeader">';
+    for (let a = 0; a < 7; a++) { // Ecriture du header
+        content += '<div class="calendarDay disabled void">' + frenchWeek[a] + '</div>';
+    }
+    content += '</div>';
+
+    for (let a = 0; a < calcDecallage(month.getDay()); a++)  // Génération des (éventuels) espaces vides
+        content += '<div class="calendarDay disabled void"><div></div></div>';
+
+    for (let a = 1; a < nbOfDays.getDate() + 1; a++) {
+        tempDay = new Date(month.getFullYear(), month.getMonth(), a);
+        content += '<div class="calendarDay';
+        if (tempDay.getTime() < Date.now())
+            content += ' disabled';
+        else if (takenDay.indexOf(month.getFullYear() + "-" + (month.getMonth() + 1) + "-" + a) !== -1) {
+            content += ' disabled';
+        }
+
+        if (selectionStart != undefined) {
+            if (tempDay.getTime() == selectionStart.getTime()) {
+                content += ' calendarClicked';
+            }
+        }
+        if (selectionEnd != undefined) {
+            if (tempDay.getTime() == selectionStart.getTime()) {
+                content += ' calendarStart calendarClicked';
+            }
+
+            if (tempDay.getTime() == selectionEnd.getTime()) {
+                content += ' calendarEnd calendarClicked';
+            }
+            if (selectionEnd != undefined) {
+                if (tempDay.getTime() == selectionEnd.getTime()) {
+                    content += ' calendarEnd calendarClicked';
+                }
+                else if (tempDay.getTime() < selectionEnd.getTime() && tempDay.getTime() > selectionStart.getTime()) {
+                    content += ' calendarClicked calendarMiddle';
+                }
+            }
+        }
+
+        content += '"><div>' + a + '</div></div>';
+    }
+    content += "</div></div>";
+
+    return content;
+}
+
+function nextMonth() {
+    let a = document.getElementById("calendar").getElementsByTagName("input");
+    let temp = a[1].value.split('-').map(Number); // Convertir la date de format "YYYY-MM" en un tableau d'entiers
+    let firstMonth = new Date(temp[0], temp[1], 1);
+    if (temp[1] == 11) {
+        let secondMonth = new Date(temp[0] + 1, 0, 1);
+    }
+    let secondMonth = new Date(temp[0], temp[1] + 1, 1);
+    drawCalendar(firstMonth, secondMonth);
+}
+
+function lastMonth() {
+    let a = document.getElementById("calendar").getElementsByTagName("input");
+    let temp = a[0].value.split('-').map(Number); // Convertir la date de format "YYYY-MM" en un tableau d'entiers
+    let secondMonth = new Date(temp[0], temp[1], 1);
+
+    if (temp[1] == 0) {
+        let firstMonth = new Date(temp[0] - 1, 11, 1);
+    }
+    let firstMonth = new Date(temp[0], temp[1] - 1, 1);
+    drawCalendar(firstMonth, secondMonth);
+}
+
+function convertDate() {
+    takenDay.forEach(day => {
+        takenDate.push(new Date(day.split("-")[0], day.split("-")[1] - 1, day.split("-")[2]));
+    });
+}
+
+function clearSelectionCalendar() {
+    selectionStart = undefined;
+    selectionEnd = undefined;
+    let month = document.getElementById("calendar").getElementsByTagName("input");
+    firstMonth = new Date(month[0].value.split("-")[0], month[0].value.split("-")[1], 1);
+    secondMonth = new Date(month[1].value.split("-")[0], month[1].value.split("-")[1], 1);
+    drawCalendar(firstMonth, secondMonth);
+}
+
+function drawCurrentMonth() {
+    let firstDay = new Date(today.getFullYear(), today.getMonth());
+
+    if (firstDay.getMonth == 11)
+        drawCalendar(firstDay, new Date(firstDay.getFullYear() + 1, 0));
+    else
+        drawCalendar(firstDay, new Date(firstDay.getFullYear(), firstDay.getMonth() + 1));
+}

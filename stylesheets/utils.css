@@ -297,7 +297,7 @@ input[type="phone"]:hover,
 input[type="mail"]:hover,
 input[type="password"]:hover,
 textarea:hover {
-    cursor: text;
+    cursor: text !important;
 }
 
 .select,
@@ -367,12 +367,6 @@ input[type="text"]:is(.inputShadow),
     outline: none;
     background-color: var(--main-color-blanc-champignon);
     box-shadow: var(--main-shadow-classic);
-}
-
-input[type="text"]:is(.inputShadow):hover,
-.inputIcon:is(.inputShadow):hover {
-    border-radius: 10px;
-    box-shadow: var(--main-shadow-classic-hover) !important;
 }
 
 .inputIcon:is(.inputShadow) svg {
@@ -673,3 +667,31 @@ a.discreet:hover {
 }
 
 /****************** Small items *****************/
+.select:is(.small) .selectTitle,
+button:is(.small),
+a[type="button"]:is(.small){
+    gap: 10px;
+    padding: 8px 24px;
+    font-size: 22px;
+}
+
+.select:is(.small) .selectTitle > label,
+a[type="button"]:is(.small) > label{
+    font-size: 22px;
+}
+
+.select:is(.small) .selectOption {
+    font-size: 22px;
+    padding-left: 24px;
+    padding-right: 36px;
+}
+
+.select:is(.small) .selectTitle,
+a[type="button"]:is(.small) {
+    padding-right: 10px;
+}
+
+.select:is(.small) .selectTitle img,
+a[type="button"]:is(.small) img {
+    width: 22px;
+}
