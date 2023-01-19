@@ -1,3 +1,5 @@
+let lang;
+
 function initUtils() {
     // Selects
     let selectTab = document.getElementsByClassName("select");
@@ -34,6 +36,14 @@ function initUtils() {
             }
         });
     }
+
+    // Cookie de langue :
+    lang = getCookie("lang");
+    console.log(lang);
+    if (lang === null) {
+        lang = "fr";
+        setCookie("lang", lang);
+    }
 }
 
 function closeAllSelect(event) {
@@ -44,4 +54,25 @@ function closeAllSelect(event) {
             selectTab[i].classList.add("selectInactive");
         }
     }
+}
+
+function setCookie(name, value) {
+    let cookie = name + "=" + encodeURIComponent(value);
+    cookie += "; max-age=" + (365 * 24 * 60 * 60); // Le cookie expire dans 1 an
+    cookie += "; Secure; SameSite=Strict; path=/"; // Pour éviter les messages d'erreur
+    document.cookie = cookie;
+
+}
+
+function getCookie(name) {
+    let cookies = document.cookie.split(";");
+
+    for (let a = 0; a < cookies.length; a++) {
+        var cookieNameValue = cookies[a].split("=");
+
+        if (name == cookieNameValue[0].trim()) { // Retire les espaces inutiles
+            return decodeURIComponent(cookieNameValue[1]);
+        }
+    }
+    return null; // Si non trouvé
 }

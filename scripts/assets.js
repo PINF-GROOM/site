@@ -1,7 +1,21 @@
-const frenchWeek = ['L', 'M', 'M', 'J', 'V', 'S', 'D'];
 const frenchYear = ['Janvier', 'Février', 'Mars', 'Avril', 'Mai', 'Juin', 'Juillet', 'Août', 'Septembre', 'Octobre', 'Novembre', 'Décembre'];
 const takenDay = ['2022-12-20', '2022-12-21', '2022-12-22', '2023-1-22'];
 let takenDate = [];
+
+const fr = {
+    "dayNames": ['L', 'M', 'M', 'J', 'V', 'S', 'D'],
+    "monthNames": ['Janvier', 'Février', 'Mars', 'Avril', 'Mai', 'Juin', 'Juillet', 'Août', 'Septembre', 'Octobre', 'Novembre', 'Décembre']
+}
+
+const en = {
+    "dayNames": ['M', 'T', 'W', 'T', 'F', 'S', 'S'],
+    "monthNames": ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December']
+}
+
+const langTranslations = {
+    'fr': fr,
+    'en': en
+}
 
 let languageStatus = 0;
 let today = new Date();
@@ -11,23 +25,33 @@ let selectionEnd;
 
 function initAssets() {
     // Convertir le tableau de dates prises de format string en format date
-    convertDate();
+    convertDate(); // TODO3: quid de pas de date ?
 
     // if (document.getElementById("languageChoice") !== undefined) {
     //     document.addEventListener("click", function (e) {
-    //         console.log(e.target);
-    //         if (e.target == document.getElementById("languageIcon") || e.target == document.getElementById("languageIcon").querySelector('svg') || e.target == document.getElementById("languageIcon").querySelector('path')) {
+    //         // if (e.target.classList.contains("langSelector")){
     //             if (!document.getElementById("languageChoice").classList.contains("languageShown"))
     //                 showLanguage();
     //             else
     //                 closeLanguage();
-    //         }
-    //         else{
-    //             if(document.getElementById("languageChoice").classList.contains("languageShown"))
-    //                 closeLanguage();
-    //         }
+    //         // }
+    //         // else {
+    //         //     if (document.getElementById("languageChoice").classList.contains("languageShown"))
+    //         //         closeLanguage();
+    //         // }
     //     });
-    // }    
+    // }
+
+    // Clickw
+    if (document.getElementById("languageChoice") !== undefined) {
+        langSelectors = document.getElementsByClassName("langSelector");
+        console.log(langSelectors);
+        for(let a = 0; a < langSelectors.length; a++){
+            langSelectors[a].addEventListener("click", function (e) {
+                console.log("Clické");
+            });
+        }
+    }
 
     // Calendar
     if (document.getElementById("calendar") != undefined)
@@ -38,6 +62,13 @@ function calcDecallage(jourDeDepart) {
     if (jourDeDepart == 0)
         return 6;
     return jourDeDepart - 1;
+}
+
+function toggleLanguage() {
+    if (!document.getElementById("languageChoice").classList.contains("languageShown"))
+        showLanguage();
+    else
+        closeLanguage();
 }
 
 function showLanguage() {
@@ -133,10 +164,7 @@ function drawCalendar(firstMonth, secondMonth) {
 }
 
 
-
-//TODO: Cliquer pour modifier emplacement
-//TODO: Bouton pour supprimer sélection
-//TODO: Supprimer au click droit
+//TODO: Supprimer au click droit ?
 
 function drawMonth(month) {
     let content = '<div class="calendarPart">';
@@ -146,12 +174,12 @@ function drawMonth(month) {
     content += '<input type="hidden" value="' + month.getFullYear() + "-" + month.getMonth() + '">';
 
     // Label du mois - Ex: Décembre 2023
-    content += '<label>' + frenchYear[month.getMonth()] + ' ' + month.getFullYear() + '</label>';
+    content += '<label>' + langTranslations[lang].monthNames[month.getMonth()] + ' ' + month.getFullYear() + '</label>';
 
     // Mois
     content += '<div class="calendarMonth"><div class="calendarHeader">';
     for (let a = 0; a < 7; a++) { // Ecriture du header
-        content += '<div class="calendarDay disabled void">' + frenchWeek[a] + '</div>';
+        content += '<div class="calendarDay disabled void">' + langTranslations[lang].dayNames[a] + '</div>';
     }
     content += '</div>';
 
