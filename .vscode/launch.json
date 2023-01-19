@@ -1,0 +1,55 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "Launch built-in server",
+            "type": "php",
+            "request": "launch",
+            "runtimeArgs": [
+                "artisan",
+                "-S",
+                "localhost:8000",
+                
+                // "-t",
+                "serve"
+                // // "serve",
+                
+                
+            ],
+            "port": 9003,
+            "externalConsole": true,
+            "args": [
+                
+            ]
+            // "serverReadyAction": {
+            //     "action": "openExternally"
+            // }
+        },
+        {
+            "name": "Artisan",
+            "type": "php",
+            "request": "launch",
+            "cwd": "\"${workspaceRoot}\"",
+            "program": "artisan",
+            "externalConsole": true,
+            "args": [
+                "serve",
+            ],
+            "port": 9003
+        },
+        {
+            "command": "npm run dev",
+            "name": "NPM_Dev",
+            "request": "launch",
+            "type": "node-terminal"
+        }
+    ],
+    "compounds": [
+        {
+          "name": "Server/Client",
+          "configurations": ["Artisan", "NPM_Dev"],
+        //   "preLaunchTask": "${defaultBuildTask}",
+          "stopAll": true,
+        }
+      ]
+}

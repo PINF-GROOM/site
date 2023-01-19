@@ -1,0 +1,54 @@
+{
+	"version": "2.0.0",
+	"tasks": [
+		{
+			"type": "npm",
+			"script": "build",
+			"group": "build",
+			"problemMatcher": [],
+			"label": "npm: build vite",
+		},
+
+		{
+			"label": "Laravel Server (subtask)",
+			"type": "shell",
+			"command": "php \"${workspaceFolder}/artisan\" serve --host='localhost' --port='8000'",
+			"problemMatcher": [],
+			"presentation": {
+				"group": "server_group"
+			}
+		},
+		{
+			"label": "Vite server (dev) (subtask)",
+			"type": "shell",
+			"command": "npm run dev",
+			"problemMatcher": [],
+			"presentation": {
+				"group": "server_group"
+			}
+		},
+
+		{
+			"label": "Laravel logs",
+			"type": "shell",
+			"command": "tail -f storage/logs/laravel.log",
+			"problemMatcher": [],
+			"presentation": {
+				"group": "server_group"
+			}
+		},
+		{
+			"label": "Run Laravel dev server",
+			"dependsOn": [
+				"Laravel Server (subtask)",
+				"Vite server (dev) (subtask)",
+				"Laravel logs"
+			],
+			"group": {
+				"kind": "build",
+				"isDefault": true
+			},
+			"problemMatcher": []
+		}
+	]
+}

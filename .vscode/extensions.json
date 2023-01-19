@@ -1,0 +1,18 @@
+{
+    "recommendations": [
+        "kevinkyang.auto-comment-blocks",
+        "aaron-bond.better-comments",
+        "devsense.composer-php-vscode",
+        "visualstudioexptteam.vscodeintellicode",
+        "ryannaddy.laravel-artisan",
+        "amiralizadeh9480.laravel-extra-intellisense",
+        "codingyu.laravel-goto-view",
+        "onecentlin.laravel5-snippets",
+        "devsense.phptools-vscode",
+        "bmewburn.vscode-intelephense-client",
+        "zobo.php-intellisense",
+        "st-pham.php-refactor-tool",
+        "chrisvltn.vs-code-semicolon-insertion",
+        "gruntfuggly.todo-tree"
+    ]
+}

@@ -1,0 +1,20 @@
+{
+    "todo-tree.general.tags": [
+        "BUG",
+        "HACK",
+        "FIXME",
+        "TODO",
+        "TODO0",
+        "TODO1",
+        "TODO2"
+    ],
+    "[php]": {
+        "editor.defaultFormatter": "bmewburn.vscode-intelephense-client"
+    },
+    "php.completion.parameters": "parameters",
+    "php.format.codeStyle": "Off",
+    "editor.defaultFormatter": "bmewburn.vscode-intelephense-client",
+    "[jsonc]": {
+        "editor.defaultFormatter": "vscode.json-language-features"
+    }
+}
