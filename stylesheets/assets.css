@@ -192,7 +192,7 @@ header>div>div svg:hover {
     left: -12px;
     /* padding: 15px 15px; */
     padding: 0;
-    height: 0px;
+    height: 0;
     background-color: var(--main-color-blanc-muguet);
     gap: 8px;
     box-shadow: var(--main-shadow-modal);

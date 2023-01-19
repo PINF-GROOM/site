@@ -4,12 +4,24 @@ let takenDate = [];
 
 const fr = {
     "dayNames": ['L', 'M', 'M', 'J', 'V', 'S', 'D'],
-    "monthNames": ['Janvier', 'Février', 'Mars', 'Avril', 'Mai', 'Juin', 'Juillet', 'Août', 'Septembre', 'Octobre', 'Novembre', 'Décembre']
+    "monthNames": ['Janvier', 'Février', 'Mars', 'Avril', 'Mai', 'Juin', 'Juillet', 'Août', 'Septembre', 'Octobre', 'Novembre', 'Décembre'],
+    "navItem": {
+        "home": "Accueil",
+        "admin": "Admin",
+        "creation": "Création",
+        "contact": "Contact"
+    }
 }
 
 const en = {
     "dayNames": ['M', 'T', 'W', 'T', 'F', 'S', 'S'],
-    "monthNames": ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December']
+    "monthNames": ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'],
+    "navItem": {
+        "home": "Home",
+        "admin": "Admin",
+        "creation": "Création",
+        "contact": "Contact"
+    }
 }
 
 const langTranslations = {
@@ -27,28 +39,14 @@ function initAssets() {
     // Convertir le tableau de dates prises de format string en format date
     convertDate(); // TODO3: quid de pas de date ?
 
-    // if (document.getElementById("languageChoice") !== undefined) {
-    //     document.addEventListener("click", function (e) {
-    //         // if (e.target.classList.contains("langSelector")){
-    //             if (!document.getElementById("languageChoice").classList.contains("languageShown"))
-    //                 showLanguage();
-    //             else
-    //                 closeLanguage();
-    //         // }
-    //         // else {
-    //         //     if (document.getElementById("languageChoice").classList.contains("languageShown"))
-    //         //         closeLanguage();
-    //         // }
-    //     });
-    // }
-
     // Clickw
     if (document.getElementById("languageChoice") !== undefined) {
         langSelectors = document.getElementsByClassName("langSelector");
         console.log(langSelectors);
-        for(let a = 0; a < langSelectors.length; a++){
+        for (let a = 0; a < langSelectors.length; a++) {
             langSelectors[a].addEventListener("click", function (e) {
-                console.log("Clické");
+                setCookie("lang", this.dataset.country);
+                location.reload();
             });
         }
     }
