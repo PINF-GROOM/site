@@ -1,0 +1,295 @@
+/************/
+/* Calendar */
+
+#calendar {
+    background-color: var(--main-color-blanc-muguet);
+    display: flex;
+    align-items: top;
+    gap: 20px;
+    width: fit-content;
+    height: 375px;
+}
+
+#calendar>div {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#calendar label {
+    font-family: 'Overpass';
+    font-size: 15px;
+    color: var(--main-color-gris-bloque);
+    font-weight: 400;
+    margin-bottom: 5px;
+}
+
+.calendarMonth {
+    display: grid;
+    grid-template-columns: repeat(7, fit-content(50px));
+    grid-template-rows: repeat(5, fit-content(50px));
+    overflow: visible;
+}
+
+.calendarHeader {
+    display: contents;
+}
+
+.calendarHeader .calendarDay {
+    z-index: 9;
+    box-shadow: 1px 2px 1px rgba(0, 0, 0, 0.1);
+    background-color: var(--main-color-blanc-muguet);
+    position: relative;
+    color: var(--main-color-gris-bloque);
+}
+
+.calendarHeader .calendarDay:last-child:after {
+    content: "";
+    position: absolute;
+    height: 50px;
+    right: -2px;
+    width: 3px;
+    background-color: var(--main-color-blanc-muguet);
+}
+
+.calendarDay {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 50px;
+    height: 50px;
+    font-family: 'Roboto';
+    color: var(--main-color-marron-bois);
+    user-select: none;
+    -moz-user-select: none;
+    -webkit-user-select: none;
+}
+
+.calendarDay:is(.disabled) > div{
+    color: var(--main-color-gris-bloque);
+}
+
+.calendarDay div {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding-top: 2px;
+    width: 40px;
+    height: 38px;
+    border-radius: 30px;
+    /* background-color: #F4ECE7; */
+}
+
+.calendarDay div #text{
+    margin-top: 2px;
+}
+
+
+
+.calendarDay:not(:is(.disabled)):hover{
+    cursor: pointer;
+}
+
+.calendarDay:not(.disabled) div:hover{
+    outline: 2px solid var(--main-color-orange-ensoleille);
+    outline-offset: -2px;
+}
+
+.calendarClicked div {
+    background-color: var(--main-color-orange-ensoleille);
+    color: var(--main-color-blanc-muguet);
+}
+
+.calendarStart div {
+    padding-right: 5px;
+    margin-left: 5px;
+    border-radius: 30px 0 0 30px;
+}
+
+.calendarEnd div {
+    padding-left: 5px;
+    margin-right: 5px;
+    border-radius: 0 30px 30px 0;
+}
+
+.calendarMiddle div {
+    width: 50px;
+    background-color: var(--main-color-orange-ensoleille);
+    border-radius: 0;
+    color: var(--main-color-blanc-muguet);
+}
+
+
+
+
+/* Header */
+header {
+    width: calc(100vw - 40px);
+    height: 100px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 20px;
+    background-color: var(--main-color-blanc-muguet);
+    box-shadow: var(--main-shadow-classic);
+}
+
+header>a>img {
+    height: 72px;
+    width: auto;
+}
+
+header nav {
+    display: flex;
+    flex-direction: row-reverse;
+    align-items: center;
+    gap: 60px;
+}
+
+header nav a,
+header nav a:link,
+header nav a:visited,
+header nav a:active {
+    font-family: 'Overpass';
+    font-size: 30px;
+    font-weight: 400;
+    text-decoration: none;
+    color: var(--main-color-marron-bois);
+    transition: var(--main-bezier);
+    transition-duration: 200ms;
+}
+
+header nav a:hover {
+    color: var(--main-color-hover-marron-bois);
+}
+
+header>div {
+    display: flex;
+    align-items: center;
+    gap: 60px;
+}
+
+header>div>div {
+    position: relative;
+}
+
+header>div>div svg {
+    fill: var(--main-color-marron-bois);
+    transition: var(--main-bezier);
+    transition-duration: 200ms;
+}
+
+header>div>div svg:hover {
+    fill: var(--main-color-hover-marron-bois);
+    cursor: pointer;
+}
+
+#languageChoice {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: absolute;
+    left: -12px;
+    /* padding: 15px 15px; */
+    padding: 0;
+    height: 0px;
+    background-color: var(--main-color-blanc-muguet);
+    gap: 8px;
+    box-shadow: var(--main-shadow-modal);
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.languageShown {
+    animation: showLanguage 800ms var(--main-bezier);
+    animation-fill-mode: forwards;
+}
+
+.languageHidden {
+    animation: hideLanguage 800ms var(--main-bezier);
+    animation-fill-mode: forwards;
+}
+
+#languageChoice img:hover {
+    cursor: pointer;
+}
+
+@keyframes showLanguage {
+    from {
+        height: 0;
+        padding: 0 15px;
+    }
+
+    to {
+        padding: 15px 15px;
+        height: 184px;
+    }
+}
+
+@keyframes hideLanguage {
+
+    from {
+        padding: 15px 15px;
+        height: 184px;
+    }
+
+    to {
+        height: 0;
+        padding: 0 15px;
+    }
+}
+
+/* Cookie PopUp */
+#cookiePopup {
+    display: flex;
+    position: fixed;
+    top: auto;
+    bottom: auto;
+    left: auto;
+    right: auto;
+    border-radius: 30px;
+    box-shadow: var(--main-shadow-modal);
+    border: none;
+    align-items: center;
+    gap: 30px;
+}
+
+#cookiePopup div {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* Footer */
+footer {
+    width: 80vw;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 80px 10vw 30px 10vw;
+    background-color: var(--main-color-blanc-muguet);
+    box-shadow: var(--main-shadow-modal);
+}
+
+footer div {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+}
+
+footer p,
+footer a {
+    font-family: 'Overpass';
+    font-size: 25px;
+    font-weight: 500;
+    text-align: justify;
+    text-decoration: none;
+    color: var(--main-color-marron-bois);
+    /* text-justify: auto; No standard */
+}
+
+footer a:hover {
+    text-decoration: underline;
+    cursor: pointer;
+}
