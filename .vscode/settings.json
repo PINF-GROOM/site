@@ -16,5 +16,19 @@
     "editor.defaultFormatter": "bmewburn.vscode-intelephense-client",
     "[jsonc]": {
         "editor.defaultFormatter": "vscode.json-language-features"
+    },
+    "files.exclude": {
+        ".*": true,
+        "artisan": true,
+        "bootstrap/": true,
+        "composer*": true,
+        "config/": true,
+        "database/": true,
+        "node_modules/": true,
+        "package*": true,
+        "phpunit.xml": true,
+        "storage/": true,
+        "vendor": true,
+        "vite.config.js": true
     }
 }
