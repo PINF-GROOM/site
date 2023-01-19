@@ -1,7 +1,6 @@
 import './bootstrap';
 import { initUtils } from './utils';
-import { initAssets } from './assets';
-
+import { initAssets, selectionStart, selectionEnd} from './assets';
 
 import '../css/utils.css'
 import '../css/assets.css'
@@ -10,9 +9,14 @@ import.meta.glob([
     '../assets/**'
 ])
 
-function init() {
+document.fonts.onloadingdone = () => {
     initUtils();
     initAssets();
 }
 
-window.addEventListener('load', init)
+// function init() {
+//     console.log("init");
+    
+// }
+
+// window.addEventListener('load', init);

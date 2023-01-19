@@ -2,15 +2,24 @@
 /* Calendar */
 
 #calendar {
-    background-color: var(--main-color-blanc-muguet);
     display: flex;
     align-items: top;
-    gap: 20px;
     width: fit-content;
     height: 375px;
+    padding: 20px;
+    border-radius: 30px;
+    background-color: var(--main-color-blanc-muguet);
+    gap: 20px;
+    box-shadow: var(--main-shadow-modal);
 }
 
-#calendar>div {
+#calendarTop{
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+}
+
+#calendar > .calendarPart {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -65,7 +74,7 @@
     -webkit-user-select: none;
 }
 
-.calendarDay:is(.disabled) > div{
+.calendarDay:is(.disabled)>div {
     color: var(--main-color-gris-bloque);
 }
 
@@ -80,17 +89,17 @@
     /* background-color: #F4ECE7; */
 }
 
-.calendarDay div #text{
+.calendarDay div #text {
     margin-top: 2px;
 }
 
 
 
-.calendarDay:not(:is(.disabled)):hover{
+.calendarDay:not(:is(.disabled)):hover {
     cursor: pointer;
 }
 
-.calendarDay:not(.disabled) div:hover{
+.calendarDay:not(.disabled) div:hover {
     outline: 2px solid var(--main-color-orange-ensoleille);
     outline-offset: -2px;
 }

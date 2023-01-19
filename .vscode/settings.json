@@ -30,5 +30,8 @@
         "storage/": true,
         "vendor": true,
         "vite.config.js": true
+    },
+    "[css]": {
+        "editor.defaultFormatter": "vscode.css-language-features"
     }
 }

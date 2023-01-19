@@ -1,13 +1,13 @@
-const frenchWeek = ['L', 'M', 'M', 'J', 'V', 'S', 'D'];
-const frenchYear = ['Janvier', 'Février', 'Mars', 'Avril', 'Mai', 'Juin', 'Juillet', 'Août', 'Septembre', 'Octobre', 'Novembre', 'Décembre'];
-const takenDay = ['2022-12-20', '2022-12-21', '2022-12-22', '2023-1-22'];
-let takenDate = [];
+export const frenchWeek = ['L', 'M', 'M', 'J', 'V', 'S', 'D'];
+export const frenchYear = ['Janvier', 'Février', 'Mars', 'Avril', 'Mai', 'Juin', 'Juillet', 'Août', 'Septembre', 'Octobre', 'Novembre', 'Décembre'];
+export const takenDay = ['2022-12-20', '2022-12-21', '2022-12-22', '2023-1-22'];
+export let takenDate = [];
 
-let languageStatus = 0;
-let today = new Date();
+export let languageStatus = 0;
+export let today = new Date();
 
-let selectionStart;
-let selectionEnd;
+export let selectionStart;
+export let selectionEnd;
 
 export function initAssets() {
     console.log("Initializing assets.js...")
@@ -59,6 +59,7 @@ function closeLanguage() {
 function drawCalendar(firstMonth, secondMonth) {
 
     let calendarContent = "";
+    calendarContent += "<div id='CalendarTop'></div>";
     calendarContent += drawMonth(firstMonth);
     calendarContent += drawMonth(secondMonth);
     document.getElementById("calendar").innerHTML = calendarContent;
@@ -134,11 +135,8 @@ function drawCalendar(firstMonth, secondMonth) {
     }
 }
 
-
-
-//TODO: Cliquer pour modifier emplacement
-//TODO: Bouton pour supprimer sélection
 //TODO: Supprimer au click droit
+//TODO: Raccourcis clavier
 
 function drawMonth(month) {
     let content = '<div class="calendarPart">';
@@ -199,7 +197,7 @@ function drawMonth(month) {
     return content;
 }
 
-function nextMonth() {
+export function nextMonth() {
     let a = document.getElementById("calendar").getElementsByTagName("input");
     let temp = a[1].value.split('-').map(Number); // Convertir la date de format "YYYY-MM" en un tableau d'entiers
     let firstMonth = new Date(temp[0], temp[1], 1);
@@ -210,7 +208,7 @@ function nextMonth() {
     drawCalendar(firstMonth, secondMonth);
 }
 
-function lastMonth() {
+export function previousMonth() {
     let a = document.getElementById("calendar").getElementsByTagName("input");
     let temp = a[0].value.split('-').map(Number); // Convertir la date de format "YYYY-MM" en un tableau d'entiers
     let secondMonth = new Date(temp[0], temp[1], 1);
@@ -228,16 +226,16 @@ function convertDate() {
     });
 }
 
-function clearSelectionCalendar() {
+export function clearSelectionCalendar() {
     selectionStart = undefined;
     selectionEnd = undefined;
     let month = document.getElementById("calendar").getElementsByTagName("input");
-    firstMonth = new Date(month[0].value.split("-")[0], month[0].value.split("-")[1], 1);
-    secondMonth = new Date(month[1].value.split("-")[0], month[1].value.split("-")[1], 1);
+    let firstMonth = new Date(month[0].value.split("-")[0], month[0].value.split("-")[1], 1);
+    let secondMonth = new Date(month[1].value.split("-")[0], month[1].value.split("-")[1], 1);
     drawCalendar(firstMonth, secondMonth);
 }
 
-function drawCurrentMonth() {
+export function drawCurrentMonth() {
     let firstDay = new Date(today.getFullYear(), today.getMonth());
 
     if (firstDay.getMonth == 11)
