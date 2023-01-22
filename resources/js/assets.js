@@ -1,3 +1,8 @@
+import calendarIconLeftArrow from '/resources/assets/icons/calendar/leftArrow.svg'
+import calendarIconRightArrow from '/resources/assets/icons/calendar/rightArrow.svg'
+import calendarIconToday from '/resources/assets/icons/calendar/today.svg'
+import calendarIconClear from '/resources/assets/icons/calendar/clear.svg'
+
 export const frenchWeek = ['L', 'M', 'M', 'J', 'V', 'S', 'D'];
 export const frenchYear = ['Janvier', 'Février', 'Mars', 'Avril', 'Mai', 'Juin', 'Juillet', 'Août', 'Septembre', 'Octobre', 'Novembre', 'Décembre'];
 export const takenDay = ['2022-12-20', '2022-12-21', '2022-12-22', '2023-1-22'];
@@ -31,6 +36,54 @@ export function initAssets() {
     //     });
     // }    
 
+    // Gestion des événements :
+    let content = document.getElementById('content');
+
+    content.addEventListener('click', (e) => {
+        if (e.target.classList.contains('buttonCalendarNextMonth')) {
+            nextMonth();
+        }
+        else if (e.target.classList.contains('buttonCalendarPreviousMonth')) {
+            previousMonth();
+        }
+        else if (e.target.classList.contains('buttonCalendarClear')) {
+            clearSelectionCalendar();
+        }
+        else if (e.target.classList.contains('buttonCalendarToday')) {
+            drawCurrentMonth();
+        }
+    });
+
+
+    // Boutton next month
+    let temp = document.getElementsByClassName("buttonCalendarNextMonth");
+    for (let i = 0; i < temp.length; i++) {
+        temp[i].addEventListener("click", function () {
+            nextMonth();
+        });
+    }
+    // Boutton previous month
+    temp = document.getElementsByClassName("buttonCalendarPreviousMonth");
+    for (let i = 0; i < temp.length; i++) {
+        temp[i].addEventListener("click", function () {
+            previousMonth();
+        });
+    }
+    // Boutton Clear calendar
+    temp = document.getElementsByClassName("buttonCalendarClear");
+    for (let i = 0; i < temp.length; i++) {
+        temp[i].addEventListener("click", function () {
+            clearSelectionCalendar();
+        });
+    }
+    // Boutton current month calendar
+    temp = document.getElementsByClassName("buttonCalendarCurrentMonth");
+    for (let i = 0; i < temp.length; i++) {
+        temp[i].addEventListener("click", function () {
+            drawCurrentMonth();
+        });
+    }
+
     // Calendar
     if (document.getElementById("calendar") != undefined)
         drawCurrentMonth();
@@ -58,10 +111,21 @@ function closeLanguage() {
 
 function drawCalendar(firstMonth, secondMonth) {
 
-    let calendarContent = "";
-    calendarContent += "<div id='CalendarTop'></div>";
+    // CalendarTop
+    let calendarContent = "<div id='calendarTop'>";
+    calendarContent += "<img class='buttonCalendarPreviousMonth' src='" + calendarIconLeftArrow + "' alt='Left'>";
+    calendarContent += "<img class='buttonCalendarNextMonth' src='" + calendarIconRightArrow + "' alt='Left'>";
+    calendarContent += "</div>";
+    // CalendarBody
+    calendarContent += "<div id='calendarBody'>";
     calendarContent += drawMonth(firstMonth);
     calendarContent += drawMonth(secondMonth);
+    calendarContent += "</div>";
+    // CalendarBottom
+    calendarContent += "<div id='calendarBottom'><div>";
+    calendarContent += "<img class='buttonCalendarToday' src='" + calendarIconToday + "' alt='Left'>";
+    calendarContent += "<img class='buttonCalendarClear' src='" + calendarIconClear + "' alt='Left'>";
+    calendarContent += "</div></div>";
     document.getElementById("calendar").innerHTML = calendarContent;
 
 
