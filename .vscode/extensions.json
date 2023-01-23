@@ -9,10 +9,16 @@
         "codingyu.laravel-goto-view",
         "onecentlin.laravel5-snippets",
         "devsense.phptools-vscode",
-        "bmewburn.vscode-intelephense-client",
         "zobo.php-intellisense",
         "st-pham.php-refactor-tool",
         "chrisvltn.vs-code-semicolon-insertion",
-        "gruntfuggly.todo-tree"
+        "gruntfuggly.todo-tree",
+        "shufo.vscode-blade-formatter",
+        "onecentlin.laravel-blade",
+        "ihunte.laravel-blade-wrapper",
+        "glitchbl.laravel-create-view",
+        "onecentlin.laravel-extension-pack",
+        "mohamedbenhida.laravel-intellisense",
+        "naoray.laravel-goto-components"
     ]
 }
