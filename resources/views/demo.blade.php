@@ -132,28 +132,48 @@
             </section>
             <section>
                 <div style="display: flex; gap: 10px;">
-                    <button class="aButton classicButton" disabled>Bouton d'action</button>
+                    <x-button disabled>Bouton d'action</x-button>
+                    <x-button disabled icon="{{ Vite::asset('resources/assets/icons/download.svg') }}" >Bouton d'action</x-button>
+                    <x-button disabled small>Bouton d'action</x-button>
+                    <x-button disabled small icon="{{ Vite::asset('resources/assets/icons/download.svg') }}">Bouton d'action</x-button>
+
+                    {{-- <button class="aButton classicButton" disabled>Bouton d'action</button>
                     <a type="button" class="classicButton disabled"><label>Bouton d'action</label><img src="{{ Vite::asset('resources/assets/icons/download.svg') }}" alt="Download icon"></a>
                     <button class="aButton classicButton small" disabled>Bouton d'action</button>
-                    <a type="button" class="classicButton disabled small"><label>Bouton d'action</label><img src="{{ Vite::asset('resources/assets/icons/download.svg') }}" alt="Download icon"></a>
+                    <a type="button" class="classicButton disabled small"><label>Bouton d'action</label><img src="{{ Vite::asset('resources/assets/icons/download.svg') }}" alt="Download icon"></a> --}}
                 </div>
                 <div style="display: flex; gap: 10px;">
-                    <button class="aButton classicButton">Bouton d'action</button>
+                    <x-button>Bouton d'action</x-button>
+                    <x-button icon="{{ Vite::asset('resources/assets/icons/download.svg') }}" >Bouton d'action</x-button>
+                    <x-button small>Bouton d'action</x-button>
+                    <x-button small icon="{{ Vite::asset('resources/assets/icons/download.svg') }}">Bouton d'action</x-button>
+
+                    {{-- <button class="aButton classicButton">Bouton d'action</button>
                     <a type="button" class="classicButton"><label>Bouton d'action</label><img src="{{ Vite::asset('resources/assets/icons/download.svg') }}" alt="Download icon"></a>
                     <button class="aButton classicButton small">Bouton d'action</button>
-                    <a type="button" class="classicButton small"><label>Bouton d'action</label><img src="{{ Vite::asset('resources/assets/icons/download.svg') }}" alt="Download icon"></a>
+                    <a type="button" class="classicButton small"><label>Bouton d'action</label><img src="{{ Vite::asset('resources/assets/icons/download.svg') }}" alt="Download icon"></a> --}}
                 </div>
                 <div style="display: flex; gap: 10px;">
-                    <button class="aButton acceptButton">Bouton d'action</button>
+                    <x-button style="accept">Bouton d'action</x-button>
+                    <x-button style="accept" icon="{{ Vite::asset('resources/assets/icons/download.svg') }}" >Bouton d'action</x-button>
+                    <x-button style="accept" small>Bouton d'action</x-button>
+                    <x-button style="accept" small icon="{{ Vite::asset('resources/assets/icons/download.svg') }}">Bouton d'action</x-button>
+
+                    {{-- <button class="aButton acceptButton">Bouton d'action</button>
                     <a type="button" class="acceptButton"><label>Bouton d'action</label><img src="{{ Vite::asset('resources/assets/icons/download.svg') }}" alt="Download icon"></a>
                     <button class="aButton acceptButton small">Bouton d'action</button>
-                    <a type="button" class="acceptButton small"><label>Bouton d'action</label><img src="{{ Vite::asset('resources/assets/icons/download.svg') }}" alt="Download icon"></a>
+                    <a type="button" class="acceptButton small"><label>Bouton d'action</label><img src="{{ Vite::asset('resources/assets/icons/download.svg') }}" alt="Download icon"></a> --}}
                 </div>
                 <div style="display: flex; gap: 10px;">
-                    <button class="aButton denyButton">Bouton d'action</button>
+                    <x-button style="deny">Bouton d'action</x-button>
+                    <x-button style="deny" icon="{{ Vite::asset('resources/assets/icons/download.svg') }}" >Bouton d'action</x-button>
+                    <x-button style="deny" small>Bouton d'action</x-button>
+                    <x-button style="deny" small icon="{{ Vite::asset('resources/assets/icons/download.svg') }}">Bouton d'action</x-button>
+
+                    {{-- <button class="aButton denyButton">Bouton d'action</button>
                     <a type="button" class="denyButton" disabled><label>Bouton d'action</label><img src="{{ Vite::asset('resources/assets/icons/download.svg') }}" alt="Download icon"></a>
                     <button class="aButton denyButton small">Bouton d'action</button>
-                    <a type="button" class="denyButton small" disabled><label>Bouton d'action</label><img src="{{ Vite::asset('resources/assets/icons/download.svg') }}" alt="Download icon"></a>
+                    <a type="button" class="denyButton small" disabled><label>Bouton d'action</label><img src="{{ Vite::asset('resources/assets/icons/download.svg') }}" alt="Download icon"></a> --}}
                 </div>
             </section>
             <section>
