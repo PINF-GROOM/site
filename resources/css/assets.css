@@ -34,7 +34,15 @@
     height: fit-content;
     justify-content: space-between;
     align-items: center;
-    margin: 10px 0 5px 0;
+    margin: -5px 0 5px 0;
+}
+
+#calendarBottom div{
+    display: flex;
+    align-items: center;
+}
+#calendarBottom div > label{
+    margin: 2px 3px 0 0;
 }
 
 #calendarBottom img:hover{

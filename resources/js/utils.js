@@ -1,5 +1,6 @@
 export function initUtils() {
     console.log("Initializing utils.js...");
+    
     // Selects
     let selectTab = document.getElementsByClassName("select");
     for (let i = 0; i < selectTab.length; i++) {
@@ -23,18 +24,37 @@ export function initUtils() {
             };
         });
     }
-    document.addEventListener("click", closeAllSelect);
 
-    // Checkboxes
-    let checkTab = document.getElementsByClassName("checkBox");
-    for (let i = 0; i < checkTab.length; i++) {
-        checkTab[i].addEventListener("click", function () {
-            if (!this.classList.contains("disabled")) {
-                this.querySelectorAll('input')[0].checked = !this.querySelectorAll('input')[0].checked;
-                this.querySelectorAll('div')[0].classList.toggle("checked");
+    // Handling click events
+    document.addEventListener("click", closeAllSelect);
+    let content = document.getElementById('content');
+
+    content.addEventListener('click', (e) => {
+        if (e.target.classList.contains('checkBox')) {
+            if (!e.target.classList.contains("disabled")) {
+                e.target.querySelectorAll('input')[0].checked = !e.target.querySelectorAll('input')[0].checked;
+                e.target.querySelectorAll('div')[0].classList.toggle("checked");
             }
-        });
-    }
+        }
+
+        else if (e.target.parentNode != null) {
+            if (e.target.parentNode.classList.contains('checkBox')) {
+                if (!e.target.parentNode.classList.contains("disabled")) {
+                    e.target.parentNode.querySelectorAll('input')[0].checked = !e.target.parentNode.querySelectorAll('input')[0].checked;
+                    e.target.parentNode.querySelectorAll('div')[0].classList.toggle("checked");
+                }
+            }
+        }
+
+        if (e.target.parentNode.parentNode != null) {
+            if (e.target.parentNode.parentNode.classList.contains('checkBox')) {
+                if (!e.target.parentNode.parentNode.classList.contains("disabled")) {
+                    e.target.parentNode.parentNode.querySelectorAll('input')[0].checked = !e.target.parentNode.parentNode.querySelectorAll('input')[0].checked;
+                    e.target.parentNode.parentNode.querySelectorAll('div')[0].classList.toggle("checked");
+                }
+            }
+        }
+    });
 }
 
 function closeAllSelect(event) {

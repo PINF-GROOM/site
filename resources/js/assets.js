@@ -2,6 +2,7 @@ import calendarIconLeftArrow from '/resources/assets/icons/calendar/leftArrow.sv
 import calendarIconRightArrow from '/resources/assets/icons/calendar/rightArrow.svg'
 import calendarIconToday from '/resources/assets/icons/calendar/today.svg'
 import calendarIconClear from '/resources/assets/icons/calendar/clear.svg'
+import calendarIconInfo from '/resources/assets/icons/calendar/info.svg'
 
 export const frenchWeek = ['L', 'M', 'M', 'J', 'V', 'S', 'D'];
 export const frenchYear = ['Janvier', 'Février', 'Mars', 'Avril', 'Mai', 'Juin', 'Juillet', 'Août', 'Septembre', 'Octobre', 'Novembre', 'Décembre'];
@@ -54,37 +55,12 @@ export function initAssets() {
         }
     });
 
+    content.addEventListener('mouseover', (e) => {
+        if (e.target.classList.contains('CalendarIconInfo'))
+            console.log("prout");
+    });
 
-    // Boutton next month
-    let temp = document.getElementsByClassName("buttonCalendarNextMonth");
-    for (let i = 0; i < temp.length; i++) {
-        temp[i].addEventListener("click", function () {
-            nextMonth();
-        });
-    }
-    // Boutton previous month
-    temp = document.getElementsByClassName("buttonCalendarPreviousMonth");
-    for (let i = 0; i < temp.length; i++) {
-        temp[i].addEventListener("click", function () {
-            previousMonth();
-        });
-    }
-    // Boutton Clear calendar
-    temp = document.getElementsByClassName("buttonCalendarClear");
-    for (let i = 0; i < temp.length; i++) {
-        temp[i].addEventListener("click", function () {
-            clearSelectionCalendar();
-        });
-    }
-    // Boutton current month calendar
-    temp = document.getElementsByClassName("buttonCalendarCurrentMonth");
-    for (let i = 0; i < temp.length; i++) {
-        temp[i].addEventListener("click", function () {
-            drawCurrentMonth();
-        });
-    }
-
-    // Calendar
+    // // Calendar
     if (document.getElementById("calendar") != undefined)
         drawCurrentMonth();
 }
@@ -113,8 +89,8 @@ function drawCalendar(firstMonth, secondMonth) {
 
     // CalendarTop
     let calendarContent = "<div id='calendarTop'>";
-    calendarContent += "<img class='buttonCalendarPreviousMonth' src='" + calendarIconLeftArrow + "' alt='Left'>";
-    calendarContent += "<img class='buttonCalendarNextMonth' src='" + calendarIconRightArrow + "' alt='Left'>";
+    calendarContent += "<img title='Mois précédant' class='buttonCalendarPreviousMonth' src='" + calendarIconLeftArrow + "' alt='Left'>";
+    calendarContent += "<img title='Mois suivant' class='buttonCalendarNextMonth' src='" + calendarIconRightArrow + "' alt='Left'>";
     calendarContent += "</div>";
     // CalendarBody
     calendarContent += "<div id='calendarBody'>";
@@ -123,8 +99,11 @@ function drawCalendar(firstMonth, secondMonth) {
     calendarContent += "</div>";
     // CalendarBottom
     calendarContent += "<div id='calendarBottom'><div>";
-    calendarContent += "<img class='buttonCalendarToday' src='" + calendarIconToday + "' alt='Left'>";
-    calendarContent += "<img class='buttonCalendarClear' src='" + calendarIconClear + "' alt='Left'>";
+    calendarContent += "<img title='Revenir au mois courant' class='buttonCalendarToday' src='" + calendarIconToday + "' alt='Left'>";
+    calendarContent += "<img title='Effacer la sélection' class='buttonCalendarClear' src='" + calendarIconClear + "' alt='Left'>";
+    calendarContent += "</div><div>";
+    calendarContent += "<label>Raccourcis</label>";
+    calendarContent += "<img class='CalendarIconInfo' src='" + calendarIconInfo + "' alt='Left'>";
     calendarContent += "</div></div>";
     document.getElementById("calendar").innerHTML = calendarContent;
 
@@ -205,6 +184,7 @@ function drawCalendar(firstMonth, secondMonth) {
 function drawMonth(month) {
     let content = '<div class="calendarPart">';
     let nbOfDays = new Date(month.getFullYear(), month.getMonth() + 1, 0); // On recupère le nombre de jour dans le mois :
+    let nbOfDaysOnScreen = 0;
 
     // Input caché qui indique le mois affiché
     content += '<input type="hidden" value="' + month.getFullYear() + "-" + month.getMonth() + '">';
@@ -219,11 +199,14 @@ function drawMonth(month) {
     }
     content += '</div>';
 
-    for (let a = 0; a < calcDecallage(month.getDay()); a++)  // Génération des (éventuels) espaces vides
+    for (let a = 0; a < calcDecallage(month.getDay()); a++) {  // Génération des (éventuels) espaces vides
         content += '<div class="calendarDay disabled void"><div></div></div>';
+        nbOfDaysOnScreen++;
+    }
 
     for (let a = 1; a < nbOfDays.getDate() + 1; a++) {
         let tempDay = new Date(month.getFullYear(), month.getMonth(), a);
+        nbOfDaysOnScreen++;
         content += '<div class="calendarDay';
         if (tempDay.getTime() < Date.now())
             content += ' disabled';
@@ -255,6 +238,9 @@ function drawMonth(month) {
         }
 
         content += '"><div>' + a + '</div></div>';
+    }
+    for (let i = nbOfDaysOnScreen; i < 42; i++) {
+        content += "<div class=\"calendarDay disabled void\"><div></div></div>";
     }
     content += "</div></div>";
 
