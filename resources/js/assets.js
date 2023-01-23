@@ -56,11 +56,15 @@ export function initAssets() {
     });
 
     content.addEventListener('mouseover', (e) => {
-        if (e.target.classList.contains('CalendarIconInfo'))
-            console.log("prout");
+        if (e.target.classList.contains('CalendarIconInfo')) {
+            document.getElementsByClassName("calendarShortcuts")[0].style.display = "flex";
+        }
+        else{
+            document.getElementsByClassName("calendarShortcuts")[0].style.display = "none";
+        }
     });
 
-    // // Calendar
+    // Calendar
     if (document.getElementById("calendar") != undefined)
         drawCurrentMonth();
 }
@@ -97,6 +101,7 @@ function drawCalendar(firstMonth, secondMonth) {
     calendarContent += drawMonth(firstMonth);
     calendarContent += drawMonth(secondMonth);
     calendarContent += "</div>";
+
     // CalendarBottom
     calendarContent += "<div id='calendarBottom'><div>";
     calendarContent += "<img title='Revenir au mois courant' class='buttonCalendarToday' src='" + calendarIconToday + "' alt='Left'>";
@@ -104,7 +109,9 @@ function drawCalendar(firstMonth, secondMonth) {
     calendarContent += "</div><div>";
     calendarContent += "<label>Raccourcis</label>";
     calendarContent += "<img class='CalendarIconInfo' src='" + calendarIconInfo + "' alt='Left'>";
-    calendarContent += "</div></div>";
+
+    calendarContent += "<div class=\"calendarShortcuts\"><div class=\"calendarShortcutsLine\"><label>⇧ + →</label><label>Passer au mois suivant</label></div><div class=\"calendarShortcutsLine\"><label>⇧ + ←</label><label>Passer au mois précédent</label></div></div>";
+    // calendarContent += "<div class=\"calendarShortcuts\">⇧ + →</div></div></div>";
     document.getElementById("calendar").innerHTML = calendarContent;
 
 

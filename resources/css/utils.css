@@ -12,6 +12,11 @@
 }
 
 @font-face {
+    font-family: "Inter";
+    src: url("../assets/fonts/Inter/Inter-VariableFont.ttf");
+}
+
+@font-face {
     font-family: "Roboto";
     font-weight: 300;
     src: url("../assets/fonts/Roboto/Roboto-Light.ttf");
