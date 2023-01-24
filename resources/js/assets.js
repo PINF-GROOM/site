@@ -16,26 +16,27 @@ export let selectionStart;
 export let selectionEnd;
 
 export function initAssets() {
-    console.log("Initializing assets.js...")
+    console.log("Initializing assets.js...");
 
     // Convertir le tableau de dates prises de format string en format date
     convertDate();
 
-    // if (document.getElementById("languageChoice") !== undefined) {
-    //     document.addEventListener("click", function (e) {
-    //         console.log(e.target);
-    //         if (e.target == document.getElementById("languageIcon") || e.target == document.getElementById("languageIcon").querySelector('svg') || e.target == document.getElementById("languageIcon").querySelector('path')) {
-    //             if (!document.getElementById("languageChoice").classList.contains("languageShown"))
-    //                 showLanguage();
-    //             else
-    //                 closeLanguage();
-    //         }
-    //         else{
-    //             if(document.getElementById("languageChoice").classList.contains("languageShown"))
-    //                 closeLanguage();
-    //         }
-    //     });
-    // }
+
+    // Language
+    if (document.getElementById("languageChoice") !== undefined) {
+        document.addEventListener("click", function (e) {
+            if (e.target == document.getElementById("languageIcon") || e.target == document.getElementById("languageIcon").querySelector('svg') || e.target == document.getElementById("languageIcon").querySelector('path')) {
+                if (!document.getElementById("languageChoice").classList.contains("languageShown"))
+                    showLanguage();
+                else
+                    closeLanguage();
+            }
+            else {
+                if (document.getElementById("languageChoice").classList.contains("languageShown"))
+                    closeLanguage();
+            }
+        });
+    }
 
     // Gestion des événements :
     let content = document.getElementById('content');
@@ -56,11 +57,12 @@ export function initAssets() {
     });
 
     // Hover
+
     content.addEventListener('mouseover', (e) => {
         if (e.target.classList.contains('CalendarIconInfo')) {
             document.getElementsByClassName("calendarShortcuts")[0].style.display = "flex";
         }
-        else{
+        else {
             document.getElementsByClassName("calendarShortcuts")[0].style.display = "none";
         }
     });
@@ -68,23 +70,26 @@ export function initAssets() {
     // Keypressed
     let keysPressed = {};
 
-    document.addEventListener('keydown', (event) => {
+    document.body.addEventListener('keydown', (event) => {
         keysPressed[event.key] = true;
-        if (keysPressed['ArrowLeft'] && window.event.shiftKey) { // Flèche de gauche
+
+        // Check if left or right arrow are pressed whith shift and if the user is not editing or selecting text
+        if (keysPressed['ArrowLeft'] && window.event.shiftKey && document.activeElement.tagName == "BODY" && window.getSelection().anchorNode == null) { // Flèche de gauche
             previousMonth();
         }
-        else if (keysPressed['ArrowRight'] && window.event.shiftKey) { // Flèche de gauche
+        else if (keysPressed['ArrowRight'] && window.event.shiftKey && document.activeElement.tagName == "BODY" && window.getSelection().anchorNode == null) { // Flèche de gauche
             nextMonth();
         }
-     });
+    });
 
-     document.addEventListener('keyup', (event) => {
+    document.body.addEventListener('keyup', (event) => {
         delete keysPressed[event.key];
-     });
+    });
 
     // Calendar
-    if (document.getElementById("calendar") != undefined)
+    if (document.getElementById("calendar") != undefined) {
         drawCurrentMonth();
+    }
 }
 
 function calcDecallage(jourDeDepart) {
@@ -125,7 +130,7 @@ function drawCalendar(firstMonth, secondMonth) {
     calendarContent += "<img title='Revenir au mois courant' class='buttonCalendarToday' src='" + calendarIconToday + "' alt='Left'>";
     calendarContent += "<img title='Effacer la sélection' class='buttonCalendarClear' src='" + calendarIconClear + "' alt='Left'>";
     calendarContent += "</div><div>";
-    calendarContent += "<label>Raccourcis</label>";
+    calendarContent += "<label>Raccourcis clavier</label>";
     calendarContent += "<img class='CalendarIconInfo' src='" + calendarIconInfo + "' alt='Left'>";
 
     calendarContent += "<div class=\"calendarShortcuts\"><div class=\"calendarShortcutsLine\"><label>⇧ + →</label><label>Passer au mois suivant</label></div><div class=\"calendarShortcutsLine\"><label>⇧ + ←</label><label>Passer au mois précédent</label></div></div>";
@@ -204,7 +209,7 @@ function drawCalendar(firstMonth, secondMonth) {
 }
 
 //TODO: Supprimer au click droit
-//TODO: Raccourcis clavier
+//TODO: Ajouter des raccourcis clavier
 
 function drawMonth(month) {
     let content = '<div class="calendarPart">';
@@ -273,6 +278,7 @@ function drawMonth(month) {
 }
 
 export function nextMonth() {
+    console.log("Next Month");
     let a = document.getElementById("calendar").getElementsByTagName("input");
     let temp = a[1].value.split('-').map(Number); // Convertir la date de format "YYYY-MM" en un tableau d'entiers
     let firstMonth = new Date(temp[0], temp[1], 1);
@@ -311,6 +317,7 @@ export function clearSelectionCalendar() {
 }
 
 export function drawCurrentMonth() {
+    console.log("Current Month");
     let firstDay = new Date(today.getFullYear(), today.getMonth());
 
     if (firstDay.getMonth == 11)

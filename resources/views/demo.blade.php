@@ -33,7 +33,6 @@
     <!-- Styles -->
     @vite(['resources/css/app.css', 'resources/js/app.js'])
 </head>
-<!-- <body onload="initUtils(); initAssets();" class="antialiased"> -->
 
 <body class="antialiased">
 
@@ -65,12 +64,11 @@
     </header>
 
 
-
-
     <div id="content" style="display: flex; flex-direction: column; gap: 20px; padding: 100px;">
         <div id="calendar">
         </div>
-
+        {{-- TODO0: REMOVE --}}
+        <p style="font-family: 'Inter';"> </p>
 
         <div style="padding: 50px 100px;">
             <textarea id=1 onkeyup="beatifyComment();" style="width: 500px; height: 100px" placeholder="Enter comment here"></textarea>
