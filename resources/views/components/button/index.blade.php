@@ -1,5 +1,11 @@
 @props(['disabled', 'icon', 'type' => 'button', 'style' => 'classic', 'class', 'small', 'accept', 'deny'])
 
+{{-- Adding passed clsses --}}
+@isset($class)
+    @php
+        $attributes = $attributes->merge(['class' => $class]);
+    @endphp
+@endisset
 
 {{-- Merges classes to fit style --}}
 @switch($style)
@@ -42,7 +48,7 @@
         <img src="{{ $icon }}" alt="icon">
     </a>
 
-{{-- Button without icon --}}
+    {{-- Button without icon --}}
 @else
-    <button {{ $attributes }} @isset($disabled) disabled @endisset>{{ $slot }}</button>
+    <button @isset($disabled) disabled @endisset {{ $attributes }}>{{ $slot }}</button>
 @endisset
