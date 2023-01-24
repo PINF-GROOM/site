@@ -35,7 +35,7 @@ export function initAssets() {
     //                 closeLanguage();
     //         }
     //     });
-    // }    
+    // }
 
     // Gestion des événements :
     let content = document.getElementById('content');
@@ -55,6 +55,7 @@ export function initAssets() {
         }
     });
 
+    // Hover
     content.addEventListener('mouseover', (e) => {
         if (e.target.classList.contains('CalendarIconInfo')) {
             document.getElementsByClassName("calendarShortcuts")[0].style.display = "flex";
@@ -63,6 +64,23 @@ export function initAssets() {
             document.getElementsByClassName("calendarShortcuts")[0].style.display = "none";
         }
     });
+
+    // Keypressed
+    let keysPressed = {};
+
+    document.addEventListener('keydown', (event) => {
+        keysPressed[event.key] = true;
+        if (keysPressed['ArrowLeft'] && window.event.shiftKey) { // Flèche de gauche
+            previousMonth();
+        }
+        else if (keysPressed['ArrowRight'] && window.event.shiftKey) { // Flèche de gauche
+            nextMonth();
+        }
+     });
+
+     document.addEventListener('keyup', (event) => {
+        delete keysPressed[event.key];
+     });
 
     // Calendar
     if (document.getElementById("calendar") != undefined)

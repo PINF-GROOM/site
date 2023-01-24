@@ -64,7 +64,7 @@
         </div>
     </header>
 
-    
+
 
 
     <div id="content" style="display: flex; flex-direction: column; gap: 20px; padding: 100px;">
