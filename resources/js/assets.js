@@ -9,6 +9,24 @@ export const frenchYear = ['Janvier', 'Février', 'Mars', 'Avril', 'Mai', 'Juin'
 export const takenDay = ['2022-12-20', '2022-12-21', '2022-12-22', '2023-1-22'];
 export let takenDate = [];
 
+const fr = {
+    "dayNames": ['L', 'M', 'M', 'J', 'V', 'S', 'D'],
+    "monthNames": ['Janvier', 'Février', 'Mars', 'Avril', 'Mai', 'Juin', 'Juillet', 'Août', 'Septembre', 'Octobre', 'Novembre', 'Décembre']
+}
+
+const en = {
+    "dayNames": ['M', 'T', 'W', 'T', 'F', 'S', 'S'],
+    "monthNames": ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December']
+}
+
+// const shortcuts = []
+
+const langTranslations = {
+    'fr': fr,
+    'en': en
+}
+
+
 export let languageStatus = 0;
 export let today = new Date();
 
@@ -21,6 +39,14 @@ export function initAssets() {
     // Convertir le tableau de dates prises de format string en format date
     convertDate();
 
+    // Cookie de langue :
+    let lang = getCookie("lang");
+    console.log(lang);
+    if (lang === null) {
+        lang = "fr";
+        setCookie("lang", lang);
+    }
+
 
     // Language
     if (document.getElementById("languageChoice") !== undefined) {
@@ -31,12 +57,31 @@ export function initAssets() {
                 else
                     closeLanguage();
             }
+            // Language selection
+            else if (e.target == document.getElementById("languageSelectFr") || e.target == document.getElementById("languageSelectFr").querySelector('svg') || e.target == document.getElementById("languageSelectFr").querySelector('path')) {
+                setCookie("lang", "fr");
+                location.reload();
+            }
+            else if (e.target == document.getElementById("languageSelectEn") || e.target == document.getElementById("languageSelectEn").querySelector('svg') || e.target == document.getElementById("languageSelectEn").querySelector('path')) {
+                setCookie("lang", "en");
+                location.reload();
+            }
+            else if (e.target == document.getElementById("languageSelectEs") || e.target == document.getElementById("languageSelectEs").querySelector('svg') || e.target == document.getElementById("languageSelectEs").querySelector('path')) {
+                setCookie("lang", "es");
+                location.reload();
+            }
+            else if (e.target == document.getElementById("languageSelectDe") || e.target == document.getElementById("languageSelectDe").querySelector('svg') || e.target == document.getElementById("languageSelectDe").querySelector('path')) {
+                setCookie("lang", "de");
+                location.reload();
+            }
+
             else {
                 if (document.getElementById("languageChoice").classList.contains("languageShown"))
                     closeLanguage();
             }
         });
     }
+
 
     // Gestion des événements :
     let content = document.getElementById('content');
@@ -57,7 +102,6 @@ export function initAssets() {
     });
 
     // Hover
-
     content.addEventListener('mouseover', (e) => {
         if (e.target.classList.contains('CalendarIconInfo')) {
             document.getElementsByClassName("calendarShortcuts")[0].style.display = "flex";
@@ -73,12 +117,19 @@ export function initAssets() {
     document.body.addEventListener('keydown', (event) => {
         keysPressed[event.key] = true;
 
+        // console.log(event.key);
         // Check if left or right arrow are pressed whith shift and if the user is not editing or selecting text
         if (keysPressed['ArrowLeft'] && window.event.shiftKey && document.activeElement.tagName == "BODY" && window.getSelection().anchorNode == null) { // Flèche de gauche
             previousMonth();
         }
         else if (keysPressed['ArrowRight'] && window.event.shiftKey && document.activeElement.tagName == "BODY" && window.getSelection().anchorNode == null) { // Flèche de gauche
             nextMonth();
+        }
+        else if (keysPressed['Backspace'] && window.event.shiftKey && document.activeElement.tagName == "BODY" && window.getSelection().anchorNode == null) { // Flèche de gauche
+            clearSelectionCalendar();
+        }
+        else if (keysPressed['Enter'] && window.event.shiftKey && document.activeElement.tagName == "BODY" && window.getSelection().anchorNode == null) { // Flèche de gauche
+            drawCurrentMonth();
         }
     });
 
@@ -133,7 +184,12 @@ function drawCalendar(firstMonth, secondMonth) {
     calendarContent += "<label>Raccourcis clavier</label>";
     calendarContent += "<img class='CalendarIconInfo' src='" + calendarIconInfo + "' alt='Left'>";
 
-    calendarContent += "<div class=\"calendarShortcuts\"><div class=\"calendarShortcutsLine\"><label>⇧ + →</label><label>Passer au mois suivant</label></div><div class=\"calendarShortcutsLine\"><label>⇧ + ←</label><label>Passer au mois précédent</label></div></div>";
+    calendarContent += "<div class=\"calendarShortcuts\">";
+    calendarContent += "<div class=\"calendarShortcutsLine\"><label>⇧ + →</label><label>Passer au mois suivant</label></div>";
+    calendarContent += "<div class=\"calendarShortcutsLine\"><label>⇧ + ←</label><label>Passer au mois précédent</label></div>";
+    calendarContent += "<div class=\"calendarShortcutsLine\"><label>⇧ + ⌫</label><label>Supprimer la sélection active</label></div>";
+    calendarContent += "<div class=\"calendarShortcutsLine\"><label>⇧ + ⏎</label><label>Afficher le mois courant</label></div>";
+    calendarContent += "</div>";
     // calendarContent += "<div class=\"calendarShortcuts\">⇧ + →</div></div></div>";
     document.getElementById("calendar").innerHTML = calendarContent;
 
@@ -277,8 +333,8 @@ function drawMonth(month) {
     return content;
 }
 
-export function nextMonth() {
-    console.log("Next Month");
+function nextMonth() {
+    // console.log("Next Month");
     let a = document.getElementById("calendar").getElementsByTagName("input");
     let temp = a[1].value.split('-').map(Number); // Convertir la date de format "YYYY-MM" en un tableau d'entiers
     let firstMonth = new Date(temp[0], temp[1], 1);
@@ -289,7 +345,7 @@ export function nextMonth() {
     drawCalendar(firstMonth, secondMonth);
 }
 
-export function previousMonth() {
+function previousMonth() {
     let a = document.getElementById("calendar").getElementsByTagName("input");
     let temp = a[0].value.split('-').map(Number); // Convertir la date de format "YYYY-MM" en un tableau d'entiers
     let secondMonth = new Date(temp[0], temp[1], 1);
@@ -307,7 +363,7 @@ function convertDate() {
     });
 }
 
-export function clearSelectionCalendar() {
+function clearSelectionCalendar() {
     selectionStart = undefined;
     selectionEnd = undefined;
     let month = document.getElementById("calendar").getElementsByTagName("input");
@@ -316,8 +372,8 @@ export function clearSelectionCalendar() {
     drawCalendar(firstMonth, secondMonth);
 }
 
-export function drawCurrentMonth() {
-    console.log("Current Month");
+function drawCurrentMonth() {
+    // console.log("Current Month");
     let firstDay = new Date(today.getFullYear(), today.getMonth());
 
     if (firstDay.getMonth == 11)
@@ -325,5 +381,28 @@ export function drawCurrentMonth() {
     else
         drawCalendar(firstDay, new Date(firstDay.getFullYear(), firstDay.getMonth() + 1));
 }
+
+
+function setCookie(name, value) {
+    let cookie = name + "=" + encodeURIComponent(value);
+    cookie += "; max-age=" + (365 * 24 * 60 * 60); // Le cookie expire dans 1 an
+    cookie += "; Secure; SameSite=Strict; path=/"; // Pour éviter les messages d'erreur
+    document.cookie = cookie;
+
+}
+
+function getCookie(name) {
+    let cookies = document.cookie.split(";");
+
+    for (let a = 0; a < cookies.length; a++) {
+        var cookieNameValue = cookies[a].split("=");
+
+        if (name == cookieNameValue[0].trim()) { // Retire les espaces inutiles
+            return decodeURIComponent(cookieNameValue[1]);
+        }
+    }
+    return null; // Si non trouvé
+}
+
 
 console.log("assets.js loaded");

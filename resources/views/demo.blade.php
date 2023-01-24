@@ -8,6 +8,7 @@
     <title>Utils & Assets</title>
 
     <!-- Fonts -->
+    {{-- Todo3: ?DELETE? --}}
     <!-- <link href="https://fonts.bunny.net/css2?family=Nunito:wght@400;600;700&display=swap" rel="s   tylesheet"> -->
 
 
@@ -42,7 +43,6 @@
             <nav>
                 <a href="index.html">Contact</a>
                 <!-- En fonction de la situation : -->
-
                 <a href="index.html">Création</a>
                 <a href="index.html">Admin</a>
                 <a href="index.html">Accueil</a>
@@ -54,10 +54,10 @@
                     </svg>
                 </div>
                 <div id="languageChoice">
-                    <img src="{{ Vite::asset('resources/assets/icons/flags/france.svg') }}" alt="France flag">
-                    <img src="{{ Vite::asset('resources/assets/icons/flags/uk.svg') }}" alt="United Kingdom flag">
-                    <img src="{{ Vite::asset('resources/assets/icons/flags/spain.svg') }}" alt="Spain flag">
-                    <img src="{{ Vite::asset('resources/assets/icons/flags/germany.svg') }}" alt="Germany flag">
+                    <img id="languageSelectFr" src="{{ Vite::asset('resources/assets/icons/flags/france.svg') }}" alt="France flag">
+                    <img id="languageSelectEn" src="{{ Vite::asset('resources/assets/icons/flags/uk.svg') }}" alt="United Kingdom flag">
+                    <img id="languageSelectEs" src="{{ Vite::asset('resources/assets/icons/flags/spain.svg') }}" alt="Spain flag">
+                    <img id="languageSelectDe" src="{{ Vite::asset('resources/assets/icons/flags/germany.svg') }}" alt="Germany flag">
                 </div>
             </div>
         </div>

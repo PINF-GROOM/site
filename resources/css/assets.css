@@ -69,13 +69,17 @@
     justify-content: space-between;
     align-items: center;
     width: 100%;
-    gap: 30px;
+    gap: 60px;
 }
 
 #calendarBottom .calendarShortcutsLine label{
     font-family: "Inter";
     font-size: 15px;
     white-space: nowrap;
+}
+
+#calendarBottom img.CalendarIconInfo:hover{
+    cursor: help;
 }
 
 .buttonCalendarPreviousMonth:hover{
