@@ -104,17 +104,11 @@
                 </div>
             </section>
             <section>
-                <div class="checkBox">
-                    <div></div>
-                    <label>Case à cocher</label>
-                    <input type="checkbox" name="testCheckbox" id="testCheckbox">
-                </div>
-                <div class="checkBox">
-                    <div></div>
-                    <label>Case à cocher</label>
-                    <input type="checkbox" name="testCheckbox" id="testCheckbox">
-                </div>
-                <div class="checkBox">
+                <x-form.checkbox name="checkboxTest" title="Case à cocher"></x-form.checkbox>
+                <x-form.checkbox name="checkboxTest" title="Case à cocher"></x-form.checkbox>
+                <x-form.checkbox name="checkboxTest" title="Case à cocher" description="lorem ipsum dolor sit amet"></x-form.checkbox>
+                <x-form.checkbox disabled name="checkboxTest" title="Case à cocher" description="lorem ipsum dolor sit amet"></x-form.checkbox>
+                {{-- <div class="checkBox">
                     <div></div>
                     <div><label>Case à cocher</label><dfn>Avec description éventuelle qui peut<br />éventuellement
                             prendre
@@ -125,7 +119,7 @@
                     <div></div>
                     <label>Case à cocher désactivée</label>
                     <input type="checkbox" name="testCheckbox" id="testCheckbox">
-                </div>
+                </div> --}}
             </section>
             <section>
                 <a href="Google.com">Lien classique</a>

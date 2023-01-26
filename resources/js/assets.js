@@ -373,7 +373,7 @@ function clearSelectionCalendar() {
 }
 
 function drawCurrentMonth() {
-    // console.log("Current Month");
+    console.log("Current Month");
     let firstDay = new Date(today.getFullYear(), today.getMonth());
 
     if (firstDay.getMonth == 11)

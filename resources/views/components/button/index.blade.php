@@ -1,6 +1,6 @@
 @props(['disabled', 'icon', 'type' => 'button', 'style' => 'classic', 'class', 'small', 'accept', 'deny'])
 
-{{-- Adding passed clsses --}}
+{{-- Adding passed classes --}}
 @isset($class)
     @php
         $attributes = $attributes->merge(['class' => $class]);
