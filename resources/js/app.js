@@ -10,13 +10,14 @@ import.meta.glob([
 ])
 
 document.fonts.onloadingdone = () => {
+    console.log("init");
     initUtils();
     initAssets();
 }
 
 // function init() {
 //     console.log("init");
-    
+
 // }
 
 // window.addEventListener('load', init);

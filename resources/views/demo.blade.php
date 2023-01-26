@@ -8,6 +8,7 @@
     <title>Utils & Assets</title>
 
     <!-- Fonts -->
+    {{-- Todo3: ?DELETE? --}}
     <!-- <link href="https://fonts.bunny.net/css2?family=Nunito:wght@400;600;700&display=swap" rel="s   tylesheet"> -->
 
 
@@ -33,7 +34,6 @@
     <!-- Styles -->
     @vite(['resources/css/app.css', 'resources/js/app.js'])
 </head>
-<!-- <body onload="initUtils(); initAssets();" class="antialiased"> -->
 
 <body class="antialiased">
 
@@ -43,7 +43,6 @@
             <nav>
                 <a href="index.html">Contact</a>
                 <!-- En fonction de la situation : -->
-
                 <a href="index.html">Création</a>
                 <a href="index.html">Admin</a>
                 <a href="index.html">Accueil</a>
@@ -55,22 +54,21 @@
                     </svg>
                 </div>
                 <div id="languageChoice">
-                    <img src="{{ Vite::asset('resources/assets/icons/flags/france.svg') }}" alt="France flag">
-                    <img src="{{ Vite::asset('resources/assets/icons/flags/uk.svg') }}" alt="United Kingdom flag">
-                    <img src="{{ Vite::asset('resources/assets/icons/flags/spain.svg') }}" alt="Spain flag">
-                    <img src="{{ Vite::asset('resources/assets/icons/flags/germany.svg') }}" alt="Germany flag">
+                    <img id="languageSelectFr" src="{{ Vite::asset('resources/assets/icons/flags/france.svg') }}" alt="France flag">
+                    <img id="languageSelectEn" src="{{ Vite::asset('resources/assets/icons/flags/uk.svg') }}" alt="United Kingdom flag">
+                    <img id="languageSelectEs" src="{{ Vite::asset('resources/assets/icons/flags/spain.svg') }}" alt="Spain flag">
+                    <img id="languageSelectDe" src="{{ Vite::asset('resources/assets/icons/flags/germany.svg') }}" alt="Germany flag">
                 </div>
             </div>
         </div>
     </header>
 
 
-
-
     <div id="content" style="display: flex; flex-direction: column; gap: 20px; padding: 100px;">
         <div id="calendar">
         </div>
-
+        {{-- TODO0: REMOVE --}}
+        <p style="font-family: 'Inter';"> </p>
 
         <div style="padding: 50px 100px;">
             <textarea id=1 onkeyup="beatifyComment();" style="width: 500px; height: 100px" placeholder="Enter comment here"></textarea>
@@ -136,17 +134,11 @@
                 </div>
             </section>
             <section>
-                <div class="checkBox">
-                    <div></div>
-                    <label>Case à cocher</label>
-                    <input type="checkbox" name="testCheckbox" id="testCheckbox">
-                </div>
-                <div class="checkBox">
-                    <div></div>
-                    <label>Case à cocher</label>
-                    <input type="checkbox" name="testCheckbox" id="testCheckbox">
-                </div>
-                <div class="checkBox">
+                <x-form.checkbox name="checkboxTest" title="Case à cocher"></x-form.checkbox>
+                <x-form.checkbox name="checkboxTest" title="Case à cocher"></x-form.checkbox>
+                <x-form.checkbox name="checkboxTest" title="Case à cocher" description="lorem ipsum dolor sit amet"></x-form.checkbox>
+                <x-form.checkbox disabled name="checkboxTest" title="Case à cocher" description="lorem ipsum dolor sit amet"></x-form.checkbox>
+                {{-- <div class="checkBox">
                     <div></div>
                     <div><label>Case à cocher</label><dfn>Avec description éventuelle qui peut<br />éventuellement
                             prendre
@@ -157,7 +149,7 @@
                     <div></div>
                     <label>Case à cocher désactivée</label>
                     <input type="checkbox" name="testCheckbox" id="testCheckbox">
-                </div>
+                </div> --}}
             </section>
             <section>
                 <a href="Google.com">Lien classique</a>

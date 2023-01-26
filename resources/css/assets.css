@@ -34,7 +34,7 @@
     height: fit-content;
     justify-content: space-between;
     align-items: center;
-    margin: -5px 0 5px 0;
+    margin: 0 0 5px 0;
 }
 
 #calendarBottom div{
@@ -64,19 +64,22 @@
     border-radius: 10px;
 }
 
-
 #calendarBottom .calendarShortcutsLine{
     display: flex;
     justify-content: space-between;
     align-items: center;
     width: 100%;
-    gap: 30px;
+    gap: 60px;
 }
 
 #calendarBottom .calendarShortcutsLine label{
     font-family: "Inter";
     font-size: 15px;
     white-space: nowrap;
+}
+
+#calendarBottom img.CalendarIconInfo:hover{
+    cursor: help;
 }
 
 .buttonCalendarPreviousMonth:hover{
