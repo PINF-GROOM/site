@@ -48,6 +48,11 @@
     --main-color-hover-rouge-annulation: #E56250;
     --main-color-hover-vert-validation: #1BC45F;
 
+    /********* Colors with filter *********/
+    --main-color-filter-orange-ensoleille: invert(59%) sepia(72%) saturate(1931%) hue-rotate(355deg) brightness(89%) contrast(91%);
+    --main-color-filter-marron-bois: invert(8%) sepia(6%) saturate(5175%) hue-rotate(337deg) brightness(98%) contrast(93%);
+    --main-color-filter-gris-bloque: invert(94%) sepia(2%) saturate(2527%) hue-rotate(322deg) brightness(74%) contrast(81%);
+
     /*********** Shadow effects ***********/
     --main-shadow-classic: 0px 4px 5px rgba(0, 0, 0, 0.2);
     --main-shadow-classic-hover: 0px 4px 5px 0px rgba(0, 0, 0, 0.2);
@@ -346,6 +351,8 @@ input[type="mail"] {
     width: calc(100% - 30px);
 }
 
+/* TODO0: Change cursor for disabled inputs */
+
 /******** Text input with icon ********/
 .inputIcon {
     display: flex;
@@ -360,6 +367,7 @@ input[type="mail"] {
 }
 
 .inputIcon svg {
+    /* TODO1: Now useless */
     z-index: 10;
     width: 25px;
     height: 25px;
@@ -368,6 +376,21 @@ input[type="mail"] {
     margin-right: -32px;
     fill: var(--main-color-orange-ensoleille);
 }
+
+.inputIcon img {
+    z-index: 10;
+    width: 25px;
+    height: 25px;
+    /* To move the icon into input : */
+    margin-left: 7px;
+    margin-right: -32px;
+    filter: var(--main-color-filter-orange-ensoleille);
+}
+
+.inputIcon.disabled img {
+    filter: var(--main-color-filter-gris-bloque);
+}
+
 
 /************ Shadow input ************/
 input[type="text"]:is(.inputShadow),
@@ -378,7 +401,12 @@ input[type="text"]:is(.inputShadow),
 }
 
 .inputIcon:is(.inputShadow) svg {
+    /* TODO1: Now useless */
     fill: var(--main-color-marron-bois);
+}
+
+.inputIcon:is(.inputShadow) img {
+    filter: var(--main-color-filter-marron-bois);
 }
 
 /***************** Number input *****************/
