@@ -68,8 +68,10 @@
     <div id="content" style="display: flex; flex-direction: column; gap: 20px; padding: 100px;">
         <div id="calendar">
         </div>
-        {{-- TODO0: REMOVE --}}
-        <p style="font-family: 'Inter';"> </p>
+
+        @env('local')
+            <p style="font-family: 'Inter';"> </p>
+        @endenv
 
         <div style="padding: 50px 100px;">
             <textarea id=1 style="width: 500px; height: 100px" onkeyup="beatifyComment();" placeholder="Enter comment here"></textarea>
