@@ -99,6 +99,84 @@ export function initAssets() {
         else if (e.target.classList.contains('buttonCalendarToday')) {
             drawCurrentMonth();
         }
+        else if (e.target.classList.contains('calendarDay') || e.target.classList.contains('calendarDaySub')) {
+            console.log(selectionStart);
+            console.log(selectionEnd);
+            console.log("-----");
+            let day = e.target;
+            if (e.target.classList.contains('calendarDaySub'))
+                day = e.target.parentNode;
+
+            if (day.classList.contains("disabled"))
+                return;
+
+            let dayNb = day.getElementsByTagName("div")[0].innerHTML;
+            let monNb = day.parentNode.parentNode.getElementsByTagName("input")[0].value.split('-').map(Number)[1];
+            let yeaNb = day.parentNode.parentNode.getElementsByTagName("input")[0].value.split('-').map(Number)[0];
+            let clickedDay = new Date(yeaNb, monNb, dayNb);
+
+            if (selectionStart == undefined) {
+                selectionStart = new Date(yeaNb, monNb, dayNb);
+            }
+            else if (selectionEnd == undefined) {
+                if (clickedDay.getTime() == selectionStart.getTime()) {
+                    selectionEnd = selectionStart;
+                    return;
+                }
+
+                // On vérifie qu'il n'y a pas de jour déjà reservé entre le jour de début de réservation et la fin;
+                for (let a = 0; a < takenDate.length; a++) {
+                    if (takenDate[a] > selectionStart && takenDate[a] < clickedDay || takenDate[a] < selectionStart && takenDate[a] > clickedDay)
+                        return;
+                }
+
+                if (clickedDay < selectionStart) {
+                    selectionEnd = selectionStart;
+                    selectionStart = clickedDay;
+                }
+                else {
+                    selectionEnd = clickedDay;
+                }
+            }
+
+            else {
+                if (clickedDay < selectionStart) {
+                    for (let a = 0; a < takenDate.length; a++) {
+                        if (takenDate[a] > clickedDay && takenDate[a] < selectionEnd)
+                            return;
+                    }
+                    selectionStart = clickedDay;
+                }
+
+                else if (clickedDay > selectionEnd) {
+                    for (let a = 0; a < takenDate.length; a++) {
+                        if (takenDate[a] > selectionStart && takenDate[a] < clickedDay) {
+                            return;
+                        }
+                    }
+                    selectionEnd = clickedDay;
+                }
+                else if (clickedDay > selectionStart && clickedDay < selectionEnd) {
+                    if (clickedDay.getTime() - selectionStart.getTime() < selectionEnd.getTime() - clickedDay.getTime())
+                        selectionStart = clickedDay;
+                    else
+                        selectionEnd = clickedDay;
+                }
+                // else if (clickedDay.getTime() == selectionEnd.getTime() && clickedDay.getTime() == selectionStart.getTime())
+                //     console.log("prout");
+            }
+
+            let a = document.getElementById("calendar").getElementsByTagName("input"); // Récupérer les mois affichés
+            let temp = a[0].value.split('-').map(Number); // Convertir la date de format "YYYY-MM" en un tableau d'entiers
+            let firstMonth = new Date(temp[0], temp[1], 1);
+            temp = a[1].value.split('-').map(Number);
+            let secondMonth = new Date(temp[0], temp[1], 1);
+
+            console.log(selectionStart);
+            console.log(selectionEnd);
+            console.log("-----");
+            drawCalendar(firstMonth, secondMonth);
+        }
     });
 
     // Hover
@@ -192,76 +270,6 @@ function drawCalendar(firstMonth, secondMonth) {
     calendarContent += "</div>";
     // calendarContent += "<div class=\"calendarShortcuts\">⇧ + →</div></div></div>";
     document.getElementById("calendar").innerHTML = calendarContent;
-
-
-    let calDays = document.getElementsByClassName("calendarDay");
-    for (let a = 0; a < calDays.length; a++) {
-        calDays[a].addEventListener("click", function (e) {
-            let day = e.target;
-            if (e.target.parentNode.classList.contains("calendarDay"))
-                day = e.target.parentNode;
-
-            // On vérifie que le jour est bien disponible ou réservable
-            if (day.classList.contains("disabled"))
-                return;
-
-            let dayNb = day.getElementsByTagName("div")[0].innerHTML;
-            let monNb = day.parentNode.parentNode.getElementsByTagName("input")[0].value.split('-').map(Number)[1];
-            let yeaNb = day.parentNode.parentNode.getElementsByTagName("input")[0].value.split('-').map(Number)[0];
-            let clickedDay = new Date(yeaNb, monNb, dayNb);
-
-            if (selectionStart == undefined) {
-                selectionStart = new Date(yeaNb, monNb, dayNb);
-            }
-
-            else if (selectionEnd == undefined) {
-                if (clickedDay.getTime() == selectionStart.getTime()) {
-                    selectionEnd = selectionStart;
-                    return;
-                }
-
-                // On vérifie qu'il n'y a pas de jour déjà reservé entre le jour de début de réservation et la fin;
-                for (let a = 0; a < takenDate.length; a++) {
-                    if (takenDate[a] > selectionStart && takenDate[a] < clickedDay || takenDate[a] < selectionStart && takenDate[a] > clickedDay)
-                        return;
-                }
-
-                if (clickedDay < selectionStart) {
-                    selectionEnd = selectionStart;
-                    selectionStart = clickedDay;
-                }
-                else {
-                    selectionEnd = clickedDay;
-                }
-            }
-
-            else {
-                if (clickedDay < selectionStart) {
-                    for (let a = 0; a < takenDate.length; a++) {
-                        if (takenDate[a] > clickedDay && takenDate[a] < selectionEnd)
-                            return;
-                    }
-                    selectionStart = clickedDay;
-                }
-
-                else if (clickedDay > selectionEnd) {
-                    for (let a = 0; a < takenDate.length; a++) {
-                        if (takenDate[a] > selectionStart && takenDate[a] < clickedDay) {
-                            return;
-                        }
-                    }
-                    selectionEnd = clickedDay;
-                }
-                else if (clickedDay > selectionStart && clickedDay < selectionEnd) {
-                    if (clickedDay.getTime() - selectionStart.getTime() < selectionEnd.getTime() - clickedDay.getTime())
-                        selectionStart = clickedDay;
-                    else
-                        selectionEnd = clickedDay;
-                }
-            }
-            drawCalendar(firstMonth, secondMonth);
-        });
-    }
 }
 
 //TODO: Supprimer au click droit
@@ -323,7 +331,7 @@ function drawMonth(month) {
             }
         }
 
-        content += '"><div>' + a + '</div></div>';
+        content += '"><div class="calendarDaySub">' + a + '</div></div>';
     }
     for (let i = nbOfDaysOnScreen; i < 42; i++) {
         content += "<div class=\"calendarDay disabled void\"><div></div></div>";
