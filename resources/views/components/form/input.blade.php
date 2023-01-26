@@ -1,4 +1,5 @@
-@props(['disabled', 'icon', 'class', 'style' => 'classic'])
+@props(['disabled' => false, 'icon', 'class', 'style' => 'classic', 'type' => 'text', 'placeholder', 'content', 'id'])
+{{-- type style class placeholder content icon disabled --}}
 
 {{-- Adding passed clsses --}}
 @isset($class)
@@ -7,44 +8,41 @@
     @endphp
 @endisset
 
-
-
-
-
-{{-- Merges classes to fit style --}}
+{{-- Adding styles --}}
 @switch($style)
     @case('shadow')
         @php
-            $attributes = $attributes->merge(['class' => 'denyButton']);
+            $attributes = $attributes->merge(['class' => 'inputShadow']);
         @endphp
     @break
 
     @default
-        @php
-            $attributes = $attributes->merge(['class' => 'classicButton']);
-        @endphp
 @endswitch
 
-{{-- Button with icon --}}
-@isset($icon)
-    {{-- Disabled button --}}
-    @isset($disabled)
-        @php
-            $attributes = $attributes->merge(['class' => 'disabled']);
-        @endphp
-    @endisset
+@switch($type)
+    @case('notText')
+    @break
 
-    <a type="{{ $type }}" {{ $attributes }}>
-        <label>{{ $slot }}</label>
-        <img src="{{ $icon }}" alt="icon">
-    </a>
+    {{-- Apply input style by default --}}
 
-    {{-- Button without icon --}}
-@else
-    <button @isset($disabled) disabled @endisset {{ $attributes }}>{{ $slot }}</button>
-@endisset
+    @default
+        {{-- Button with icon --}}
+        @isset($icon)
 
-<input type="text" placeholder="Input de texte" />
+            <div @class([ $attributes['class'], 'inputIcon', 'disabled' => $disabled]) >
+                <img src="{{ $icon }}" alt="icon">
+                <input type="text" {{ $attributes }} @if($disabled) disabled @endif @isset($placeholder) placeholder="{{ $placeholder }}" @endisset @isset($id) id="{{ $id }}" @endisset/>
+            </div>
+
+            {{-- Button without icon --}}
+        @else
+            <input type="text" @if($disabled) disabled @endif {{ $attributes }} @isset($id) id="{{ $id }}" @endisset placeholder="{{ $placeholder }}"/>
+        @endisset
+@endswitch
+
+
+
+{{-- <input type="text" placeholder="Input de texte" />
 
 <input class="inputShadow" type="text" placeholder="Input de texte" />
 
@@ -56,4 +54,4 @@
 <div class="inputIcon inputShadow">
     <img src="{{ Vite::asset('resources/assets/icons/user.svg') }}">
     <input type="text" placeholder="Input de texte" />
-</div>
+</div> --}}
