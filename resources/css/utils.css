@@ -234,12 +234,16 @@ textarea:disabled,
     background-color: var(--main-color-gris-bloque);
 }
 
-input[type="text"]:disabled:hover,
+input[type="text"]:not(.inputShadow):disabled:hover,
 textarea:disabled:hover,
 .checkBox:is(.disabled):hover div:first-of-type {
     outline: 2px solid var(--main-color-gris-bloque);
     outline-offset: -2px;
     cursor: default;
+}
+
+.inputIcon:is(.inputShadow:hover) input[type="text"]{
+    outline: none;
 }
 
 .checkBox:is(.disabled):hover,
@@ -352,6 +356,10 @@ input[type="mail"] {
 }
 
 /* TODO0: Change cursor for disabled inputs */
+input:disabled:hover,
+.inputIcon.disabled:hover{
+    cursor: default !important;
+}
 
 /******** Text input with icon ********/
 .inputIcon {
@@ -376,7 +384,8 @@ input[type="mail"] {
     filter: var(--main-color-filter-orange-ensoleille);
 }
 
-.inputIcon.disabled img {
+.inputIcon.disabled img,
+.inputIcon:is(.inputShadow).disabled img {
     filter: var(--main-color-filter-gris-bloque);
 }
 
