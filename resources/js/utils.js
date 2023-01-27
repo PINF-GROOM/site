@@ -1,6 +1,8 @@
+import { logger } from './logger'
+
 export function initUtils() {
-    console.log("Initializing utils.js...");
-    
+    logger("Initializing utils.js...");
+
     // Selects
     let selectTab = document.getElementsByClassName("select");
     for (let i = 0; i < selectTab.length; i++) {
@@ -67,4 +69,4 @@ function closeAllSelect(event) {
     }
 }
 
-console.log("utils.js loaded");
+logger("utils.js loaded");

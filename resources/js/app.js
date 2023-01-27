@@ -1,6 +1,7 @@
 import './bootstrap';
 import { initUtils } from './utils';
 import { initAssets, selectionStart, selectionEnd} from './assets';
+import { logger } from './logger'
 
 import '../css/utils.css'
 import '../css/assets.css'
@@ -9,15 +10,19 @@ import.meta.glob([
     '../assets/**'
 ])
 
-document.fonts.onloadingdone = () => {
-    console.log("init");
+function init(){
+    logger("Init...")
     initUtils();
     initAssets();
 }
 
-// function init() {
-//     console.log("init");
+ if (import.meta.env.DEV) {
+    document.fonts.load('1em Roboto').then(function (a) {
+        setTimeout(() => {
+            init();
+        }, 500);
+	});
+} else {
+    window.addEventListener('load', init);
+}
 
-// }
-
-// window.addEventListener('load', init);
