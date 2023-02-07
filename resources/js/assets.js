@@ -49,7 +49,7 @@ export function initAssets() {
 
 
     // Language
-    if (document.getElementById("languageChoice") !== undefined) {
+    if (document.getElementById("languageChoice") != undefined) {
         document.addEventListener("click", function (e) {
             if (e.target == document.getElementById("languageIcon") || e.target == document.getElementById("languageIcon").querySelector('svg') || e.target == document.getElementById("languageIcon").querySelector('path')) {
                 if (!document.getElementById("languageChoice").classList.contains("languageShown"))
