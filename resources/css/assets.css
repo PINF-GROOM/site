@@ -188,13 +188,22 @@
 .calendarStart div {
     padding-right: 5px;
     margin-left: 5px;
-    border-radius: 30px 0 0 30px;
+    /* border-radius: 30px 0 0 30px; */
+
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
 }
 
 .calendarEnd div {
     padding-left: 5px;
     margin-right: 5px;
-    border-radius: 0 30px 30px 0;
+    /* border-radius: 0 30px 30px 0; */
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+}
+
+.calendarDay.calendarStart:is(.calendarEnd) div{
+    border-radius: 30px;
 }
 
 .calendarMiddle div {
@@ -209,18 +218,18 @@
 
 /* Header */
 header {
-    width: calc(100vw - 40px);
-    height: 100px;
+    width: calc(100vw - 50px);
+    height: 80px;
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: 0 20px;
+    padding: 0 30px 0 20px;
     background-color: var(--main-color-blanc-muguet);
     box-shadow: var(--main-shadow-classic);
 }
 
 header>a>img {
-    height: 72px;
+    height: 65px;
     width: auto;
 }
 
@@ -236,12 +245,13 @@ header nav a:link,
 header nav a:visited,
 header nav a:active {
     font-family: 'Overpass';
-    font-size: 30px;
+    font-size: 25px;
     font-weight: 400;
     text-decoration: none;
     color: var(--main-color-marron-bois);
     transition: var(--main-bezier);
     transition-duration: 200ms;
+    margin-top: 2px;
 }
 
 header nav a:hover {
@@ -274,10 +284,9 @@ header>div>div svg:hover {
     flex-direction: column;
     align-items: center;
     position: absolute;
-    left: -12px;
-    /* padding: 15px 15px; */
+    left: -8px;
     padding: 0;
-    height: 0px;
+    height: 0;
     background-color: var(--main-color-blanc-muguet);
     gap: 8px;
     box-shadow: var(--main-shadow-modal);
@@ -302,25 +311,25 @@ header>div>div svg:hover {
 @keyframes showLanguage {
     from {
         height: 0;
-        padding: 0 15px;
+        padding: 0 10px;
     }
 
     to {
-        padding: 15px 15px;
-        height: 184px;
+        padding: 10px 10px;
+        height: 156px;
     }
 }
 
 @keyframes hideLanguage {
 
     from {
-        padding: 15px 15px;
-        height: 184px;
+        padding: 10px 10px;
+        height: 156px;
     }
 
     to {
         height: 0;
-        padding: 0 15px;
+        padding: 0 10px;
     }
 }
 
