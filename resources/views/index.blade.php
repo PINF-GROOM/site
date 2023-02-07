@@ -11,7 +11,9 @@
 </head>
 <body>
     <div id="content">
-        <h1>Main</h1>
+        <x-header></x-header>
+        <x-form.button disabled small icon="{{ Vite::asset('resources/assets/icons/download.svg') }}">Bouton</x-form.button>
+        <x-index.card></x-index.card>
     </div>
 </body>
 </html>
