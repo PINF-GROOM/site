@@ -91,36 +91,36 @@
             </section>
             <section>
                 <div style="display: flex; gap: 10px;">
-                    <x-button disabled>Bouton d'action</x-button>
-                    <x-button disabled icon="{{ Vite::asset('resources/assets/icons/download.svg') }}">Bouton d'action
-                    </x-button>
-                    <x-button disabled small>Bouton d'action</x-button>
-                    <x-button disabled small icon="{{ Vite::asset('resources/assets/icons/download.svg') }}">Bouton
-                        d'action</x-button>
+                    <x-form.button disabled>Bouton d'action</x-form.button>
+                    <x-form.button disabled icon="{{ Vite::asset('resources/assets/icons/download.svg') }}">Bouton d'action
+                    </x-form.button>
+                    <x-form.button disabled small>Bouton d'action</x-form.button>
+                    <x-form.button disabled small icon="{{ Vite::asset('resources/assets/icons/download.svg') }}">Bouton
+                        d'action</x-form.button>
                 </div>
                 <div style="display: flex; gap: 10px;">
-                    <x-button>Bouton d'action</x-button>
-                    <x-button icon="{{ Vite::asset('resources/assets/icons/download.svg') }}">Bouton d'action
-                    </x-button>
-                    <x-button small>Bouton d'action</x-button>
-                    <x-button small icon="{{ Vite::asset('resources/assets/icons/download.svg') }}">Bouton d'action
-                    </x-button>
+                    <x-form.button>Bouton d'action</x-form.button>
+                    <x-form.button icon="{{ Vite::asset('resources/assets/icons/download.svg') }}">Bouton d'action
+                    </x-form.button>
+                    <x-form.button small>Bouton d'action</x-form.button>
+                    <x-form.button small icon="{{ Vite::asset('resources/assets/icons/download.svg') }}">Bouton d'action
+                    </x-form.button>
                 </div>
                 <div style="display: flex; gap: 10px;">
-                    <x-button style="accept">Bouton d'action</x-button>
-                    <x-button style="accept" icon="{{ Vite::asset('resources/assets/icons/download.svg') }}">Bouton
-                        d'action</x-button>
-                    <x-button style="accept" small>Bouton d'action</x-button>
-                    <x-button style="accept" small icon="{{ Vite::asset('resources/assets/icons/download.svg') }}">
-                        Bouton d'action</x-button>
+                    <x-form.button style="accept">Bouton d'action</x-form.button>
+                    <x-form.button style="accept" icon="{{ Vite::asset('resources/assets/icons/download.svg') }}">Bouton
+                        d'action</x-form.button>
+                    <x-form.button style="accept" small>Bouton d'action</x-form.button>
+                    <x-form.button style="accept" small icon="{{ Vite::asset('resources/assets/icons/download.svg') }}">
+                        Bouton d'action</x-form.button>
                 </div>
                 <div style="display: flex; gap: 10px;">
-                    <x-button style="deny">Bouton d'action</x-button>
-                    <x-button style="deny" icon="{{ Vite::asset('resources/assets/icons/download.svg') }}">Bouton
-                        d'action</x-button>
-                    <x-button style="deny" small>Bouton d'action</x-button>
-                    <x-button style="deny" small icon="{{ Vite::asset('resources/assets/icons/download.svg') }}">
-                        Bouton d'action</x-button>
+                    <x-form.button style="deny">Bouton d'action</x-form.button>
+                    <x-form.button style="deny" icon="{{ Vite::asset('resources/assets/icons/download.svg') }}">Bouton
+                        d'action</x-form.button>
+                    <x-form.button style="deny" small>Bouton d'action</x-form.button>
+                    <x-form.button style="deny" small icon="{{ Vite::asset('resources/assets/icons/download.svg') }}">
+                        Bouton d'action</x-form.button>
                 </div>
             </section>
             <section>
