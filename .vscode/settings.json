@@ -23,12 +23,11 @@
         "bootstrap/": true,
         "composer*": true,
         "config/": true,
-        "database/": true,
         "node_modules/": true,
         "package*": true,
         "phpunit.xml": true,
         "storage/": true,
-        "vendor": true,
+        // "vendor": true,
         "vite.config.js": true
     },
     "[css]": {
@@ -41,5 +40,6 @@
     "bladeFormatter.format.sortHtmlAttributes": "code-guide",
     "[blade]": {
         "editor.defaultFormatter": "shufo.vscode-blade-formatter"
-    }
+    },
+    "php.version": "v8.2.1"
 }

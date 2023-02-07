@@ -10,7 +10,7 @@ export function logger(message, level) {
                 break;
 
             default:
-                console.log(message);
+                console.info(message);
                 break;
         }
     }
