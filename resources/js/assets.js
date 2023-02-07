@@ -1,3 +1,5 @@
+import { logger } from './logger'
+
 import calendarIconLeftArrow from '/resources/assets/icons/calendar/leftArrow.svg'
 import calendarIconRightArrow from '/resources/assets/icons/calendar/rightArrow.svg'
 import calendarIconToday from '/resources/assets/icons/calendar/today.svg'
@@ -34,14 +36,14 @@ export let selectionStart;
 export let selectionEnd;
 
 export function initAssets() {
-    console.log("Initializing assets.js...");
+    logger("Initializing assets.js...");
 
     // Convertir le tableau de dates prises de format string en format date
     convertDate();
 
     // Cookie de langue :
     let lang = getCookie("lang");
-    console.log(lang);
+    logger(lang);
     if (lang === null) {
         lang = "fr";
         setCookie("lang", lang);
@@ -381,7 +383,7 @@ function clearSelectionCalendar() {
 }
 
 function drawCurrentMonth() {
-    console.log("Current Month");
+    logger("Current Month");
     let firstDay = new Date(today.getFullYear(), today.getMonth());
 
     if (firstDay.getMonth == 11)
@@ -413,4 +415,4 @@ function getCookie(name) {
 }
 
 
-console.log("assets.js loaded");
+logger("assets.js loaded");

@@ -1,4 +1,4 @@
-@props(['disabled', 'icon', 'type' => 'button', 'style' => 'classic', 'class', 'small', 'accept', 'deny'])
+@props(['disabled', 'icon', 'type' => 'button', 'style' => 'classic', 'class', 'small', 'accept', 'deny', 'id'])
 
 {{-- Adding passed classes --}}
 @isset($class)
@@ -43,12 +43,12 @@
         @endphp
     @endisset
 
-    <a type="{{ $type }}" {{ $attributes }}>
+    <a type="{{ $type }}" {{ $attributes }} @isset($id) id="{{ $id }}" @endisset>
         <label>{{ $slot }}</label>
         <img src="{{ $icon }}" alt="icon">
     </a>
 
     {{-- Button without icon --}}
 @else
-    <button @isset($disabled) disabled @endisset {{ $attributes }}>{{ $slot }}</button>
+    <button @isset($disabled) disabled @endisset {{ $attributes }} @isset($id) id="{{ $id }}" @endisset>{{ $slot }}</button>
 @endisset
