@@ -25,12 +25,13 @@
                 <x-form.input type="password" style="shadow" placeholder="Mot de passe"
                     icon="{{ Vite::asset('resources/assets/icons/password.svg') }}"></x-form.input>
 
-                <figure>
-                    <!-- Pour réserver l'emplacement même si vide -->
-                </figure>
 
                 {{-- <input id="login" name=action type="submit" value="Se connecter"> --}}
                 <x-form.input type="submit" content="Se connecter"></x-form.input>
+                <figure>
+                    <!-- Pour réserver l'emplacement même si vide -->
+                    Identifiant ou mot de passe incorrect
+                </figure>
             </form>
         </div>
     </div>
