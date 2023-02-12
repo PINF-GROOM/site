@@ -179,6 +179,11 @@ dfn {
     font-style: italic;
 }
 
+figure{
+    color: var(--main-color-rouge-annulation);
+    font-style: italic;
+}
+
 /******************** Tables ********************/
 table {
     background-color: var(--main-color-blanc-muguet);
