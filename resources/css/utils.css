@@ -383,6 +383,7 @@ input:disabled:hover,
     width: 100%;
 }
 
+.inputPassword:not(.inputShadow) img,
 .inputIcon img {
     z-index: 10;
     width: 25px;
@@ -393,8 +394,8 @@ input:disabled:hover,
     filter: var(--main-color-filter-orange-ensoleille);
 }
 
-.inputIcon.disabled img,
-.inputIcon:is(.inputShadow).disabled img {
+
+.inputPassword.disabled img {
     filter: var(--main-color-filter-gris-bloque);
 }
 
@@ -760,3 +761,4 @@ a[type="button"]:is(.small) {
 a[type="button"]:is(.small) img {
     width: 22px;
 }
+
