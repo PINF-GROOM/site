@@ -24,20 +24,47 @@
         <input class="classicButton" type="submit" value="{{ $content }}">
     @break
 
+    @case('password')
+        @php
+            $attributes = $attributes->merge(['class' => 'inputPassword']);
+        @endphp
+
+        @isset($icon)
+            <div @class([$attributes['class'], 'inputIcon', 'disabled' => $disabled])>
+                <img src="{{ $icon }}" alt="icon">
+                <input type="{{ $type }}" {{ $attributes }} @if ($disabled) disabled @endif
+                    @isset($placeholder) placeholder="{{ $placeholder }}" @endisset
+                    @isset($id) id="{{ $id }}" @endisset />
+                <img class="seePassword" src="{{ Vite::asset('resources/assets/icons/see.svg') }}" alt="See password" draggable="false">
+            </div>
+
+            {{-- Input without icon --}}
+        @else
+            <div @class([$attributes['class'], 'disabled' => $disabled])>
+                <input type="{{ $type }}" {{ $attributes }} @if ($disabled) disabled @endif
+                    @isset($placeholder) placeholder="{{ $placeholder }}" @endisset
+                    @isset($id) id="{{ $id }}" @endisset />
+                <img class="seePassword" src="{{ Vite::asset('resources/assets/icons/see.svg') }}" alt="See password" draggable="false">
+            </div>
+        @endisset
+    @break
+
     {{-- Apply input style by default --}}
 
     @default
-        {{-- Button with icon --}}
+        {{-- Input with icon --}}
         @isset($icon)
-
-            <div @class([ $attributes['class'], 'inputIcon', 'disabled' => $disabled]) >
+            <div @class([$attributes['class'], 'inputIcon', 'disabled' => $disabled])>
                 <img src="{{ $icon }}" alt="icon">
-                <input type="{{ $type }}" {{ $attributes }} @if($disabled) disabled @endif @isset($placeholder) placeholder="{{ $placeholder }}" @endisset @isset($id) id="{{ $id }}" @endisset/>
+                <input type="{{ $type }}" {{ $attributes }} @if ($disabled) disabled @endif
+                    @isset($placeholder) placeholder="{{ $placeholder }}" @endisset
+                    @isset($id) id="{{ $id }}" @endisset />
             </div>
 
-            {{-- Button without icon --}}
+            {{-- Input without icon --}}
         @else
-            <input type="{{ $type }}" @if($disabled) disabled @endif {{ $attributes }} @isset($id) id="{{ $id }}" @endisset placeholder="{{ $placeholder }}"/>
+            <input type="{{ $type }}" @if ($disabled) disabled @endif {{ $attributes }}
+                @isset($id) id="{{ $id }}" @endisset placeholder="{{ $placeholder }}" />
         @endisset
 @endswitch
 

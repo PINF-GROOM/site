@@ -39,7 +39,7 @@
         </div>
 
         @env('local')
-            <p style="font-family: 'Inter';"> </p>
+        <p style="font-family: 'Inter';"> </p>
         @endenv
 
         <div style="padding: 50px 100px;">
@@ -78,6 +78,24 @@
                 <x-form.input placeholder="Input w/o icon w/o shadow disabled" disabled></x-form.input>
             </section>
             <section>
+                <x-form.input type="password" class="demoClass" style="shadow" placeholder="Input password w icon w shadow"
+                    icon="{{ Vite::asset('resources/assets/icons/user.svg') }}"></x-form.input>
+                <x-form.input type="password" style="shadow" placeholder="Input password w icon w shadow disabled" disabled
+                    icon="{{ Vite::asset('resources/assets/icons/user.svg') }}"></x-form.input>
+
+                <x-form.input type="password" placeholder="Input password w icon w/o shadow"
+                    icon="{{ Vite::asset('resources/assets/icons/user.svg') }}"></x-form.input>
+                <x-form.input type="password" placeholder="Input password w icon w/o shadow disabled" disabled
+                    icon="{{ Vite::asset('resources/assets/icons/user.svg') }}"></x-form.input>
+
+                <x-form.input type="password" style="shadow" placeholder="Input password w/o icon w shadow"></x-form.input>
+                <x-form.input type="password" style="shadow" placeholder="Input password w/o icon w shadow disabled" disabled></x-form.input>
+
+                <x-form.input type="password" placeholder="Input password w/o icon w/o shadow"></x-form.input>
+                <x-form.input type="password" placeholder="Input password w/o icon w/o shadow disabled" disabled></x-form.input>
+
+            </section>
+            <section>
                 <x-form.checkbox name="checkboxTest" title="Case à cocher"></x-form.checkbox>
                 <x-form.checkbox name="checkboxTest" title="Case à cocher"></x-form.checkbox>
                 <x-form.checkbox name="checkboxTest" title="Case à cocher" description="lorem ipsum dolor sit amet">
@@ -92,7 +110,8 @@
             <section>
                 <div style="display: flex; gap: 10px;">
                     <x-form.button disabled>Bouton d'action</x-form.button>
-                    <x-form.button disabled icon="{{ Vite::asset('resources/assets/icons/download.svg') }}">Bouton d'action
+                    <x-form.button disabled icon="{{ Vite::asset('resources/assets/icons/download.svg') }}">Bouton
+                        d'action
                     </x-form.button>
                     <x-form.button disabled small>Bouton d'action</x-form.button>
                     <x-form.button disabled small icon="{{ Vite::asset('resources/assets/icons/download.svg') }}">Bouton
@@ -103,23 +122,28 @@
                     <x-form.button icon="{{ Vite::asset('resources/assets/icons/download.svg') }}">Bouton d'action
                     </x-form.button>
                     <x-form.button small>Bouton d'action</x-form.button>
-                    <x-form.button small icon="{{ Vite::asset('resources/assets/icons/download.svg') }}">Bouton d'action
+                    <x-form.button small icon="{{ Vite::asset('resources/assets/icons/download.svg') }}">Bouton
+                        d'action
                     </x-form.button>
                 </div>
                 <div style="display: flex; gap: 10px;">
                     <x-form.button style="accept">Bouton d'action</x-form.button>
-                    <x-form.button style="accept" icon="{{ Vite::asset('resources/assets/icons/download.svg') }}">Bouton
+                    <x-form.button style="accept" icon="{{ Vite::asset('resources/assets/icons/download.svg') }}">
+                        Bouton
                         d'action</x-form.button>
                     <x-form.button style="accept" small>Bouton d'action</x-form.button>
-                    <x-form.button style="accept" small icon="{{ Vite::asset('resources/assets/icons/download.svg') }}">
+                    <x-form.button style="accept" small
+                        icon="{{ Vite::asset('resources/assets/icons/download.svg') }}">
                         Bouton d'action</x-form.button>
                 </div>
                 <div style="display: flex; gap: 10px;">
                     <x-form.button style="deny">Bouton d'action</x-form.button>
-                    <x-form.button style="deny" icon="{{ Vite::asset('resources/assets/icons/download.svg') }}">Bouton
+                    <x-form.button style="deny" icon="{{ Vite::asset('resources/assets/icons/download.svg') }}">
+                        Bouton
                         d'action</x-form.button>
                     <x-form.button style="deny" small>Bouton d'action</x-form.button>
-                    <x-form.button style="deny" small icon="{{ Vite::asset('resources/assets/icons/download.svg') }}">
+                    <x-form.button style="deny" small
+                        icon="{{ Vite::asset('resources/assets/icons/download.svg') }}">
                         Bouton d'action</x-form.button>
                 </div>
             </section>
