@@ -31,7 +31,7 @@
 /************* Variables definitions ************/
 :root {
     /****** Graphical charter colors ******/
-    --main-color-marron-bois: #281910;
+    --main-color-marron-bois: #1F120B;
     --main-color-orange-ensoleille: #DB7F13;
     --main-color-jaune-ensoleille: #FAFF01;
     --main-color-vert-feuillage: #117C3C;
@@ -44,7 +44,7 @@
 
     /********** Hover variations **********/
     --main-color-hover-orange-ensoleille: #F58E15;
-    --main-color-hover-marron-bois: #835234;
+    --main-color-hover-marron-bois: #382214;
     --main-color-hover-rouge-annulation: #E56250;
     --main-color-hover-vert-validation: #1BC45F;
 
@@ -155,7 +155,8 @@ strong {
 
 label,
 button,
-a[type="button"] {
+a[type="button"],
+input[type="submit"] {
     font-size: 25px;
 }
 
@@ -223,6 +224,7 @@ section {
 
 /*************** Disabled elements **************/
 input[type="text"]:disabled,
+input[type="password"]:disabled,
 textarea:disabled,
 .checkBox:is(.disabled) div:first-of-type {
     outline: 2px solid var(--main-color-gris-bloque);
@@ -235,6 +237,7 @@ textarea:disabled,
 }
 
 input[type="text"]:not(.inputShadow):disabled:hover,
+input[type="password"]:not(.inputShadow):disabled:hover,
 textarea:disabled:hover,
 .checkBox:is(.disabled):hover div:first-of-type {
     outline: 2px solid var(--main-color-gris-bloque);
@@ -242,7 +245,8 @@ textarea:disabled:hover,
     cursor: default;
 }
 
-.inputIcon:is(.inputShadow:hover) input[type="text"]{
+.inputIcon:is(.inputShadow:hover) input[type="text"],
+.inputIcon:is(.inputShadow:hover) input[type="password"]{
     outline: none;
 }
 
@@ -280,8 +284,11 @@ textarea,
 .selectTitle>label,
 a[type="button"],
 a[type="button"]>label,
+input[type="submit"],
 input[type="text"]:is(.inputShadow),
-.inputIcon:is(.inputShadow) input[type="text"] {
+.inputIcon:is(.inputShadow) input[type="text"],
+input[type="password"]:is(.inputShadow),
+.inputIcon:is(.inputShadow) input[type="password"] {
     font-family: var(--main-clickable-language);
     transition-duration: 200ms;
     transition-timing-function: var(--main-bezier);
@@ -347,6 +354,7 @@ textarea {
 
 /****************** Text input ******************/
 input[type="text"],
+input[type="password"],
 input[type="number"],
 input[type="phone"],
 input[type="mail"] {
@@ -369,9 +377,10 @@ input:disabled:hover,
     width: 100%;
 }
 
+.inputIcon input[type="password"],
 .inputIcon input[type="text"] {
     padding-left: 35px;
-    width: calc(100% - 50px);
+    width: 100%;
 }
 
 .inputIcon img {
@@ -392,7 +401,9 @@ input:disabled:hover,
 
 /************ Shadow input ************/
 input[type="text"]:is(.inputShadow),
-.inputIcon:is(.inputShadow) input[type="text"] {
+.inputIcon:is(.inputShadow) input[type="text"],
+input[type="password"]:is(.inputShadow),
+.inputIcon:is(.inputShadow) input[type="password"] {
     outline: none;
     background-color: var(--main-color-blanc-champignon);
     box-shadow: var(--main-shadow-classic);
@@ -417,7 +428,8 @@ input::-webkit-inner-spin-button {
 
 /************ Buttons & input button ************/
 button,
-a[type="button"] {
+a[type="button"],
+input[type="submit"] {
     display: flex;
     align-items: center;
     width: fit-content;
@@ -427,7 +439,7 @@ a[type="button"] {
     gap: 15px;
 }
 
-a[type="button"] {
+a[type="button"]{
     padding-right: 18px;
 }
 

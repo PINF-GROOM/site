@@ -20,7 +20,8 @@
 @endswitch
 
 @switch($type)
-    @case('notText')
+    @case('submit')
+        <input class="classicButton" type="submit" value="{{ $content }}">
     @break
 
     {{-- Apply input style by default --}}
@@ -31,12 +32,12 @@
 
             <div @class([ $attributes['class'], 'inputIcon', 'disabled' => $disabled]) >
                 <img src="{{ $icon }}" alt="icon">
-                <input type="text" {{ $attributes }} @if($disabled) disabled @endif @isset($placeholder) placeholder="{{ $placeholder }}" @endisset @isset($id) id="{{ $id }}" @endisset/>
+                <input type="{{ $type }}" {{ $attributes }} @if($disabled) disabled @endif @isset($placeholder) placeholder="{{ $placeholder }}" @endisset @isset($id) id="{{ $id }}" @endisset/>
             </div>
 
             {{-- Button without icon --}}
         @else
-            <input type="text" @if($disabled) disabled @endif {{ $attributes }} @isset($id) id="{{ $id }}" @endisset placeholder="{{ $placeholder }}"/>
+            <input type="{{ $type }}" @if($disabled) disabled @endif {{ $attributes }} @isset($id) id="{{ $id }}" @endisset placeholder="{{ $placeholder }}"/>
         @endisset
 @endswitch
 

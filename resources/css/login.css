@@ -1,0 +1,35 @@
+#content{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100vw;
+    height: 100vh;
+    background-color: var(--main-color-marron-bois);
+}
+
+#loginBox{
+    /* background-color: var(--main-color-marron-bois); */
+    background-color: var(--main-color-blanc-lichen);
+    width: 460px;
+    padding: 30px 20px;
+    height: fit-content;
+    border-radius: 30px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+    box-shadow: var(--main-shadow-modal);
+}
+
+#loginBox a.logo img{
+    width: 400px;
+}
+
+#loginBox form{
+    padding-top: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+    width: 400px;
+}

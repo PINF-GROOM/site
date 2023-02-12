@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,14 +8,32 @@
     <title>Vincent Masseron</title>
 
     <!-- Styles -->
-    {{-- TODO: Plutôt que de passer par ça pour inclure les trucs, on pourrait pas plutôt appeler ceux qui sont nécessaires? --}}
-    @vite(['resources/css/app.css', 'resources/js/app.js'])
+    @vite(['resources/css/app.css', 'resources/css/login.css', 'resources/js/app.js'])
 </head>
+
 <body>
     <div id="content">
-        <x-header></x-header>
-        <x-form.button disabled small icon="{{ Vite::asset('resources/assets/icons/download.svg') }}">Bouton</x-form.button>
-        <x-index.card></x-index.card>
+        <div id="loginBox">
+
+            <a class="logo" href="/"><img src="{{ Vite::asset('resources/assets/logo/long-name.svg') }}"
+                    alt="Logo Vincent Masseron"></a>
+
+
+            <form action="controller.php" method="POST">
+                <x-form.input style="shadow" placeholder="Identifiant"
+                    icon="{{ Vite::asset('resources/assets/icons/user.svg') }}"></x-form.input>
+                <x-form.input type="password" style="shadow" placeholder="Mot de passe"
+                    icon="{{ Vite::asset('resources/assets/icons/password.svg') }}"></x-form.input>
+
+                <figure>
+                    <!-- Pour réserver l'emplacement même si vide -->
+                </figure>
+
+                {{-- <input id="login" name=action type="submit" value="Se connecter"> --}}
+                <x-form.input type="submit" content="Se connecter"></x-form.input>
+            </form>
+        </div>
     </div>
 </body>
+
 </html>
