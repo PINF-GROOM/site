@@ -1,6 +1,7 @@
 import './bootstrap';
 import { initUtils } from './utils';
-import { initAssets, selectionStart, selectionEnd} from './assets';
+import { initAssets, selectionStart, selectionEnd} from './calendar';
+import { initHeader } from './header';
 import { logger } from './logger'
 
 import '../css/utils.css'
@@ -14,6 +15,7 @@ function init(){
     logger("Init...")
     initUtils();
     initAssets();
+    initHeader();
 }
 
  if (import.meta.env.DEV) {

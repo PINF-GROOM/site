@@ -70,7 +70,6 @@ export function initUtils() {
 
     });
     content.addEventListener('mouseup', (e) => {
-        console.log("oui");
         var passInputs = document.getElementsByClassName("inputPassword");
         for (let i = 0; i < passInputs.length; i++) {
             if (passInputs[i].tagName == "INPUT"){
