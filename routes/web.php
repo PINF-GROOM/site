@@ -21,6 +21,9 @@ Route::get('/welcome', function () {
     return view('welcome');
 });
 
+
+
+// Dev only :
 Route::get('/demo', function () {
     return view('demo');
 });
