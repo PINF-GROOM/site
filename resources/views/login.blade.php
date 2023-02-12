@@ -30,7 +30,7 @@
                 <x-form.input type="submit" content="Se connecter"></x-form.input>
                 <figure>
                     <!-- Pour réserver l'emplacement même si vide -->
-                    Identifiant ou mot de passe incorrect
+                    {{-- Identifiant ou mot de passe incorrect --}}
                 </figure>
             </form>
         </div>
