@@ -39,7 +39,8 @@
         </div>
 
         <div id="carousel">
-            <img src="{{ Vite::asset('resources/assets/demo/demo3.jpg') }}" alt="demo3">
+            <img class="CarouselImageDisplayed" src="{{ Vite::asset('resources/assets/demo/demo3.jpg') }}"
+                alt="demo3">
             <div class="carouselRight">
                 <img src="{{ Vite::asset('resources/assets/demo/demo1.jpg') }}" alt="demo1">
                 <img src="{{ Vite::asset('resources/assets/demo/demo2.jpg') }}" alt="demo2">
@@ -48,6 +49,11 @@
                 <img src="{{ Vite::asset('resources/assets/demo/demo6.jpg') }}" alt="demo6">
                 <img src="{{ Vite::asset('resources/assets/demo/demo7.jpg') }}" alt="demo7">
             </div>
+        </div>
+        <button class="carouselNext">Suivant</button>
+        <button class="carouselPrevious">Précédent</button>
+        <div id="imagePopup">
+            <img src="{{ Vite::asset('resources/assets/demo/demo3.jpg') }}" alt="demo3">
         </div>
 
         @env('local')
