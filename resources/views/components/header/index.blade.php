@@ -1,4 +1,4 @@
-@props(['index', 'contact'])
+@props(['index', 'contact', ])
 
 <header>
     <a href="index.html"><img src="{{ Vite::asset('resources/assets/logo/long-name.svg') }}"
