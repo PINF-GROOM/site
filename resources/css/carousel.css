@@ -9,7 +9,6 @@
 
 #carousel > img{
     width: 100%;
-    border-radius: 30px;
     object-fit: cover;
     object-position: center;
     border-radius: 10px;
@@ -34,5 +33,28 @@
 }
 
 #imagePopup{
+    display: none;
+    z-index: 999;
     position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.6);
+    /* display: flex; */
+    align-items: center;
+    justify-content: center;
+}
+
+#imagePopup:hover{
+    cursor: pointer;
+}
+
+#imagePopup img{
+    max-width: 90vw;
+    max-height: 95vh;
+}
+
+#imagePopup img:hover{
+    cursor: default;
 }

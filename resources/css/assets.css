@@ -228,7 +228,7 @@ header {
     box-shadow: var(--main-shadow-classic);
     position: fixed;
     top: 0;
-    z-index: 9999;
+    z-index: 900;
 }
 
 header>a>img {
