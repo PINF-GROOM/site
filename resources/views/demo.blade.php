@@ -26,7 +26,7 @@
     </script>
 
     <!-- Styles -->
-    @vite(['resources/css/app.css', 'resources/js/app.js', 'resources/js/header.js'])
+    @vite(['resources/css/app.css', 'resources/css/carousel.css', 'resources/js/app.js', 'resources/js/header.js'])
 </head>
 
 <body class="antialiased">
@@ -36,6 +36,18 @@
 
     <div id="content" style="display: flex; flex-direction: column; gap: 20px; padding: 100px;">
         <div id="calendar">
+        </div>
+
+        <div id="carousel">
+            <img class="carouselDisplayed" src="{{ Vite::asset('resources/assets/demo/demo1.jpg') }}" alt="demo1">
+            <div class="carouselRight">
+                <img src="{{ Vite::asset('resources/assets/demo/demo2.jpg') }}" alt="demo2">
+                <img src="{{ Vite::asset('resources/assets/demo/demo3.jpg') }}" alt="demo3">
+                <img src="{{ Vite::asset('resources/assets/demo/demo4.jpg') }}" alt="demo4">
+                <img src="{{ Vite::asset('resources/assets/demo/demo5.jpg') }}" alt="demo5">
+                <img src="{{ Vite::asset('resources/assets/demo/demo6.jpg') }}" alt="demo6">
+                <img src="{{ Vite::asset('resources/assets/demo/demo7.jpg') }}" alt="demo7">
+            </div>
         </div>
 
         @env('local')
@@ -78,21 +90,25 @@
                 <x-form.input placeholder="Input w/o icon w/o shadow disabled" disabled></x-form.input>
             </section>
             <section>
-                <x-form.input type="password" class="demoClass" style="shadow" placeholder="Input password w icon w shadow"
+                <x-form.input class="demoClass" type="password" style="shadow"
+                    placeholder="Input password w icon w shadow"
                     icon="{{ Vite::asset('resources/assets/icons/user.svg') }}"></x-form.input>
-                <x-form.input type="password" style="shadow" placeholder="Input password w icon w shadow disabled" disabled
-                    icon="{{ Vite::asset('resources/assets/icons/user.svg') }}"></x-form.input>
+                <x-form.input type="password" style="shadow" placeholder="Input password w icon w shadow disabled"
+                    disabled icon="{{ Vite::asset('resources/assets/icons/user.svg') }}"></x-form.input>
 
                 <x-form.input type="password" placeholder="Input password w icon w/o shadow"
                     icon="{{ Vite::asset('resources/assets/icons/user.svg') }}"></x-form.input>
                 <x-form.input type="password" placeholder="Input password w icon w/o shadow disabled" disabled
                     icon="{{ Vite::asset('resources/assets/icons/user.svg') }}"></x-form.input>
 
-                <x-form.input type="password" style="shadow" placeholder="Input password w/o icon w shadow"></x-form.input>
-                <x-form.input type="password" style="shadow" placeholder="Input password w/o icon w shadow disabled" disabled></x-form.input>
+                <x-form.input type="password" style="shadow" placeholder="Input password w/o icon w shadow">
+                </x-form.input>
+                <x-form.input type="password" style="shadow" placeholder="Input password w/o icon w shadow disabled"
+                    disabled></x-form.input>
 
                 <x-form.input type="password" placeholder="Input password w/o icon w/o shadow"></x-form.input>
-                <x-form.input type="password" placeholder="Input password w/o icon w/o shadow disabled" disabled></x-form.input>
+                <x-form.input type="password" placeholder="Input password w/o icon w/o shadow disabled" disabled>
+                </x-form.input>
 
             </section>
             <section>
@@ -114,7 +130,8 @@
                         d'action
                     </x-form.button>
                     <x-form.button disabled small>Bouton d'action</x-form.button>
-                    <x-form.button disabled small icon="{{ Vite::asset('resources/assets/icons/download.svg') }}">Bouton
+                    <x-form.button disabled small icon="{{ Vite::asset('resources/assets/icons/download.svg') }}">
+                        Bouton
                         d'action</x-form.button>
                 </div>
                 <div style="display: flex; gap: 10px;">
