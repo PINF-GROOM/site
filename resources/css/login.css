@@ -1,32 +1,38 @@
 #content{
     display: flex;
+    flex-direction: column;
     align-items: center;
     justify-content: center;
     width: 100vw;
     height: 100vh;
-    background-color: var(--main-color-marron-bois);
+    background-color: var(--main-color-blanc-muguet);
+}
+
+#content a.logo img{
+    width: 400px;
+    margin-bottom: 20px;
 }
 
 #loginBox{
-    /* background-color: var(--main-color-marron-bois); */
-    background-color: var(--main-color-blanc-lichen);
-    width: 460px;
-    padding: 30px 20px;
-    height: fit-content;
-    border-radius: 30px;
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 20px;
+    width: 400px;
+    height: fit-content;
+    padding: 30px 50px;
+    border-radius: 30px;
+    background-color: var(--main-color-marron-bois);
+    /* background-color: var(--main-color-marron-bois); */
+    gap: 15px;
     box-shadow: var(--main-shadow-modal);
 }
 
-#loginBox a.logo img{
-    width: 400px;
+#loginBox h3{
+    color: var(--main-color-blanc-muguet);
+    margin: 0;
 }
 
 #loginBox form{
-    padding-top: 20px;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -35,7 +41,7 @@
 }
 
 #loginBox input[type="submit"]{
-    margin-top: 15px;
+    margin-top: 20px;
 }
 
 #loginBox figure{

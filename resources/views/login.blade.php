@@ -13,12 +13,10 @@
 
 <body>
     <div id="content">
+        <a class="logo" href="/"><img src="{{ Vite::asset('resources/assets/logo/long-name.svg') }}"
+                alt="Logo Vincent Masseron"></a>
         <div id="loginBox">
-
-            <a class="logo" href="/"><img src="{{ Vite::asset('resources/assets/logo/long-name.svg') }}"
-                    alt="Logo Vincent Masseron"></a>
-
-
+            <h3>Connexion à l'espace administrateur<h2>
             <form action="controller.php" method="POST">
                 <x-form.input style="shadow" placeholder="Identifiant"
                     icon="{{ Vite::asset('resources/assets/icons/user.svg') }}"></x-form.input>
