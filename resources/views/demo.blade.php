@@ -39,10 +39,10 @@
         </div>
 
         <div id="carousel">
-            <img class="carouselDisplayed" src="{{ Vite::asset('resources/assets/demo/demo1.jpg') }}" alt="demo1">
+            <img src="{{ Vite::asset('resources/assets/demo/demo3.jpg') }}" alt="demo3">
             <div class="carouselRight">
+                <img src="{{ Vite::asset('resources/assets/demo/demo1.jpg') }}" alt="demo1">
                 <img src="{{ Vite::asset('resources/assets/demo/demo2.jpg') }}" alt="demo2">
-                <img src="{{ Vite::asset('resources/assets/demo/demo3.jpg') }}" alt="demo3">
                 <img src="{{ Vite::asset('resources/assets/demo/demo4.jpg') }}" alt="demo4">
                 <img src="{{ Vite::asset('resources/assets/demo/demo5.jpg') }}" alt="demo5">
                 <img src="{{ Vite::asset('resources/assets/demo/demo6.jpg') }}" alt="demo6">
