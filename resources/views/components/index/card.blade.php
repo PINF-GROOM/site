@@ -12,15 +12,20 @@
                 {{ $localisation}}
             <p>
             <p>
+                <img src="{{Vite::asset('resources/assets/icons/beds.svg')}}" alt='bed'height='20' width='30'/>
                 {{ $couchages }}
+                @if($couchages==1)
+                    couchage
+                @else
+                    couchages
+                @endif
             </p>
 
         </div>
         <div>
-            <img src='' alt='etoile'/>
-            <p>
-                {{ $etoiles }}
-            </p>
+            <img src="{{Vite::asset('resources/assets/icons/stars.svg')}}" alt='star'height='20' width='30'/>
+            {{ $etoiles }}
+
         </div>
 
     </div>
