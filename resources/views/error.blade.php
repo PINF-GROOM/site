@@ -16,15 +16,20 @@
             <img src="{{ Vite::asset('resources/assets/icons/error.svg') }}" alt="icon error" class="picture"/>
             <div class="text">
                 <p class="bold">
-                    Erreur 404
+                    Erreur
+                    @php
+                        $error=404;
+                        echo $error;
+                    @endphp
                 </p>
                 <p>
                     Vous avez dû prendre un mauvais sentier et vous voici perdu.
                 </p>
 
-                <x-form.button>Bouton d'action</x-form.button>
+                <x-form.button>Revenir à l'accueil</x-form.button>
             </div>
         </div>
     </div>
 </body>
 </html>
+
