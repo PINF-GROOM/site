@@ -1,7 +1,28 @@
 import './bootstrap';
+import { initUtils } from './utils';
+import { initAssets, selectionStart, selectionEnd} from './assets';
+import { logger } from './logger'
 
-import Alpine from 'alpinejs';
+import '../css/utils.css'
+import '../css/assets.css'
 
-window.Alpine = Alpine;
+import.meta.glob([
+    '../assets/**'
+])
 
-Alpine.start();
+function init(){
+    logger("Init...")
+    initUtils();
+    initAssets();
+}
+
+ if (import.meta.env.DEV) {
+    document.fonts.load('1em Roboto').then(function (a) {
+        setTimeout(() => {
+            init();
+        }, 500);
+	});
+} else {
+    window.addEventListener('load', init);
+}
+
