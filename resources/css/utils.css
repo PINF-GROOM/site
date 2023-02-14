@@ -279,6 +279,17 @@ a[type="button"].disabled:hover label {
     cursor: default;
 }
 
+.inputShadow.inputIcon.disabled img,
+.inputIcon.disabled img,
+.inputPassword:is(.inputIcon).disabled img,
+.inputPassword:not(.inputIcon).disabled img {
+    filter: var(--main-color-filter-gris-bloque);
+}
+
+.inputPassword.disabled img.seePassword:hover{
+    cursor: default;
+}
+
 /********* Input & clickeable - General *********/
 a,
 input,
@@ -300,7 +311,6 @@ input[type="password"]:is(.inputShadow),
     border-radius: 10px;
     cursor: pointer;
 }
-
 
 input::placeholder,
 textarea::placeholder {
@@ -398,12 +408,6 @@ input:disabled:hover,
     margin-right: -32px;
     filter: var(--main-color-filter-orange-ensoleille);
 }
-
-
-.inputPassword.disabled img {
-    filter: var(--main-color-filter-gris-bloque);
-}
-
 
 /************ Shadow input ************/
 input[type="text"]:is(.inputShadow),
