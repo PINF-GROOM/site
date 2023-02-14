@@ -1,0 +1,26 @@
+.picture{
+    float : left;
+}
+
+#content{
+    padding: 300px 8vw;
+    background-color: var(--main-color-blanc-muguet);
+    width: calc(100% - 16vw);
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    grid-gap: 20px;
+}
+
+.picText{
+    display: block;
+    margin-left: auto;
+    margin-right: auto
+}
+
+.text{
+    padding-left: 400px;
+}
+
+.bold{
+    font-weight:700;
+}

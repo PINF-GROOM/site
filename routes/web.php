@@ -29,3 +29,7 @@ Route::get('/admin/login', function () {
 Route::get('/demo', function () {
     return view('demo');
 });
+
+Route::get('/error', function () {
+    return view('error');
+});
