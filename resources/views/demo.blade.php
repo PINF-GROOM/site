@@ -26,7 +26,7 @@
     </script>
 
     <!-- Styles -->
-    @vite(['resources/css/app.css', 'resources/js/app.js', 'resources/js/header.js'])
+    @vite(['resources/css/app.css', 'resources/css/carousel.css', 'resources/js/app.js', 'resources/js/header.js'])
 </head>
 
 <body class="antialiased">
@@ -38,6 +38,26 @@
         <div id="calendar">
         </div>
 
+        <div id="carousel">
+            <div class="carouselLeft">
+                <div id="carouselMovingPart">
+                    <img class="CarouselImageDisplayed" src="{{ Vite::asset('resources/assets/demo/demo1.jpg') }}"
+                        alt="demo1">
+                </div>
+            </div>
+            <div class="carouselRight">
+                <img src="{{ Vite::asset('resources/assets/demo/demo2.jpg') }}" alt="demo2">
+                <img src="{{ Vite::asset('resources/assets/demo/demo3.jpg') }}" alt="demo3">
+                <img src="{{ Vite::asset('resources/assets/demo/demo4.jpg') }}" alt="demo4">
+                <img src="{{ Vite::asset('resources/assets/demo/demo5.jpg') }}" alt="demo5">
+                <img src="{{ Vite::asset('resources/assets/demo/demo6.jpg') }}" alt="demo6">
+                <img src="{{ Vite::asset('resources/assets/demo/demo7.jpg') }}" alt="demo7">
+            </div>
+        </div>
+        <div id="imagePopup">
+            <img src="{{ Vite::asset('resources/assets/demo/demo3.jpg') }}" alt="demo3">
+        </div>
+
         @env('local')
         <p style="font-family: 'Inter';"> </p>
         @endenv
@@ -47,14 +67,17 @@
             <textarea id=2 style="width: 500px; height: 100px" placeholder="Result will be here" disabled></textarea>
             <input id=3 type="number" value="50" placeholder="Nombre de caractères" />
             <button class="classicButton"
-                onclick=" navigator.clipboard.writeText(document.getElementById('2').value);">Click me to copy</button>
+                onclick=" navigator.clipboard.writeText(document.getElementById('2').value);">Click me to
+                copy</button>
             <section>
                 <h1>Titre de niveau h1</h1>
                 <h2>Titre de niveau h2</h2>
                 <h3>Titre de niveau h3</h3>
                 <h4>Sous titre de niveau h4</h4>
-                <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quam ad, porro libero fuga accusamus soluta
-                    saepe quod quae quo eveniet impedit eos doloremque sapiente accusantium vel laudantium asperiores
+                <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quam ad, porro libero fuga
+                    accusamus soluta
+                    saepe quod quae quo eveniet impedit eos doloremque sapiente accusantium vel laudantium
+                    asperiores
                     dignissimos repudiandae?</p>
                 <p>Paragraphe en une ligne</p>
                 <dfn>Explication de terme ou de concept</dfn>
@@ -72,27 +95,32 @@
                     icon="{{ Vite::asset('resources/assets/icons/user.svg') }}"></x-form.input>
 
                 <x-form.input style="shadow" placeholder="Input w/o icon w shadow"></x-form.input>
-                <x-form.input style="shadow" placeholder="Input w/o icon w shadow disabled" disabled></x-form.input>
+                <x-form.input style="shadow" placeholder="Input w/o icon w shadow disabled" disabled>
+                </x-form.input>
 
                 <x-form.input placeholder="Input w/o icon w/o shadow"></x-form.input>
                 <x-form.input placeholder="Input w/o icon w/o shadow disabled" disabled></x-form.input>
             </section>
             <section>
-                <x-form.input type="password" class="demoClass" style="shadow" placeholder="Input password w icon w shadow"
+                <x-form.input class="demoClass" type="password" style="shadow"
+                    placeholder="Input password w icon w shadow"
                     icon="{{ Vite::asset('resources/assets/icons/user.svg') }}"></x-form.input>
-                <x-form.input type="password" style="shadow" placeholder="Input password w icon w shadow disabled" disabled
-                    icon="{{ Vite::asset('resources/assets/icons/user.svg') }}"></x-form.input>
+                <x-form.input type="password" style="shadow" placeholder="Input password w icon w shadow disabled"
+                    disabled icon="{{ Vite::asset('resources/assets/icons/user.svg') }}"></x-form.input>
 
                 <x-form.input type="password" placeholder="Input password w icon w/o shadow"
                     icon="{{ Vite::asset('resources/assets/icons/user.svg') }}"></x-form.input>
                 <x-form.input type="password" placeholder="Input password w icon w/o shadow disabled" disabled
                     icon="{{ Vite::asset('resources/assets/icons/user.svg') }}"></x-form.input>
 
-                <x-form.input type="password" style="shadow" placeholder="Input password w/o icon w shadow"></x-form.input>
-                <x-form.input type="password" style="shadow" placeholder="Input password w/o icon w shadow disabled" disabled></x-form.input>
+                <x-form.input type="password" style="shadow" placeholder="Input password w/o icon w shadow">
+                </x-form.input>
+                <x-form.input type="password" style="shadow" placeholder="Input password w/o icon w shadow disabled"
+                    disabled></x-form.input>
 
                 <x-form.input type="password" placeholder="Input password w/o icon w/o shadow"></x-form.input>
-                <x-form.input type="password" placeholder="Input password w/o icon w/o shadow disabled" disabled></x-form.input>
+                <x-form.input type="password" placeholder="Input password w/o icon w/o shadow disabled" disabled>
+                </x-form.input>
 
             </section>
             <section>
@@ -110,19 +138,23 @@
             <section>
                 <div style="display: flex; gap: 10px;">
                     <x-form.button disabled>Bouton d'action</x-form.button>
-                    <x-form.button disabled icon="{{ Vite::asset('resources/assets/icons/download.svg') }}">Bouton
+                    <x-form.button disabled icon="{{ Vite::asset('resources/assets/icons/download.svg') }}">
+                        Bouton
                         d'action
                     </x-form.button>
                     <x-form.button disabled small>Bouton d'action</x-form.button>
-                    <x-form.button disabled small icon="{{ Vite::asset('resources/assets/icons/download.svg') }}">Bouton
+                    <x-form.button disabled small icon="{{ Vite::asset('resources/assets/icons/download.svg') }}">
+                        Bouton
                         d'action</x-form.button>
                 </div>
                 <div style="display: flex; gap: 10px;">
                     <x-form.button>Bouton d'action</x-form.button>
-                    <x-form.button icon="{{ Vite::asset('resources/assets/icons/download.svg') }}">Bouton d'action
+                    <x-form.button icon="{{ Vite::asset('resources/assets/icons/download.svg') }}">Bouton
+                        d'action
                     </x-form.button>
                     <x-form.button small>Bouton d'action</x-form.button>
-                    <x-form.button small icon="{{ Vite::asset('resources/assets/icons/download.svg') }}">Bouton
+                    <x-form.button small icon="{{ Vite::asset('resources/assets/icons/download.svg') }}">
+                        Bouton
                         d'action
                     </x-form.button>
                 </div>
@@ -249,11 +281,13 @@
         </div>
     </div>
     <footer>
-        <p>Curabitur tempor quis eros tempus lacinia. Nam bibendum pellentesque quam a convallis. Sed ut vulputate
+        <p>Curabitur tempor quis eros tempus lacinia. Nam bibendum pellentesque quam a convallis. Sed ut
+            vulputate
             nisi.
             Integer in felis sed leo vestibulum venenatis. Suspendisse quis arcu sem. Aenean feugiat ex eu
             vestibulum
-            vestibulum. Morbi a eleifend magna. Nam metus lacus, porttitor eu mauris a, blandit ultrices nibh.</p>
+            vestibulum. Morbi a eleifend magna. Nam metus lacus, porttitor eu mauris a, blandit ultrices nibh.
+        </p>
         <div>
             <p>© 2022 Vincent Masseron</p>
             •

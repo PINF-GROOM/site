@@ -2,6 +2,7 @@ import './bootstrap';
 import { initUtils } from './utils';
 import { initAssets, selectionStart, selectionEnd} from './calendar';
 import { initHeader } from './header';
+import { initCarousel } from './carousel';
 import { logger } from './logger'
 
 import '../css/utils.css'
@@ -16,6 +17,7 @@ function init(){
     initUtils();
     initAssets();
     initHeader();
+    initCarousel();
 }
 
  if (import.meta.env.DEV) {

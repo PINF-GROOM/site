@@ -1,0 +1,118 @@
+#carousel {
+    width: 100%;
+    height: 60vh;
+    display: flex;
+    align-items: top;
+    justify-content: space-between;
+    gap: 10px;
+}
+
+.carouselLeft {
+    display: flex;
+    align-items: center;
+    position: relative;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    justify-content: center;
+
+}
+
+#imagePopup .carouselPrevious,
+.carouselLeft .carouselPrevious {
+    position: absolute;
+    width: 50px;
+    height: 50px;
+    left: 20px;
+    opacity: 0.2;
+    transition-duration: 0.5s;
+}
+
+#imagePopup .carouselNext,
+.carouselLeft .carouselNext {
+    position: absolute;
+    right: 20px;
+    width: 50px;
+    height: 50px;
+    opacity: 0.2;
+    transition-duration: 0.5s;
+}
+
+#imagePopup .carouselPrevious:hover,
+#imagePopup .carouselNext:hover,
+.carouselLeft .carouselPrevious:hover,
+.carouselLeft .carouselNext:hover {
+    cursor: pointer;
+    opacity: 0.5;
+    transition-duration: 0.2s;
+}
+
+.carouselLeft>img.carouselImageDisplayed {
+    min-width: 100%;
+    width: 100%;
+    height: 100%;
+    border-radius: 10px;
+    object-fit: cover;
+    object-position: center;
+}
+
+.carouselLeft>img:hover {
+    cursor: zoom-in;
+}
+
+#carousel .carouselRight {
+    display: flex;
+    flex-direction: column;
+    overflow-y: scroll;
+    width: 30%;
+    height: 100%;
+    gap: 10px;
+}
+
+#carousel .carouselRight img {
+    width: 100%;
+    border-radius: 10px;
+}
+
+.carouselQueueItem:hover {
+    cursor: pointer;
+}
+
+#imagePopup {
+    display: none;
+    z-index: 999;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    align-items: center;
+    justify-content: center;
+    background-color: rgba(0, 0, 0, 0.8);
+    transition: background-color 0.3s;
+}
+
+#imagePopup:hover {
+    cursor: pointer;
+}
+
+#imagePopup:not(:has(img:hover)):hover {
+    background-color: rgba(0, 0, 0, 0.75);
+}
+
+#imagePopup div{
+    display: flex;
+    align-items: center;
+    width: fit-content;
+    height: fit-content;
+    position: relative;
+}
+
+#imagePopup img {
+    max-width: 90vw;
+    max-height: 95vh;
+}
+
+#imagePopup img:hover {
+    cursor: default;
+}
