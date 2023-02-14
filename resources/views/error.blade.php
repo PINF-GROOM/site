@@ -15,18 +15,18 @@
         <div class="picText">
             <img src="{{ Vite::asset('resources/assets/icons/error.svg') }}" alt="icon error" class="picture"/>
             <div class="text">
-                <p class="bold">
+                <h1 class="bold">
                     Erreur
                     @php
                         $error=404;
                         echo $error;
                     @endphp
-                </p>
+                </h1>
                 <p>
                     Vous avez dû prendre un mauvais sentier et vous voici perdu.
                 </p>
 
-                <x-form.button>Revenir à l'accueil</x-form.button>
+                <x-form.button class="button">Revenir à l'accueil</x-form.button>
             </div>
         </div>
     </div>
