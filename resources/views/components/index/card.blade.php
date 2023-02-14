@@ -1,21 +1,21 @@
-@props(['img', 'designation', 'localisation', 'couchages', 'description', 'etoiles', 'id', 'lien'])
+@props(['img', 'name', 'location', 'beds', 'description', 'rating', 'id', 'link'])
 
 <div class="productCard">
-    <img src='{{ $img }}' alt='logement'height='120' width='200' />
+    <img src='{{ $img }}' alt='logement icon' height='120' width='200' />
     <div class="productCardBottom">
         <div class="productCardHeader">
             <div class="productCardTitle">
                 <h3>
-                    {{ $designation }}
+                    {{ $name }}
                 </h3>
                 <p>
-                    {{ $localisation }}
+                    {{ $location }}
                 <p>
                 <div class="productCardBeds">
-                    <img src="{{ Vite::asset('resources/assets/icons/beds.svg') }}" alt='bed'height='20'
+                    <img src="{{ Vite::asset('resources/assets/icons/beds.svg') }}" alt='bed icon' height='20'
                         width='30' />
-                    {{ $couchages }}
-                    @if ($couchages > 1)
+                    {{ $beds }}
+                    @if ($beds > 1)
                         couchages
                     @else
                         couchage
@@ -24,10 +24,10 @@
 
             </div>
             <div class="productCardRanking">
-                <img src="{{ Vite::asset('resources/assets/icons/stars.svg') }}" alt='star'height='20'
+                <img src="{{ Vite::asset('resources/assets/icons/stars.svg') }}" alt='rating icon' height='20'
                     width='30' />
                 <label>
-                    {{ $etoiles }}
+                    {{ $rating }}
                 </label>
             </div>
         </div>
@@ -35,7 +35,7 @@
             <p>
                 {{ $description }}
             </p>
-            <a href="{{ $lien }}">
+            <a href="{{ $link }}">
                 Voir plus de détails
             </a>
         </div>
