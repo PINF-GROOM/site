@@ -53,8 +53,6 @@
                 <img src="{{ Vite::asset('resources/assets/demo/demo7.jpg') }}" alt="demo7">
             </div>
         </div>
-        <button class="carouselNext">Suivant</button>
-        <button class="carouselPrevious">Précédent</button>
         <div id="imagePopup">
             <img src="{{ Vite::asset('resources/assets/demo/demo3.jpg') }}" alt="demo3">
         </div>
