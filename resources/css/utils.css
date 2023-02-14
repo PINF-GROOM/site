@@ -301,7 +301,6 @@ input[type="password"]:is(.inputShadow),
     cursor: pointer;
 }
 
-
 input::placeholder,
 textarea::placeholder {
     font-weight: var(--main-weight-light);
