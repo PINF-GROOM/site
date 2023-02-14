@@ -33,7 +33,8 @@ export function initCarousel() {
         });
     }
 
-    if (document.getElementById("content") != undefined)
+
+    if (document.getElementById("content") != undefined) {
         document.getElementById("content").addEventListener("click", e => {
             if (e.target.classList.contains("carouselImageDisplayed")) {
                 var popup = document.getElementById("imagePopup");
@@ -44,6 +45,20 @@ export function initCarousel() {
                 generateCarousel(false, e.target.src);
             }
         });
+
+        document.addEventListener('keydown', (e) => {
+            console.log(e.key);
+            if (document.getElementById("imagePopup") != undefined)
+                if (document.getElementById("imagePopup").style.display != "none") {
+                    if (e.key == "ArrowRight")
+                        nextImage();
+                    else if (e.key == "ArrowLeft")
+                        previousImage();
+                    else if (e.key == "Escape")
+                        document.getElementById("imagePopup").style.display = "none";
+                }
+        });
+    }
 }
 
 
@@ -72,9 +87,9 @@ function generateCarousel(next, src) {
     content += "<img class = 'carouselNext' src='" + carouselNext + "'>";
     content += "<img class = 'carouselPrevious' src='" + carouselPrevious + "'>";
     console.log(src);
-    if(src != undefined){
+    if (src != undefined) {
         for (let i = 0; i < carouselImages.length; i++) {
-            if(src == carouselImages[i]){
+            if (src == carouselImages[i]) {
                 for (let y = 0; y < i; y++) {
                     carouselImages.push(carouselImages.shift());
                 }
@@ -86,8 +101,14 @@ function generateCarousel(next, src) {
     else
         carouselImages.unshift(carouselImages.pop());
 
-    popup.innerHTML = "<img class='carouselImageDisplayed' src='" + carouselImages[0] + "'/>";
-    content += "<img class='carouselImageDisplayed' src='" + carouselImages[carouselImages.length-1] + "'/>";
+    var popupContent = "<div class='carouselPopupImage'>";
+    popupContent += "<img class = 'carouselNext' src='" + carouselNext + "'>";
+    popupContent += "<img class = 'carouselPrevious' src='" + carouselPrevious + "'>";
+    popupContent += "<img class='carouselImageDisplayed' src='" + carouselImages[0] + "'/></div>";
+    popup.innerHTML = popupContent;
+
+
+    content += "<img class='carouselImageDisplayed' src='" + carouselImages[carouselImages.length - 1] + "'/>";
     content += "<img class='carouselImageDisplayed' src='" + carouselImages[0] + "'/>";
     content += "<img class='carouselImageDisplayed' src='" + carouselImages[1] + "'/>";
     content += "</div><div class='carouselRight'>";
@@ -102,6 +123,12 @@ function generateCarousel(next, src) {
         generateCarousel(true);
     });
     document.getElementsByClassName("carouselPrevious")[0].addEventListener("click", function () {
+        generateCarousel(false);
+    });
+    document.getElementsByClassName("carouselNext")[1].addEventListener("click", function () {
+        generateCarousel(true);
+    });
+    document.getElementsByClassName("carouselPrevious")[1].addEventListener("click", function () {
         generateCarousel(false);
     });
 }

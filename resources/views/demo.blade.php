@@ -40,10 +40,11 @@
 
         <div id="carousel">
             <div class="carouselLeft">
-                <img class="CarouselImageDisplayed" src="{{ Vite::asset('resources/assets/demo/demo1.jpg') }}"
-                    alt="demo1">
+                <div id="carouselMovingPart">
+                    <img class="CarouselImageDisplayed" src="{{ Vite::asset('resources/assets/demo/demo1.jpg') }}"
+                        alt="demo1">
+                </div>
             </div>
-
             <div class="carouselRight">
                 <img src="{{ Vite::asset('resources/assets/demo/demo2.jpg') }}" alt="demo2">
                 <img src="{{ Vite::asset('resources/assets/demo/demo3.jpg') }}" alt="demo3">
