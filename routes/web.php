@@ -33,3 +33,7 @@ Route::get('/maintenance', function () {
 Route::get('/demo', function () {
     return view('demo');
 });
+
+Route::get('/error', function () {
+    return view('error');
+});
