@@ -24,7 +24,7 @@
 
             </div>
             <div class="productCardRanking">
-                <img src="{{ Vite::asset('resources/assets/icons/stars.svg') }}" alt='rating icon' height='20'
+                <img src="{{ Vite::asset('resources/assets/icons/fullStar.svg') }}" alt='rating icon' height='20'
                     width='30' />
                 <label>
                     {{ $rating }}

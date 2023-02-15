@@ -24,6 +24,14 @@
             document.getElementById("2").value = result += "*/";
         }
     </script>
+    <style>
+        section {
+            border-top: 1px solid var(--main-color-marron-bois);
+            margin-top: 20px;
+            padding: 20px 0;
+            flex-direction: column;
+        }
+    </style>
 
     <!-- Styles -->
     @vite(['resources/css/app.css', 'resources/css/carousel.css', 'resources/js/app.js', 'resources/js/header.js'])

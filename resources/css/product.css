@@ -1,0 +1,161 @@
+#content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 100px 8vw;
+    gap: 60px;
+}
+
+#content>p {
+    text-align: justify;
+    font-weight: var(--main-weight-light);
+}
+
+.productTop {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    width: 100%;
+}
+
+.productInfos {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    justify-content: space-between;
+}
+
+.productInfos>div {
+    display: flex;
+    flex-direction: column;
+    align-items: left;
+}
+
+.productInfos>div h1 {
+    margin: 0;
+}
+
+.productInfos>div>p {
+    font-style: italic;
+    margin-top: -5px;
+}
+
+.productInfos>div>div {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    margin-top: 8px;
+}
+
+.productInfos>div>div>p {
+    margin-top: 3px;
+}
+
+.productInfos .rating {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.rating>div {
+    display: flex;
+    align-items: center;
+}
+
+.rating label {
+    color: var(--main-color-orange-ensoleille);
+    margin-top: 10px;
+    font-size: 30px;
+}
+
+.stars {
+    display: flex;
+    align-items: center;
+    gap: 1px;
+}
+
+.stars img {
+    height: 50px;
+    width: 50px;
+    margin: 0 -2px;
+}
+
+
+section#reservation {
+    flex-direction: row;
+}
+
+.reservationInformations {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.reservationInformations > p {
+    width: 100%;
+}
+
+.reservationDatas{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 5px;
+}
+
+.reservationDatas div{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.reservationInformations label{
+    color: var(--main-color-rouge-annulation);
+    font-size: 20px;
+}
+
+.reservationInformations dfn{
+    font-size: 13px;
+}
+
+
+
+.moreInformationsItem{
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    margin-left: 10px;
+}
+
+.moreInformationsItem img{
+    height: 15px;
+    width: auto;
+}
+
+.moreInformationsItem p{
+    margin-top: 3px;
+    font-weight: var(--main-weight-light);
+}
+
+
+/********************** Map *********************/
+#map {
+    /* la carte DOIT avoir une hauteur sinon elle n'apparaît pas */
+    height: 500px;
+    width: 100%;
+    padding: 0;
+}
+
+.leaflet-control-zoom a{
+    border-radius: 0px;
+}
+
+.leaflet-control-attribution{
+    padding-right: 20px
+}

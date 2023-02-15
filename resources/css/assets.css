@@ -7,10 +7,6 @@
     align-items: top;
     width: fit-content;
     height: fit-content;
-    padding: 20px;
-    border-radius: 30px;
-    background-color: var(--main-color-blanc-muguet);
-    box-shadow: var(--main-shadow-modal);
 }
 
 #calendarTop{
