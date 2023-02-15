@@ -37,3 +37,7 @@ Route::get('/demo', function () {
 Route::get('/error', function () {
     return view('error');
 });
+
+Route::get('/admin/history', function () {
+    return view('rentalHistory');
+});
