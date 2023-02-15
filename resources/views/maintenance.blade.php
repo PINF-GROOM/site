@@ -12,17 +12,19 @@
     </script>
 
     <!-- Styles -->
-    @vite(['resources/css/app.css', 'resources/js/app.js', 'resources/js/header.js'])
+    @vite(['resources/css/error.css', 'resources/js/app.js', 'resources/js/header.js'])
 </head>
 
 <body>
-    <x-header></x-header>
-    <div>
-        <img src="{{ Vite::asset('resources/assets/icons/maintenance.svg') }}" alt="icon maintenance">
-        <div>
-            <h1>Site en Maintenance</h1>
-            <p>Le site est actuellement en maintenance technique et n'est pas disponible. Veuillez réessayer plus tard.</p>
-            <x-form.button>Revenir à l'acceuil</x-form.button>
+    <div id="content">
+        <x-header></x-header>
+        <div class="picText">
+            <img class="picture" src="{{ Vite::asset('resources/assets/icons/maintenance.svg') }}" alt="icon maintenance">
+            <div class="text">
+                <h1 class="bold">Site en Maintenance</h1>
+                <p>Le site est actuellement en maintenance technique et n'est pas disponible. <br/>Veuillez réessayer plus tard.</p>
+                <x-form.button class="button">Revenir à l'acceuil</x-form.button>
+            </div>
         </div>
     </div>
 </body>
