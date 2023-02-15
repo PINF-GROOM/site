@@ -25,6 +25,10 @@ Route::get('/admin/login', function () {
     return view('login');
 });
 
+Route::get('/maintenance', function () {
+    return view('maintenance');
+});
+
 // Dev only :
 Route::get('/demo', function () {
     return view('demo');
