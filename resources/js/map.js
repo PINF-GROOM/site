@@ -6,8 +6,6 @@ var lon = 2.349903;
 var macarte = null;
 
 export function initMap() {
-    // Modify map style :
-    // https://www.youtube.com/watch?v=bdmc-prv6Ro
     logger("initMap" , "info");
     macarte = L.map('map').setView([lat, lon], 11);
     // Link to data source
