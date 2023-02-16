@@ -33,6 +33,22 @@
         }
     </style>
 
+    {{-- Favicons --}}
+
+
+    <link href="{{ Vite::asset('resources/assets/favicons/apple-touch-icon.png') }}" rel="apple-touch-icon"
+        sizes="180x180">
+    <link type="image/png" href="{{ Vite::asset('resources/assets/favicons/favicon-32x32.png') }}" rel="icon"
+        sizes="32x32">
+    <link type="image/png" href="{{ Vite::asset('resources/assets/favicons/favicon-16x16.png') }}" rel="icon"
+        sizes="16x16">
+    <link href="{{ Vite::asset('resources/assets/favicons/site.webmanifest') }}" rel="manifest">
+    <link href="{{ Vite::asset('resources/assets/favicons/safari-pinned-tab.svg') }}" rel="mask-icon" color="#5bbad5">
+    <link href="{{ Vite::asset('resources/assets/favicons/favicon.ico') }}" rel="shortcut icon">
+    <meta name="theme-color" content="#ffffff">
+
+
+
     <!-- Styles -->
     @vite(['resources/css/app.css', 'resources/css/carousel.css', 'resources/js/app.js', 'resources/js/header.js'])
 </head>
