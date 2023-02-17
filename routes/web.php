@@ -36,5 +36,13 @@ Route::get('/demo', function () {
     return view('demo');
 });
 
+Route::get('/a', function () {
+    return view('demo');
+})->middleware('auth');
+
+Route::get('/sa', function () {
+    return view('demo');
+})->middleware('sadmin');
+
 
 require __DIR__.'/auth.php';

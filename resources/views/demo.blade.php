@@ -39,7 +39,7 @@
         </div>
 
         @env('local')
-            <p style="font-family: 'Inter';"> </p>
+        <p style="font-family: 'Inter';"> </p>
         @endenv
 
         <div style="padding: 50px 100px;">
@@ -48,6 +48,15 @@
             <input id=3 type="number" value="50" placeholder="Nombre de caractères" />
             <button class="classicButton"
                 onclick=" navigator.clipboard.writeText(document.getElementById('2').value);">Click me to copy</button>
+            <section>
+                @php
+                    if (Auth::check()) {
+                        echo 'Connected as ', Auth::user()->isSAdmin() ? 'Super Admin' : 'Admin';
+                    } else {
+                        echo 'Not connected';
+                    }
+                @endphp
+            </section>
             <section>
                 <h1>Titre de niveau h1</h1>
                 <h2>Titre de niveau h2</h2>
@@ -92,7 +101,8 @@
             <section>
                 <div style="display: flex; gap: 10px;">
                     <x-form.button disabled>Bouton d'action</x-form.button>
-                    <x-form.button disabled icon="{{ Vite::asset('resources/assets/icons/download.svg') }}">Bouton d'action
+                    <x-form.button disabled icon="{{ Vite::asset('resources/assets/icons/download.svg') }}">Bouton
+                        d'action
                     </x-form.button>
                     <x-form.button disabled small>Bouton d'action</x-form.button>
                     <x-form.button disabled small icon="{{ Vite::asset('resources/assets/icons/download.svg') }}">Bouton
@@ -111,15 +121,18 @@
                     <x-form.button style="accept" icon="{{ Vite::asset('resources/assets/icons/download.svg') }}">Bouton
                         d'action</x-form.button>
                     <x-form.button style="accept" small>Bouton d'action</x-form.button>
-                    <x-form.button style="accept" small icon="{{ Vite::asset('resources/assets/icons/download.svg') }}">
+                    <x-form.button style="accept" small
+                        icon="{{ Vite::asset('resources/assets/icons/download.svg') }}">
                         Bouton d'action</x-form.button>
                 </div>
                 <div style="display: flex; gap: 10px;">
                     <x-form.button style="deny">Bouton d'action</x-form.button>
-                    <x-form.button style="deny" icon="{{ Vite::asset('resources/assets/icons/download.svg') }}">Bouton
+                    <x-form.button style="deny" icon="{{ Vite::asset('resources/assets/icons/download.svg') }}">
+                        Bouton
                         d'action</x-form.button>
                     <x-form.button style="deny" small>Bouton d'action</x-form.button>
-                    <x-form.button style="deny" small icon="{{ Vite::asset('resources/assets/icons/download.svg') }}">
+                    <x-form.button style="deny" small
+                        icon="{{ Vite::asset('resources/assets/icons/download.svg') }}">
                         Bouton d'action</x-form.button>
                 </div>
             </section>
@@ -221,6 +234,15 @@
                         <div class="selectOption">Option 3</div>
                     </div>
                 </div>
+            </section>
+            <section>
+                @php
+                    if (Auth::check()) {
+                        echo '<pre>';
+                        dump(Auth::user());
+                        echo '</pre>';
+                    }
+                @endphp
             </section>
         </div>
     </div>

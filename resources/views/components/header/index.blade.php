@@ -5,10 +5,21 @@
             alt="Logo Vincent Masseron"></a>
     <div>
         <nav>
-            <a href="index.html">Contact</a>
-            <a href="index.html">Création</a>
-            <a href="index.html">Admin</a>
-            <a href="index.html">Accueil</a>
+            @php
+
+                if (Auth::user()) {
+
+                    echo '<a href="logout">Logout</a>';
+                    echo '<a href="a">Admin</a>';
+                    if (Auth::user()->isSAdmin()) {
+                        echo '<a href="sa">Super Admin</a>';
+                    }
+                    echo '<a href="dashboard">Dasboard</a>';
+                } else {
+                    echo '<a href="login">Login</a>';
+                }
+            @endphp
+
         </nav>
         <div>
             <div id="languageIcon">
