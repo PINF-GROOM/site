@@ -94,6 +94,15 @@
                 onclick=" navigator.clipboard.writeText(document.getElementById('2').value);">Click me to
                 copy</button>
             <section>
+                @php
+                    if (Auth::check()) {
+                        echo 'Connected as ', Auth::user()->isSAdmin() ? 'Super Admin' : 'Admin';
+                    } else {
+                        echo 'Not connected';
+                    }
+                @endphp
+            </section>
+            <section>
                 <h1>Titre de niveau h1</h1>
                 <h2>Titre de niveau h2</h2>
                 <h3>Titre de niveau h3</h3>
@@ -301,6 +310,15 @@
                         <div class="selectOption">Option 3</div>
                     </div>
                 </div>
+            </section>
+            <section>
+                @php
+                    if (Auth::check()) {
+                        echo '<pre>';
+                        dump(Auth::user());
+                        echo '</pre>';
+                    }
+                @endphp
             </section>
         </div>
     </div>
