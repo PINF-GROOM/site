@@ -7,10 +7,6 @@
     align-items: top;
     width: fit-content;
     height: fit-content;
-    padding: 20px;
-    border-radius: 30px;
-    background-color: var(--main-color-blanc-muguet);
-    box-shadow: var(--main-shadow-modal);
 }
 
 #calendarTop{
@@ -226,6 +222,10 @@ header {
     padding: 0 30px 0 20px;
     background-color: var(--main-color-blanc-muguet);
     box-shadow: var(--main-shadow-classic);
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 900;
 }
 
 header>a>img {
@@ -235,7 +235,6 @@ header>a>img {
 
 header nav {
     display: flex;
-    flex-direction: row-reverse;
     align-items: center;
     gap: 60px;
 }

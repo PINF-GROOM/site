@@ -32,6 +32,19 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
 
+Route::get('/product', function () {
+    return view('product');
+});
+
+Route::get('/admin/login', function () {
+    return view('login');
+});
+
+Route::get('/maintenance', function () {
+    return view('maintenance');
+});
+
+// Dev only :
 Route::get('/demo', function () {
     return view('demo');
 });
@@ -44,5 +57,8 @@ Route::get('/sa', function () {
     return view('demo');
 })->middleware('sadmin');
 
-
 require __DIR__.'/auth.php';
+
+Route::get('/error', function () {
+    return view('error');
+});

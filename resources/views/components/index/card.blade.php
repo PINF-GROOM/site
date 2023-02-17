@@ -1,4 +1,43 @@
-<div>
-    <!-- It is quality rather than quantity that matters. - Lucius Annaeus Seneca -->
-    <h1>Mettez la carte ici :)</h1>
+@props(['img', 'name', 'location', 'beds', 'description', 'rating', 'id', 'link'])
+
+<div class="productCard">
+    <img src='{{ $img }}' alt='logement icon' height='120' width='200' />
+    <div class="productCardBottom">
+        <div class="productCardHeader">
+            <div class="productCardTitle">
+                <h3>
+                    {{ $name }}
+                </h3>
+                <p>
+                    {{ $location }}
+                <p>
+                <div class="productCardBeds">
+                    <img src="{{ Vite::asset('resources/assets/icons/beds.svg') }}" alt='bed icon' height='20'
+                        width='30' />
+                    {{ $beds }}
+                    @if ($beds > 1)
+                        couchages
+                    @else
+                        couchage
+                    @endif
+                </div>
+
+            </div>
+            <div class="productCardRanking">
+                <img src="{{ Vite::asset('resources/assets/icons/fullStar.svg') }}" alt='rating icon' height='20'
+                    width='30' />
+                <label>
+                    {{ $rating }}
+                </label>
+            </div>
+        </div>
+        <div class="productCardFooter">
+            <p>
+                {{ $description }}
+            </p>
+            <a href="{{ $link }}">
+                Voir plus de détails
+            </a>
+        </div>
+    </div>
 </div>

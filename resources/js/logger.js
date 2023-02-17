@@ -14,5 +14,4 @@ export function logger(message, level) {
                 break;
         }
     }
-
 }

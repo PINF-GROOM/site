@@ -57,6 +57,26 @@ export function initUtils() {
             }
         }
     });
+
+    content.addEventListener('mousedown', (e) => {
+        // console.log(e.target);
+        if (e.target.classList.contains('seePassword')) {
+            e.target.parentNode.getElementsByTagName("input")[0].type = "text";
+        }
+        else if (e.target.parentNode != undefined) {
+            if (e.target.parentNode.classList.contains('seePassword'))
+                e.target.parentNode.parentNode.getElementsByTagName("input")[0].type = "text";
+        }
+
+    });
+    content.addEventListener('mouseup', (e) => {
+        var passInputs = document.getElementsByClassName("inputPassword");
+        for (let i = 0; i < passInputs.length; i++) {
+            if (passInputs[i].tagName == "INPUT"){
+                passInputs[i].type = "password";
+            }
+        }
+    });
 }
 
 function closeAllSelect(event) {

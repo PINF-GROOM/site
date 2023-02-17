@@ -1,6 +1,9 @@
 import './bootstrap';
 import { initUtils } from './utils';
-import { initAssets, selectionStart, selectionEnd} from './assets';
+import { initAssets, selectionStart, selectionEnd} from './calendar';
+import { initHeader } from './header';
+import { initCarousel } from './carousel';
+import { initMap } from './map';
 import { logger } from './logger'
 
 import '../css/utils.css'
@@ -11,9 +14,12 @@ import.meta.glob([
 ])
 
 function init(){
-    logger("Init...")
+    logger("Init...");
     initUtils();
     initAssets();
+    initHeader();
+    initCarousel();
+    initMap();
 }
 
  if (import.meta.env.DEV) {
