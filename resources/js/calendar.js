@@ -36,19 +36,20 @@ export let selectionStart;
 export let selectionEnd;
 
 export function initAssets() {
-    logger("Initializing assets.js...");
+    logger("Initializing calendar.js...");
 
     // Convertir le tableau de dates prises de format string en format date
     convertDate();
 
     // Cookie de langue :
-    let lang = getCookie("lang");
-    logger(lang);
-    if (lang === null) {
-        lang = "fr";
-        setCookie("lang", lang);
-    }
-
+    // let lang = getCookie("lang");
+    // logger(lang);
+    // if (lang === null) {
+    //     lang = "fr";
+    //     setCookie("lang", lang);
+    // }
+    if(document.getElementById("calendar") == undefined)
+        return;
 
     // Gestion des événements :
     let content = document.getElementById('content');
