@@ -9,7 +9,7 @@
     height: fit-content;
 }
 
-#calendarTop{
+#calendarTop {
     display: flex;
     width: 100%;
     height: fit-content;
@@ -18,13 +18,13 @@
     margin: 5px 0 0 0;
 }
 
-#calendarBody{
+#calendarBody {
     display: flex;
     width: fit-content;
     gap: 20px;
 }
 
-#calendarBottom{
+#calendarBottom {
     display: flex;
     width: 100%;
     height: fit-content;
@@ -33,20 +33,21 @@
     margin: 0 0 5px 0;
 }
 
-#calendarBottom div{
+#calendarBottom div {
     display: flex;
     align-items: center;
     position: relative;
 }
-#calendarBottom div > label{
+
+#calendarBottom div>label {
     margin: 2px 3px 0 0;
 }
 
-#calendarBottom img:hover{
+#calendarBottom img:hover {
     cursor: pointer;
 }
 
-#calendarBottom .calendarShortcuts{
+#calendarBottom .calendarShortcuts {
     background-color: var(--main-color-blanc-muguet);
     box-shadow: var(--main-shadow-modal);
     display: none;
@@ -60,7 +61,7 @@
     border-radius: 10px;
 }
 
-#calendarBottom .calendarShortcutsLine{
+#calendarBottom .calendarShortcutsLine {
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -68,22 +69,23 @@
     gap: 60px;
 }
 
-#calendarBottom .calendarShortcutsLine label{
+#calendarBottom .calendarShortcutsLine label {
     font-family: "Inter";
     font-size: 15px;
     white-space: nowrap;
 }
 
-#calendarBottom img.CalendarIconInfo:hover{
+#calendarBottom img.CalendarIconInfo:hover {
     cursor: help;
 }
 
-.buttonCalendarPreviousMonth:hover{
+.buttonCalendarPreviousMonth:hover {
     margin-left: -2px;
     transition-duration: 500ms;
     cursor: pointer;
 }
-.buttonCalendarNextMonth:hover{
+
+.buttonCalendarNextMonth:hover {
     margin-right: -2px;
     transition-duration: 500ms;
     cursor: pointer;
@@ -159,6 +161,7 @@
     height: 38px;
     border-radius: 30px;
     /* background-color: #F4ECE7; */
+    position: relative;
 }
 
 .calendarDay div #text {
@@ -166,14 +169,24 @@
 }
 
 
-
 .calendarDay:not(:is(.disabled)):hover {
     cursor: pointer;
 }
 
-.calendarDay:not(.disabled) div:hover {
+/* .calendarDay:not(.disabled) div:hover {
     outline: 2px solid var(--main-color-orange-ensoleille);
     outline-offset: -2px;
+} */
+
+.calendarDay:not(.disabled) div:hover::before {
+    content: "";
+    position: absolute;
+    top: 0px;
+    right: 0px;
+    bottom: 0px;
+    left: 0px;
+    border: 2px solid var(--main-color-orange-ensoleille);
+    border-radius: 30px;
 }
 
 .calendarClicked div {
@@ -198,7 +211,7 @@
     border-bottom-left-radius: 0;
 }
 
-.calendarDay.calendarStart:is(.calendarEnd) div{
+.calendarDay.calendarStart:is(.calendarEnd) div {
     border-radius: 30px;
 }
 

@@ -146,10 +146,12 @@ section#reservation {
 
 /********************** Map *********************/
 #map {
-    /* la carte DOIT avoir une hauteur sinon elle n'apparaît pas */
     height: 500px;
     width: 100%;
     padding: 0;
+    overflow: hidden;
+    /* To fix Safari issue of having of round corner being under content*/
+    isolation: isolate;
 }
 
 .leaflet-control-zoom a{
