@@ -157,6 +157,11 @@ section#reservation {
     display: flex;
     align-items: center;
     justify-content: center;
+    z-index: 1;
+}
+
+.leaflet-top, .leaflet-bottom{
+    z-index: 500;
 }
 
 .leaflet-control-attribution{
