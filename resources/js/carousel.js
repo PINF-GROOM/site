@@ -47,9 +47,8 @@ export function initCarousel() {
         });
 
         document.addEventListener('keydown', (e) => {
-            console.log(e.key);
-            if (document.getElementById("imagePopup") != undefined)
-                if (document.getElementById("imagePopup").style.display != "none") {
+            if (document.getElementById("imagePopup") != undefined) {
+                if (document.getElementById("imagePopup").style.display != "none" && document.getElementById("imagePopup").style.display != "undefined" && document.getElementById("imagePopup").style.display != "") {
                     if (e.key == "ArrowRight")
                         nextImage();
                     else if (e.key == "ArrowLeft")
@@ -57,6 +56,7 @@ export function initCarousel() {
                     else if (e.key == "Escape")
                         document.getElementById("imagePopup").style.display = "none";
                 }
+            }
         });
     }
 }
@@ -86,7 +86,6 @@ function generateCarousel(next, src) {
     var content = "<div class='carouselLeft'>";
     content += "<img class = 'carouselNext' src='" + carouselNext + "'>";
     content += "<img class = 'carouselPrevious' src='" + carouselPrevious + "'>";
-    console.log(src);
     if (src != undefined) {
         for (let i = 0; i < carouselImages.length; i++) {
             if (src == carouselImages[i]) {

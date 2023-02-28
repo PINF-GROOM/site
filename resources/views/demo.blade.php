@@ -24,6 +24,30 @@
             document.getElementById("2").value = result += "*/";
         }
     </script>
+    <style>
+        section {
+            border-top: 1px solid var(--main-color-marron-bois);
+            margin-top: 20px;
+            padding: 20px 0;
+            flex-direction: column;
+        }
+    </style>
+
+    {{-- Favicons --}}
+
+
+    <link href="{{ Vite::asset('resources/assets/favicons/apple-touch-icon.png') }}" rel="apple-touch-icon"
+        sizes="180x180">
+    <link type="image/png" href="{{ Vite::asset('resources/assets/favicons/favicon-32x32.png') }}" rel="icon"
+        sizes="32x32">
+    <link type="image/png" href="{{ Vite::asset('resources/assets/favicons/favicon-16x16.png') }}" rel="icon"
+        sizes="16x16">
+    <link href="{{ Vite::asset('resources/assets/favicons/site.webmanifest') }}" rel="manifest">
+    <link href="{{ Vite::asset('resources/assets/favicons/safari-pinned-tab.svg') }}" rel="mask-icon" color="#5bbad5">
+    <link href="{{ Vite::asset('resources/assets/favicons/favicon.ico') }}" rel="shortcut icon">
+    <meta name="theme-color" content="#ffffff">
+
+
 
     <!-- Styles -->
     @vite(['resources/css/app.css', 'resources/css/carousel.css', 'resources/js/app.js', 'resources/js/header.js'])
@@ -69,6 +93,15 @@
             <button class="classicButton"
                 onclick=" navigator.clipboard.writeText(document.getElementById('2').value);">Click me to
                 copy</button>
+            <section>
+                @php
+                    if (Auth::check()) {
+                        echo 'Connected as ', Auth::user()->isSAdmin() ? 'Super Admin' : 'Admin';
+                    } else {
+                        echo 'Not connected';
+                    }
+                @endphp
+            </section>
             <section>
                 <h1>Titre de niveau h1</h1>
                 <h2>Titre de niveau h2</h2>
@@ -277,6 +310,15 @@
                         <div class="selectOption">Option 3</div>
                     </div>
                 </div>
+            </section>
+            <section>
+                @php
+                    if (Auth::check()) {
+                        echo '<pre>';
+                        dump(Auth::user());
+                        echo '</pre>';
+                    }
+                @endphp
             </section>
         </div>
     </div>

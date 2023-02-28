@@ -5,6 +5,21 @@
             alt="Logo Vincent Masseron"></a>
     <div>
         <nav>
+            @php
+
+                if (Auth::user()) {
+
+                    echo '<a href="logout">Logout</a>';
+                    echo '<a href="a">Admin</a>';
+                    if (Auth::user()->isSAdmin()) {
+                        echo '<a href="sa">Super Admin</a>';
+                    }
+                    echo '<a href="dashboard">Dasboard</a>';
+                } else {
+                    echo '<a href="login">Login</a>';
+                }
+            @endphp
+
             @switch($type)
                 @case('Contact')
                     <a href="index.html">Contact</a>
@@ -27,8 +42,6 @@
 
                 @default
             @endswitch
-
-
 
         </nav>
         <div>
