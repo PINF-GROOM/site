@@ -1,7 +1,7 @@
 @props(['disabled' => false, 'icon', 'class', 'style' => 'classic', 'type' => 'text', 'placeholder', 'content', 'id'])
 {{-- type style class placeholder content icon disabled --}}
 
-{{-- Adding passed clsses --}}
+{{-- Adding passed classes --}}
 @isset($class)
     @php
         $attributes = $attributes->merge(['class' => $class]);
