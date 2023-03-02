@@ -84,8 +84,14 @@
 
 .finish{
     background-color:#B1A39B;
-    padding:5px;
+    padding: 5px;
     width: 20%;
     text-align:center;
     border-radius:10px;
+}
+
+.status{
+    display: flex;
+    align-items: center;
+    gap: 10px;
 }
