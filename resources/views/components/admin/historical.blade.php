@@ -1,4 +1,4 @@
-@props([ 'name', 'location', 'dates', 'status', 'contact', 'number','estimate', 'id','link'])
+@props(['name', 'location', 'dates', 'status', 'contact', 'number', 'estimate', 'id', 'link'])
 
 <div class="productCard">
     <div class="productCardBottom">
@@ -14,22 +14,32 @@
                     {{ $dates }}
                 </p>
                 <!-- TODO0: Pour les status j'ai mis P pour payé / A en attente de paiement / PF payé et fini / AF en attente et fini -->
-                @if ($status == "P")  <!--Status payé mais location pas terminée-->
-                <p>
-                    Status : <div class="green"> Payé</div>
-                </p>
-                @elseif ($status == "A")<!--Status En attente de paiement mais location pas terminée-->
-                <p>
-                    Status : <div class="red"> En attente de paiement</div>
-                </p>
-                @elseif ($status == "PF")<!--Status payé et location terminée-->
-                <p>
-                    Status : <div class="green"> Payé </div> <div class="finish"> Fini </div>
-                </p>
-                @elseif ($status == "AF")<!--Status En attente de paiement et location terminée-->
-                <p>
-                    Status : <div class="red"> En attente de paiement </div> <div class="finish"> Fini </div>
-                </p>
+                @if ($status == 'P')
+                    <!--Status payé mais location pas terminée-->
+                    <div class="status">
+                        <p>Status :</p>
+                        <p class="green"> Payé</p>
+                    </div>
+                @elseif ($status == 'A')
+                    <!--Status En attente de paiement mais location pas terminée-->
+                    <div class="status">
+                        <p>Status :</p>
+                        <p class="red"> En attente de paiement</p>
+                    </div>
+                @elseif ($status == 'PF')
+                    <!--Status payé et location terminée-->
+                    <div class="status">
+                        <p>Status :</p>
+                        <p class="green"> Payé </p>
+                        <p class="finish"> Fini </p>
+                    </div>
+                @elseif ($status == 'AF')
+                    <!--Status En attente de paiement et location terminée-->
+                    <div class="status">
+                        <p>Status :</p>
+                        <p class="red"> En attente de paiement </p>
+                        <p class="finish"> Fini </p>
+                    </div>
                 @endif
 
                 <div class="productCardContact">
@@ -40,11 +50,11 @@
             <div class="productCardRanking">
                 {{ $number }}
                 @if ($number > 1)
-                        personnes
-                    @else
-                        personne
-                    @endif
-                <br/>
+                    personnes
+                @else
+                    personne
+                @endif
+                <br />
                 Estimation : {{ $estimate }}€
             </div>
         </div>
