@@ -59,7 +59,7 @@
 
 
     <div id="content" style="display: flex; flex-direction: column; gap: 20px; padding: 100px;">
-        <div id="calendar">
+        <div id="calendar" class="box">
         </div>
 
         <div id="carousel">
