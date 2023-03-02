@@ -177,3 +177,27 @@ section#reservation {
 .leaflet-control-attribution{
     padding-right: 20px
 }
+
+
+/* Reponsive */
+@media only screen and (max-width: 900px) {
+    section#reservation{
+        flex-direction: column;
+    }
+
+    section#reservation #calendar{
+        display: flex;
+        align-items: center;
+        width: calc(100% - 40px);
+    }
+    section#reservation .reservationInformations{
+        width: calc(100% - 40px);
+        gap: 25px;
+    }
+}
+
+@media only screen and (max-width: 500px) {
+    #content{
+        padding: 0;
+    }
+}
