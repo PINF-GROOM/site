@@ -372,6 +372,12 @@ textarea:focus {
     outline-offset: -3px;
 }
 
+textarea.invalid,
+textarea.invalid:hover,
+textarea.invalid:focus{
+    outline-color: var(--main-color-rouge-annulation);
+}
+
 /******************* Textarea *******************/
 textarea {
     padding: 20px;

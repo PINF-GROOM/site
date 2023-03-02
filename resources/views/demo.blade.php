@@ -170,6 +170,8 @@
                 <x-form.input style="shadow" class="invalid" type="password" placeholder="Input password w icon w shadow w error"></x-form.input>
                 <x-form.input style="shadow" class="invalid" type="password" placeholder="Input password w icon w shadow w error"
                     icon="{{ Vite::asset('resources/assets/icons/user.svg') }}"></x-form.input>
+
+                <textarea class="invalid" placeholder="Textarea w error"></textarea>
             </section>
             <section>
                 <x-form.checkbox name="checkboxTest" title="Case à cocher"></x-form.checkbox>
