@@ -128,7 +128,6 @@
             </div>
         </section>
         <div id="map" class="box">
-            <!-- Ici s'affichera la carte -->
         </div>
     </div>
 </body>

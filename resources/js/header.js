@@ -1,6 +1,31 @@
 import { logger } from "./logger";
 
-export function initHeader(){
+export function initHeader() {
+
+    // Mobile nav
+    if (document.getElementById("burgerNav") != undefined) {
+        document.getElementById("burgerButton").addEventListener("change", (e) => {
+            console.log(e.currentTarget.checked);
+            if (e.currentTarget.checked)
+                // document.getElementById("burgerNav").style.display = "flex";
+                document.getElementById("burgerNav").classList.add("burgerNavDisplayed");
+            else
+                // document.getElementById("burgerNav").style.display = "none";
+                document.getElementById("burgerNav").classList.remove("burgerNavDisplayed");
+        });
+
+        window.addEventListener('resize', (e) => {
+            console.log("prout");
+            document.getElementById("burgerButton").checked = false;
+            console.log(document.getElementById("burgerButton").checked);
+            // document.getElementById("burgerNav").style.display = "none";
+            document.getElementById("burgerNav").classList.remove("burgerNavDisplayed");
+
+        });
+
+    }
+
+
     // Language choice
     logger("Header loaded", "info");
     if (document.getElementById("languageChoice") != undefined) {

@@ -12,7 +12,7 @@
 		{
 			"label": "Laravel Server (subtask)",
 			"type": "shell",
-			"command": "php \"${workspaceFolder}/artisan\" serve --host='localhost' --port='8000'",
+			"command": "php \"artisan\" serve --host='localhost' --port='8000'",
 			"problemMatcher": [],
 			"presentation": {
 				"group": "server_group"

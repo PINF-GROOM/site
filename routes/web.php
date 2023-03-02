@@ -66,3 +66,7 @@ Route::get('/error', function () {
 Route::get('/admin/history', function () {
     return view('rentalHistory');
 });
+
+Route::get('/admin/comment', function () {
+    return view('commentHistory');
+});
