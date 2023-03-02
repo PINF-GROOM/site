@@ -187,7 +187,7 @@
                 <a class="discreet" href="Google.com">Lien classique</a>
             </section>
             <section>
-                <div style="display: flex; gap: 10px;">
+                <div style="display: flex; gap: 10px; flex-wrap: wrap;">
                     <x-form.button disabled>Bouton d'action</x-form.button>
                     <x-form.button disabled icon="{{ Vite::asset('resources/assets/icons/download.svg') }}">
                         Bouton
@@ -198,7 +198,7 @@
                         Bouton
                         d'action</x-form.button>
                 </div>
-                <div style="display: flex; gap: 10px;">
+                <div style="display: flex; gap: 10px; flex-wrap: wrap;">
                     <x-form.button>Bouton d'action</x-form.button>
                     <x-form.button icon="{{ Vite::asset('resources/assets/icons/download.svg') }}">Bouton
                         d'action
@@ -209,7 +209,7 @@
                         d'action
                     </x-form.button>
                 </div>
-                <div style="display: flex; gap: 10px;">
+                <div style="display: flex; gap: 10px; flex-wrap: wrap;">
                     <x-form.button style="accept">Bouton d'action</x-form.button>
                     <x-form.button style="accept" icon="{{ Vite::asset('resources/assets/icons/download.svg') }}">
                         Bouton
@@ -219,7 +219,7 @@
                         icon="{{ Vite::asset('resources/assets/icons/download.svg') }}">
                         Bouton d'action</x-form.button>
                 </div>
-                <div style="display: flex; gap: 10px;">
+                <div style="display: flex; gap: 10px; flex-wrap: wrap;">
                     <x-form.button style="deny">Bouton d'action</x-form.button>
                     <x-form.button style="deny" icon="{{ Vite::asset('resources/assets/icons/download.svg') }}">
                         Bouton
@@ -231,7 +231,7 @@
                 </div>
             </section>
             <section>
-                <div style="display: flex; gap: 10px;">
+                <div style="display: flex; gap: 10px; flex-wrap: wrap;">
                     <x-form.select disabled placeholder="Bouton de sélection">
                         <x-form.option>Option 1</x-form.option>
                         <x-form.option>Option 2</x-form.option>
@@ -243,7 +243,7 @@
                         <x-form.option>Option 3</x-form.option>
                     </x-form.select>
                 </div>
-                <div style="display: flex; gap: 10px;">
+                <div style="display: flex; gap: 10px; flex-wrap: wrap;">
                     <x-form.select placeholder="Bouton de sélection">
                         <x-form.option>Option 1</x-form.option>
                         <x-form.option>Option 2</x-form.option>
@@ -255,7 +255,7 @@
                         <x-form.option>Option 3</x-form.option>
                     </x-form.select>
                 </div>
-                <div style="display: flex; gap: 10px;">
+                <div style="display: flex; gap: 10px; flex-wrap: wrap;">
                     <x-form.select style="accept" placeholder="Bouton de sélection">
                         <x-form.option>Option 1</x-form.option>
                         <x-form.option>Option 2</x-form.option>
@@ -267,16 +267,16 @@
                         <x-form.option>Option 3</x-form.option>
                     </x-form.select>
                 </div>
-                <div style="display: flex; gap: 10px;">
+                <div style="display: flex; gap: 10px; flex-wrap: wrap;">
                     <x-form.select style="deny" placeholder="Bouton de sélection">
                         <x-form.option>Option 1</x-form.option>
                         <x-form.option>Option 2</x-form.option>
-                        <x-form.option>Option 3</x-form.option>
+                        <x-form.option>Option baaaaaaaaaaaad longue</x-form.option>
                     </x-form.select>
                     <x-form.select style="deny" small placeholder="Bouton de sélection">
                         <x-form.option>Option 1</x-form.option>
                         <x-form.option>Option 2</x-form.option>
-                        <x-form.option>Option 3</x-form.option>
+                        <x-form.option>Option baaaaaaaaaaaad longue</x-form.option>
                     </x-form.select>
                 </div>
             </section>

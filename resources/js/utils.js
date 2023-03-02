@@ -7,6 +7,7 @@ export function initUtils() {
     let selectTab = document.getElementsByClassName("select");
     for (let i = 0; i < selectTab.length; i++) {
         selectTab[i].style.width = getComputedStyle(selectTab[i]).width;
+        selectTab[i].style.minWidth = getComputedStyle(selectTab[i]).width;
         let selectOption = selectTab[i].getElementsByClassName("selectOption");
         let parentHeight = getComputedStyle(selectTab[i]).height;
         parentHeight = parentHeight.toString().slice(0, -2);
@@ -14,9 +15,9 @@ export function initUtils() {
             selectOption[y].style.top = parseInt(parentHeight) * (y + 1) + "px";
             selectOption[y].style.height = parentHeight + "px";
             // Lorsqu'une option est cliquée :
-            selectOption[y].addEventListener("click", function () {
-                this.parentNode.getElementsByClassName("selectTitle")[0].querySelectorAll('label')[0].innerHTML = this.innerHTML;
-                this.parentNode.querySelectorAll('input')[0].value = this.innerHTML;
+            selectOption[y].addEventListener("click", (e) => {
+                e.currentTarget.parentNode.getElementsByClassName("selectTitle")[0].querySelectorAll('label')[0].innerHTML = e.currentTarget.querySelectorAll('label')[0].innerHTML;
+                e.currentTarget.parentNode.querySelectorAll('input')[0].value = e.currentTarget.querySelectorAll('label')[0].innerHTML;
             });
         }
         selectTab[i].addEventListener("click", function () {

@@ -320,7 +320,7 @@ input[type="password"]:is(.inputShadow),
     transition-duration: 200ms;
     transition-timing-function: var(--main-bezier);
     border-radius: 10px;
-    cursor: pointer;
+    /* cursor: pointer; */
 }
 
 input::placeholder,
@@ -391,11 +391,9 @@ input[type="number"],
 input[type="phone"],
 input[type="mail"] {
     padding: 10px 15px;
-    /* Change width ? */
     width: calc(100% - 30px);
 }
 
-/* TODO0: Change cursor for disabled inputs */
 input:disabled:hover,
 .inputIcon.disabled:hover {
     cursor: default !important;
@@ -619,7 +617,7 @@ a.discreet:hover {
 }
 
 .selectTitle>label,
-.selectOption {
+.selectOption label{
     overflow: hidden;
     text-overflow: ellipsis;
     white-space: nowrap;
@@ -637,19 +635,28 @@ a.discreet:hover {
 }
 
 .selectOption {
-    z-index: 10;
-    position: absolute;
-    left: 0;
-    /* top: 0; */
-    width: calc(100% - 60px);
-    padding: 0 30px;
     display: flex;
     align-items: center;
+    position: absolute;
+    left: 0;
+    z-index: 10;
+    width: calc(100% - 60px);
+    padding: 0 30px;
     background-color: var(--main-color-blanc-muguet);
 }
 
 .selectOption:hover {
     box-shadow: none !important;
+}
+
+.selectOption label{
+    font-family: var(--main-interaction-language);
+}
+
+.selectOption label:hover,
+.selectOption:hover label{
+    color: var(--main-color-blanc-muguet);
+    cursor: pointer;
 }
 
 .selectOption:last-of-type {
@@ -809,9 +816,12 @@ a[type="button"]:is(.small)>label {
 }
 
 .select:is(.small) .selectOption {
-    font-size: 22px;
     padding-left: 24px;
     padding-right: 36px;
+}
+
+.select:is(.small) .selectOption label{
+    font-size: 22px;
 }
 
 .select:is(.small) .selectTitle,
