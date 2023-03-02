@@ -187,7 +187,7 @@
                 <a class="discreet" href="Google.com">Lien classique</a>
             </section>
             <section>
-                <div style="display: flex; gap: 10px;">
+                <div style="display: flex; gap: 10px; flex-wrap: wrap;">
                     <x-form.button disabled>Bouton d'action</x-form.button>
                     <x-form.button disabled icon="{{ Vite::asset('resources/assets/icons/download.svg') }}">
                         Bouton
@@ -198,7 +198,7 @@
                         Bouton
                         d'action</x-form.button>
                 </div>
-                <div style="display: flex; gap: 10px;">
+                <div style="display: flex; gap: 10px; flex-wrap: wrap;">
                     <x-form.button>Bouton d'action</x-form.button>
                     <x-form.button icon="{{ Vite::asset('resources/assets/icons/download.svg') }}">Bouton
                         d'action
@@ -209,7 +209,7 @@
                         d'action
                     </x-form.button>
                 </div>
-                <div style="display: flex; gap: 10px;">
+                <div style="display: flex; gap: 10px; flex-wrap: wrap;">
                     <x-form.button style="accept">Bouton d'action</x-form.button>
                     <x-form.button style="accept" icon="{{ Vite::asset('resources/assets/icons/download.svg') }}">
                         Bouton
@@ -219,7 +219,7 @@
                         icon="{{ Vite::asset('resources/assets/icons/download.svg') }}">
                         Bouton d'action</x-form.button>
                 </div>
-                <div style="display: flex; gap: 10px;">
+                <div style="display: flex; gap: 10px; flex-wrap: wrap;">
                     <x-form.button style="deny">Bouton d'action</x-form.button>
                     <x-form.button style="deny" icon="{{ Vite::asset('resources/assets/icons/download.svg') }}">
                         Bouton
@@ -231,102 +231,53 @@
                 </div>
             </section>
             <section>
-                <div style="display: flex; gap: 10px;">
-                    <div class="select selectInactive classicButton disabled">
-                        <div class="selectTitle"><label>Bouton de sélection</label><img
-                                src="{{ Vite::asset('resources/assets/icons/rightArrow.svg') }}" alt="v">
-                        </div>
-                        <!-- Input hidden pour enregistrer le choix -->
-                        <!-- Alt 'v' si flèche manquante-->
-                        <input name="example" type="hidden" value="">
-                        <div class="selectOption">Option 1</div>
-                        <div class="selectOption">Option 2</div>
-                        <div class="selectOption">Option 3</div>
-                    </div>
-                    <div class="select selectInactive classicButton small disabled">
-                        <div class="selectTitle"><label>Bouton de sélection</label><img
-                                src="{{ Vite::asset('resources/assets/icons/rightArrow.svg') }}" alt="v">
-                        </div>
-                        <!-- Input hidden pour enregistrer le choix -->
-                        <!-- Alt 'v' si flèche manquante-->
-                        <input name="example" type="hidden" value="">
-                        <div class="selectOption">Option 1</div>
-                        <div class="selectOption">Option 2</div>
-                        <div class="selectOption">Option 3</div>
-                    </div>
+                <div style="display: flex; gap: 10px; flex-wrap: wrap;">
+                    <x-form.select disabled placeholder="Bouton de sélection">
+                        <x-form.option>Option 1</x-form.option>
+                        <x-form.option>Option 2</x-form.option>
+                        <x-form.option>Option 3</x-form.option>
+                    </x-form.select>
+                    <x-form.select disabled small placeholder="Bouton de sélection">
+                        <x-form.option>Option 1</x-form.option>
+                        <x-form.option>Option 2</x-form.option>
+                        <x-form.option>Option 3</x-form.option>
+                    </x-form.select>
                 </div>
-                <div style="display: flex; gap: 10px;">
-                    <div class="select selectInactive classicButton">
-                        <div class="selectTitle"><label>Bouton de sélection</label><img
-                                src="{{ Vite::asset('resources/assets/icons/rightArrow.svg') }}" alt="v">
-                        </div>
-                        <!-- Input hidden pour enregistrer le choix -->
-                        <!-- Alt 'v' si flèche manquante-->
-                        <input name="example" type="hidden" value="">
-                        <div class="selectOption">Option 1</div>
-                        <div class="selectOption">Option 2</div>
-                        <div class="selectOption">Option 3</div>
-                    </div>
-                    <div class="select selectInactive classicButton small">
-                        <div class="selectTitle"><label>Bouton de sélection</label><img
-                                src="{{ Vite::asset('resources/assets/icons/rightArrow.svg') }}" alt="v">
-                        </div>
-                        <!-- Input hidden pour enregistrer le choix -->
-                        <!-- Alt 'v' si flèche manquante-->
-                        <input name="example" type="hidden" value="">
-                        <div class="selectOption">Option 1</div>
-                        <div class="selectOption">Option 2</div>
-                        <div class="selectOption">Option 3</div>
-                    </div>
+                <div style="display: flex; gap: 10px; flex-wrap: wrap;">
+                    <x-form.select placeholder="Bouton de sélection">
+                        <x-form.option>Option 1</x-form.option>
+                        <x-form.option>Option 2</x-form.option>
+                        <x-form.option>Option 3</x-form.option>
+                    </x-form.select>
+                    <x-form.select small placeholder="Bouton de sélection">
+                        <x-form.option>Option 1</x-form.option>
+                        <x-form.option>Option 2</x-form.option>
+                        <x-form.option>Option 3</x-form.option>
+                    </x-form.select>
                 </div>
-
-                <div style="display: flex; gap: 10px;">
-                    <div class="select selectInactive acceptButton">
-                        <div class="selectTitle"><label>Bouton de sélection</label><img
-                                src="{{ Vite::asset('resources/assets/icons/rightArrow.svg') }}" alt="v">
-                        </div>
-                        <!-- Input hidden pour enregistrer le choix -->
-                        <!-- Alt 'v' si flèche manquante-->
-                        <input name="example" type="hidden" value="">
-                        <div class="selectOption">Option 1</div>
-                        <div class="selectOption">Option 2</div>
-                        <div class="selectOption">Option 3</div>
-                    </div>
-                    <div class="select selectInactive acceptButton small">
-                        <div class="selectTitle"><label>Bouton de sélection</label><img
-                                src="{{ Vite::asset('resources/assets/icons/rightArrow.svg') }}" alt="v">
-                        </div>
-                        <!-- Input hidden pour enregistrer le choix -->
-                        <!-- Alt 'v' si flèche manquante-->
-                        <input name="example" type="hidden" value="">
-                        <div class="selectOption">Option 1</div>
-                        <div class="selectOption">Option 2</div>
-                        <div class="selectOption">Option 3</div>
-                    </div>
+                <div style="display: flex; gap: 10px; flex-wrap: wrap;">
+                    <x-form.select style="accept" placeholder="Bouton de sélection">
+                        <x-form.option>Option 1</x-form.option>
+                        <x-form.option>Option 2</x-form.option>
+                        <x-form.option>Option 3</x-form.option>
+                    </x-form.select>
+                    <x-form.select style="accept" small placeholder="Bouton de sélection">
+                        <x-form.option>Option 1</x-form.option>
+                        <x-form.option>Option 2</x-form.option>
+                        <x-form.option>Option 3</x-form.option>
+                    </x-form.select>
                 </div>
-                <div style="display: flex; gap: 10px;">
-                    <div class="select selectInactive denyButton">
-                        <div class="selectTitle"><label>Bouton de sélection</label><img
-                                src="{{ Vite::asset('resources/assets/icons/rightArrow.svg') }}" alt="v">
-                        </div>
-                        <!-- Input hidden pour enregistrer le choix -->
-                        <!-- Alt 'v' si flèche manquante-->
-                        <input name="example" type="hidden" value="">
-                        <div class="selectOption">Option 1</div>
-                        <div class="selectOption">Option 2</div>
-                        <div class="selectOption">Option 3</div>
-                    </div>
-                    <div class="select selectInactive denyButton small">
-                        <div class="selectTitle"><label>Bouton de sélection</label><img
-                                src="{{ Vite::asset('resources/assets/icons/rightArrow.svg') }}" alt="v">
-                        </div>
-                        <!-- Input hidden pour enregistrer le choix -->
-                        <!-- Alt 'v' si flèche manquante-->
-                        <input name="example" type="hidden" value="">
-                        <div class="selectOption">Option 1</div>
-                        <div class="selectOption">Option 2</div>
-                        <div class="selectOption">Option 3</div>
-                    </div>
+                <div style="display: flex; gap: 10px; flex-wrap: wrap;">
+                    <x-form.select style="deny" placeholder="Bouton de sélection">
+                        <x-form.option>Option 1</x-form.option>
+                        <x-form.option>Option 2</x-form.option>
+                        <x-form.option>Option baaaaaaaaaaaad longue</x-form.option>
+                    </x-form.select>
+                    <x-form.select style="deny" small placeholder="Bouton de sélection">
+                        <x-form.option>Option 1</x-form.option>
+                        <x-form.option>Option 2</x-form.option>
+                        <x-form.option>Option baaaaaaaaaaaad longue</x-form.option>
+                    </x-form.select>
                 </div>
             </section>
             <section>
