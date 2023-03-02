@@ -52,12 +52,16 @@
     --main-color-filter-orange-ensoleille: invert(59%) sepia(72%) saturate(1931%) hue-rotate(355deg) brightness(89%) contrast(91%);
     --main-color-filter-marron-bois: invert(8%) sepia(6%) saturate(5175%) hue-rotate(337deg) brightness(98%) contrast(93%);
     --main-color-filter-gris-bloque: invert(94%) sepia(2%) saturate(2527%) hue-rotate(322deg) brightness(74%) contrast(81%);
+    --main-color-filter-rouge-annulation: invert(34%) sepia(59%) saturate(944%) hue-rotate(325deg) brightness(105%) contrast(80%);
 
     /*********** Shadow effects ***********/
     --main-shadow-classic: 0px 4px 5px rgba(0, 0, 0, 0.2);
     --main-shadow-classic-hover: 0px 4px 5px 0px rgba(0, 0, 0, 0.2);
     --main-shadow-modal: 0px 4px 12px rgba(0, 0, 0, 0.25);
     --main-shadow-pressed: inset 0px 0px 8px rgba(0, 0, 0, 0.4);
+    --main-shadow-classic-error: 0px 4px 5px 0px #CB574780;
+
+
 
     /********** Transition curves *********/
     --main-bezier: cubic-bezier(0.8, 0.17, 0.25, 0.81);
@@ -159,7 +163,7 @@ input[type="submit"] {
     font-size: 25px;
 }
 
-pre{
+pre {
     display: inline;
 }
 
@@ -183,7 +187,7 @@ dfn {
     font-style: italic;
 }
 
-figure{
+figure {
     color: var(--main-color-rouge-annulation);
     font-style: italic;
 }
@@ -293,7 +297,7 @@ a[type="button"].disabled:hover label {
     filter: var(--main-color-filter-gris-bloque);
 }
 
-.inputPassword.disabled img.seePassword:hover{
+.inputPassword.disabled img.seePassword:hover {
     cursor: default;
 }
 
@@ -391,12 +395,29 @@ input:disabled:hover,
     cursor: default !important;
 }
 
+input[type="text"].invalid,
+input[type="password"].invalid,
+input[type="text"].invalid:hover,
+input[type="password"].invalid:hover,
+input[type="text"].invalid:focus,
+input[type="password"].invalid:focus {
+    outline-color: var(--main-color-rouge-annulation);
+}
+
 /******** Text input with icon ********/
 .inputIcon {
     display: flex;
     align-items: center;
     /* Change width ? */
     width: 100%;
+}
+
+.inputIcon input[type="text"].invalid {
+    outline-color: var(--main-color-rouge-annulation);
+}
+
+.inputIcon.invalid img {
+    filter: var(--main-color-filter-rouge-annulation);
 }
 
 .inputIcon input[type="password"],
@@ -430,6 +451,21 @@ input[type="password"]:is(.inputShadow),
     filter: var(--main-color-filter-marron-bois);
 }
 
+
+input[type="text"].invalid:is(.inputShadow),
+.inputIcon.invalid:is(.inputShadow) input[type="text"],
+input[type="password"].invalid:is(.inputShadow),
+.inputIcon.invalid:is(.inputShadow) input[type="password"] {
+    outline: none;
+    background-color: var(--main-color-blanc-champignon);
+    box-shadow: var(--main-shadow-classic-error);
+}
+
+.inputIcon.inputIcon.invalid:is(.inputShadow) img:not(.seePassword) {
+    filter: var(--main-color-filter-rouge-annulation);
+}
+
+
 /**************** Password input ****************/
 .inputPassword {
     display: flex;
@@ -439,6 +475,10 @@ input[type="password"]:is(.inputShadow),
 
 input.inputPassword {
     padding-right: 35px;
+}
+
+.inputPassword.invalid img:not(.seePassword) {
+    filter: var(--main-color-filter-rouge-annulation);
 }
 
 .inputPassword img.seePassword {
@@ -777,4 +817,3 @@ a[type="button"]:is(.small) {
 a[type="button"]:is(.small) img {
     width: 22px;
 }
-

@@ -157,6 +157,21 @@
 
             </section>
             <section>
+                <x-form.input class="invalid" placeholder="Input w icon w shadow w error"></x-form.input>
+                <x-form.input class="invalid" placeholder="Input w icon w shadow w error"
+                    icon="{{ Vite::asset('resources/assets/icons/user.svg') }}"></x-form.input>
+                <x-form.input class="invalid" type="password" placeholder="Input password w icon w shadow w error"></x-form.input>
+                <x-form.input class="invalid" type="password" placeholder="Input password w icon w shadow w error"
+                    icon="{{ Vite::asset('resources/assets/icons/user.svg') }}"></x-form.input>
+
+                <x-form.input style="shadow" class="invalid" placeholder="Input w icon w shadow w error"></x-form.input>
+                <x-form.input style="shadow" class="invalid" placeholder="Input w icon w shadow w error"
+                    icon="{{ Vite::asset('resources/assets/icons/user.svg') }}"></x-form.input>
+                <x-form.input style="shadow" class="invalid" type="password" placeholder="Input password w icon w shadow w error"></x-form.input>
+                <x-form.input style="shadow" class="invalid" type="password" placeholder="Input password w icon w shadow w error"
+                    icon="{{ Vite::asset('resources/assets/icons/user.svg') }}"></x-form.input>
+            </section>
+            <section>
                 <x-form.checkbox name="checkboxTest" title="Case à cocher"></x-form.checkbox>
                 <x-form.checkbox name="checkboxTest" title="Case à cocher"></x-form.checkbox>
                 <x-form.checkbox name="checkboxTest" title="Case à cocher" description="lorem ipsum dolor sit amet">
@@ -164,6 +179,7 @@
                 <x-form.checkbox name="checkboxTest" title="Case à cocher" disabled
                     description="lorem ipsum dolor sit amet"></x-form.checkbox>
             </section>
+
             <section>
                 <a href="Google.com">Lien classique</a>
                 <a class="discreet" href="Google.com">Lien classique</a>
