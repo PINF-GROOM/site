@@ -98,3 +98,9 @@
     align-items: center;
     gap: 10px;
 }
+
+.stars{
+    display: flex;
+    gap: 1px;
+    margin-top:10px;
+}
