@@ -4,6 +4,8 @@ export function initHeader() {
 
     // Mobile nav
     if (document.getElementById("burgerNav") != undefined) {
+        document.getElementById("burgerButton").checked = false; // To prevent burgerButton icon being crossed because of reloading
+
         document.getElementById("burgerButton").addEventListener("change", (e) => {
             console.log(e.currentTarget.checked);
             if (e.currentTarget.checked)
@@ -20,58 +22,60 @@ export function initHeader() {
             console.log(document.getElementById("burgerButton").checked);
             // document.getElementById("burgerNav").style.display = "none";
             document.getElementById("burgerNav").classList.remove("burgerNavDisplayed");
-
         });
-
     }
-
 
     // Language choice
     logger("Header loaded", "info");
-    if (document.getElementById("languageChoice") != undefined) {
-        document.addEventListener("click", function (e) {
-            if (e.target == document.getElementById("languageIcon") || e.target == document.getElementById("languageIcon").querySelector('svg') || e.target == document.getElementById("languageIcon").querySelector('path')) {
-                if (!document.getElementById("languageChoice").classList.contains("languageShown"))
-                    showLanguage();
+    if (document.getElementsByClassName("languageChoice")[0] != undefined) {
+        for (let i = 0; i < document.getElementsByClassName("languageChoice").length; i++) {
+            document.getElementsByClassName("languageIcon")[i].addEventListener("click", (e) => {
+                console.log(e.currentTarget);
+                console.log(e.currentTarget.getElementsByClassName("languageChoice")[0]);
+                if (!e.currentTarget.getElementsByClassName("languageChoice")[0].classList.contains("languageShown"))
+                    showLanguage(e.currentTarget.getElementsByClassName("languageChoice")[0]);
                 else
-                    closeLanguage();
-            }
-            // Language selection
-            else if (e.target == document.getElementById("languageSelectFr") || e.target == document.getElementById("languageSelectFr").querySelector('svg') || e.target == document.getElementById("languageSelectFr").querySelector('path')) {
-                setCookie("lang", "fr");
-                location.reload();
-            }
-            else if (e.target == document.getElementById("languageSelectEn") || e.target == document.getElementById("languageSelectEn").querySelector('svg') || e.target == document.getElementById("languageSelectEn").querySelector('path')) {
-                setCookie("lang", "en");
-                location.reload();
-            }
-            else if (e.target == document.getElementById("languageSelectEs") || e.target == document.getElementById("languageSelectEs").querySelector('svg') || e.target == document.getElementById("languageSelectEs").querySelector('path')) {
-                setCookie("lang", "es");
-                location.reload();
-            }
-            else if (e.target == document.getElementById("languageSelectDe") || e.target == document.getElementById("languageSelectDe").querySelector('svg') || e.target == document.getElementById("languageSelectDe").querySelector('path')) {
-                setCookie("lang", "de");
-                location.reload();
-            }
+                    closeLanguage(e.currentTarget.getElementsByClassName("languageChoice")[0]);
 
-            else {
-                if (document.getElementById("languageChoice").classList.contains("languageShown"))
-                    closeLanguage();
-            }
-        });
+            });
+        }
+        for (let i = 0; i < document.getElementsByClassName("languageChoiceIcon").length; i++) {
+            document.getElementsByClassName("languageChoiceIcon")[i].addEventListener("click", (e) => {
+                if (e.currentTarget.classList.contains("languageSelectFr")){
+                    setCookie("lang", "fr");
+                    location.reload();
+                }
+                else if (e.currentTarget.classList.contains("languageSelectEn")){
+                    setCookie("lang", "en");
+                    location.reload();
+                }
+                else if (e.currentTarget.classList.contains("languageSelectEs")){
+                    setCookie("lang", "es");
+                    location.reload();
+                }
+                else if (e.currentTarget.classList.contains("languageSelectDe")){
+                    setCookie("lang", "de");
+                    location.reload();
+                }
+            });
+        }
     }
 }
 
-function showLanguage() {
-    if (!document.getElementById("languageChoice").classList.contains("languageShown")) {
-        document.getElementById("languageChoice").classList.add("languageShown");
-        document.getElementById("languageChoice").classList.remove("languageHidden");
+function showLanguage(node) {
+    if (!node.classList.contains("languageShown")) {
+        node.classList.add("languageShown");
+        node.classList.remove("languageHidden");
     }
 }
 
-function closeLanguage() {
-    if (document.getElementById("languageChoice").classList.contains("languageShown")) {
-        document.getElementById("languageChoice").classList.add("languageHidden");
-        document.getElementById("languageChoice").classList.remove("languageShown");
+function closeLanguage(node) {
+    if (node.classList.contains("languageShown")) {
+        node.classList.add("languageHidden");
+        node.classList.remove("languageShown");
     }
+}
+
+function setCookie(){
+    console.log("Prout");
 }
