@@ -108,26 +108,40 @@
             <div>
                 <div class="moreInformationCard box">
                     <h3>Équipement du logement</h3>
-                    <div class="moreInformationsItem">
-                        <img src="{{ Vite::asset('resources/assets/icons/beds.svg') }}" alt="beds icon">
-                        <p>Cuisine équipée</p>
-                    </div>
-                    <div class="moreInformationsItem">
-                        <img src="{{ Vite::asset('resources/assets/icons/beds.svg') }}" alt="beds icon">
-                        <p>Cuisine équipée</p>
-                    </div>
-                    <div class="moreInformationsItem">
-                        <img src="{{ Vite::asset('resources/assets/icons/beds.svg') }}" alt="beds icon">
-                        <p>Cuisine équipée</p>
-                    </div>
-                    <div class="moreInformationsItem">
-                        <img src="{{ Vite::asset('resources/assets/icons/beds.svg') }}" alt="beds icon">
-                        <p>Cuisine équipée</p>
-                    </div>
+                    <x-product.information icon="{{ Vite::asset('resources/assets/icons/beds.svg') }}" alt="beds icon">
+                        Exemple blabla
+                    </x-product.information>
+                    <x-product.information icon="{{ Vite::asset('resources/assets/icons/beds.svg') }}" alt="beds icon">
+                        Exemple blabla
+                    </x-product.information>
+                    <x-product.information icon="{{ Vite::asset('resources/assets/icons/beds.svg') }}" alt="beds icon">
+                        Exemple blabla
+                    </x-product.information>
+                    <x-product.information icon="{{ Vite::asset('resources/assets/icons/beds.svg') }}" alt="beds icon">
+                        Exemple blabla
+                    </x-product.information>
+                    <x-product.information icon="{{ Vite::asset('resources/assets/icons/beds.svg') }}" alt="beds icon">
+                        Exemple blabla
+                    </x-product.information>
+                </div>
+                <div class="moreInformationCard box">
+                    <h3>Équipement du logement</h3>
+                    <x-product.information icon="{{ Vite::asset('resources/assets/icons/beds.svg') }}" alt="beds icon">
+                        Exemple blabla
+                    </x-product.information>
+                </div>
+                <div class="moreInformationCard box">
+                    <h3>Équipement du logement</h3>
+                    <x-product.information icon="{{ Vite::asset('resources/assets/icons/beds.svg') }}" alt="beds icon">
+                        Exemple blabla
+                    </x-product.information>
                 </div>
             </div>
         </section>
         <div id="map" class="box">
+            <div id="test">
+
+            </div>
         </div>
     </div>
 </body>

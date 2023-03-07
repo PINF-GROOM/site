@@ -124,7 +124,17 @@ section#reservation {
     font-size: 13px;
 }
 
+#moreInformations > div{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 20px;
+    position: relative;
+}
 
+.moreInformationCard{
+    width: calc(50% - 60px);
+}
 
 .moreInformationsItem{
     display: flex;
