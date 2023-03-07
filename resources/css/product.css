@@ -155,13 +155,75 @@ section#reservation {
 
 
 /********************** Map *********************/
-#map {
+#mapfixed {
     height: 500px;
     width: 100%;
     padding: 0;
     overflow: hidden;
     /* To fix Safari issue of having of round corner being under content*/
     isolation: isolate;
+    position: relative;
+    overscroll-behavior: none;
+}
+
+.mapHover {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    left: 0;
+    top: 0;
+    z-index: 500;
+    width: 100%;
+    height: 100%;
+    background-color: black;
+    background-color: rgba(0, 0, 0, 0);
+    transition-duration: 0.5s;
+    opacity: 0;
+}
+
+.mapHover p{
+    color: white;
+}
+
+#mapfixed:hover .mapHover{
+    background-color: rgba(0, 0, 0, 0.6);
+    opacity: 1;
+    transition: background-color 1s;
+    cursor: pointer;
+}
+
+#mapfixed .leaflet-top.leaflet-left{
+    display: none;
+}
+
+#map{
+    border-radius: 30px;
+    width: 85vw;
+    height: 85vh;
+    padding: 0;
+    overflow: hidden;
+    /* To fix Safari issue of having of round corner being under content*/
+    isolation: isolate;
+    position: relative;
+}
+
+#mapPopup {
+    display: none;
+    z-index: 999;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    align-items: center;
+    justify-content: center;
+    background-color: rgba(0, 0, 0, 0.8);
+    transition: background-color 0.3s;
+}
+
+#mapPopup:hover{
+    cursor: pointer;
 }
 
 .leaflet-control-zoom a{
@@ -188,6 +250,50 @@ section#reservation {
     padding-right: 20px
 }
 
+
+
+/*  */
+
+#reviewTop{
+    display: flex;
+    align-items: top;
+    justify-content: space-between;
+    gap: 30px;
+}
+
+#reviewTop h3{
+    min-width: fit-content;
+    margin-top: 10px;
+}
+
+#reviewTop > div{
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    flex-wrap: wrap;
+    justify-content: end;
+}
+
+/*  */
+
+#seasonPrice{
+    width: calc(100% - 40px);
+}
+
+#seasonPrice table{
+    width: 100%;
+}
+
+.informationNote{
+    margin-top: 10px;
+    display: flex;
+    gap: 5px;
+    align-items: center;
+}
+
+.informationNote dfn{
+    margin-top: 2px;
+}
 
 /* Reponsive */
 @media only screen and (max-width: 900px) {

@@ -13,9 +13,7 @@
         integrity="sha512-Rksm5RenBEKSKFjgI3a41vrjkw4EVPlJ3+OiI65vTjIdo9brlAacEuKOiQ5OFh7cOI1bkDwLqdLw3Zg0cRJAAQ=="
         crossorigin="" />
     <script src="https://unpkg.com/leaflet@1.3.1/dist/leaflet.js" crossorigin=""></script>
-    <script type="text/javascript">
-
-    </script>
+    <script type="text/javascript"></script>
 
 
     <!-- Styles -->
@@ -107,39 +105,120 @@
             <h2>Plus d'informations</h2>
             <div>
                 <x-product.infoCard name="Équipement du logement">
-                    <x-product.infoItem icon="{{ Vite::asset('resources/assets/icons/beds.svg') }}" alt="beds icon">
+                    <x-product.infoItem alt="beds icon" icon="{{ Vite::asset('resources/assets/icons/beds.svg') }}">
                         Exemple blabla
                     </x-product.infoItem>
-                    <x-product.infoItem icon="{{ Vite::asset('resources/assets/icons/beds.svg') }}" alt="beds icon">
+                    <x-product.infoItem alt="beds icon" icon="{{ Vite::asset('resources/assets/icons/beds.svg') }}">
                         Exemple blabla
                     </x-product.infoItem>
-                    <x-product.infoItem icon="{{ Vite::asset('resources/assets/icons/beds.svg') }}" alt="beds icon">
+                    <x-product.infoItem alt="beds icon" icon="{{ Vite::asset('resources/assets/icons/beds.svg') }}">
                         Exemple blabla
                     </x-product.infoItem>
-                    <x-product.infoItem icon="{{ Vite::asset('resources/assets/icons/beds.svg') }}" alt="beds icon">
+                    <x-product.infoItem alt="beds icon" icon="{{ Vite::asset('resources/assets/icons/beds.svg') }}">
                         Exemple blabla
                     </x-product.infoItem>
-                    <x-product.infoItem icon="{{ Vite::asset('resources/assets/icons/beds.svg') }}" alt="beds icon">
-                        Exemple blabla
-                    </x-product.infoItem>
-                </x-product.infoCard>
-                <x-product.infoCard name="Équipement du logement">
-                    <x-product.infoItem icon="{{ Vite::asset('resources/assets/icons/beds.svg') }}" alt="beds icon">
+                    <x-product.infoItem alt="beds icon" icon="{{ Vite::asset('resources/assets/icons/beds.svg') }}">
                         Exemple blabla
                     </x-product.infoItem>
                 </x-product.infoCard>
                 <x-product.infoCard name="Équipement du logement">
-                    <x-product.infoItem icon="{{ Vite::asset('resources/assets/icons/beds.svg') }}" alt="beds icon">
+                    <x-product.infoItem alt="beds icon" icon="{{ Vite::asset('resources/assets/icons/beds.svg') }}">
+                        Exemple blabla
+                    </x-product.infoItem>
+                </x-product.infoCard>
+                <x-product.infoCard name="Équipement du logement">
+                    <x-product.infoItem alt="beds icon" icon="{{ Vite::asset('resources/assets/icons/beds.svg') }}">
                         Exemple blabla
                     </x-product.infoItem>
                 </x-product.infoCard>
             </div>
         </section>
-        <div id="map" class="box">
-            <div id="test">
-
+        <div class="box" id="mapfixed">
+            <div class="mapHover">
+                <p>Appuyer pour ouvrir en plein écran</p>
             </div>
         </div>
+        <div id="mapPopup">
+            <div id="map">
+            </div>
+        </div>
+
+        <section id="reviews">
+            <div id="reviewTop">
+                <h3>Commentaires et avis</h3>
+                <div>
+                    <x-form.select small placeholder="Filtrer les commentaires">
+                        <x-form.option>Tous</x-form.option>
+                        <x-form.option>1 étoile</x-form.option>
+                        <x-form.option>2 étoiles</x-form.option>
+                        <x-form.option>3 étoiles</x-form.option>
+                        <x-form.option>4 étoiles</x-form.option>
+                        <x-form.option>5 étoiles</x-form.option>
+                    </x-form.select>
+                    <x-form.select small placeholder="Trier les commentaires">
+                        <x-form.option>Note (croissant)</x-form.option>
+                        <x-form.option>Note (décroissant)</x-form.option>
+                    </x-form.select>
+                </div>
+            </div>
+            <div id="reviewSummary">
+            </div>
+        </section>
+
+        <div class="box" id="seasonPrice">
+            <h3>Tarifs saisonniers</h3>
+            <table>
+                {{-- TODO:1 Pas plus de colonnes ? -> composant --}}
+                <thead>
+                    <tr>
+                        <th>Saison</th>
+                        <th>Date de début de la saison</th>
+                        <th>Date de fin de la saison</th>
+                        <th>Tarif semaine</th>
+                    </tr>
+                </thead>
+                <tr>
+                    <td>Été</td>
+                    <td>1 juin</td>
+                    <td>31 août</td>
+                    <td>20 000€</td>
+                </tr>
+                <tr>
+                    <td>Hiver</td>
+                    <td>1 novembre</td>
+                    <td>28 février</td>
+                    <td>150€</td>
+                </tr>
+                <tr>
+                    <td>Été</td>
+                    <td>1 juin</td>
+                    <td>31 août</td>
+                    <td>20 000€</td>
+                </tr>
+                {{-- <tr>
+                    <td>Hiver</td>
+                    <td>1 novembre</td>
+                    <td>28 février</td>
+                    <td>150€</td>
+                </tr> --}}
+            </table>
+            <div class="informationNote">
+                <img src="{{ Vite::asset('resources/assets/icons/calendar/info.svg') }}" alt="Information icon">
+                <dfn>Prix fournis à titre indicatif uniquement</dfn>
+            </div>
+        </div>
+
+        <section id="legals">
+            <h3>Informations légales</h3>
+            <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Totam minus vel impedit voluptatem sit
+                voluptate, obcaecati praesentium in quis, sapiente blanditiis, aliquam eveniet. Est quisquam repellendus
+                corporis id eum minus.<br />Lorem, ipsum dolor sit amet consectetur adipisicing elit. Totam minus vel
+                impedit voluptatem sit voluptate, obcaecati praesentium in quis, sapiente blanditiis, aliquam eveniet.
+                Est quisquam repellendus corporis id eum minus.
+                Lorem, ipsum dolor sit amet consectetur adipisicing elit. Totam minus vel impedit voluptatem sit
+                voluptate, obcaecati praesentium in quis, sapiente blanditiis, aliquam eveniet. Est quisquam repellendus
+                corporis id eum minus.</p>
+        </section>
     </div>
 </body>
 
