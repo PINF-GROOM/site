@@ -304,7 +304,7 @@ header>div>div svg:hover {
     cursor: pointer;
 }
 
-#languageChoice {
+.languageChoice {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -319,9 +319,14 @@ header>div>div svg:hover {
     overflow: hidden;
 }
 
+#burgerNav .languageChoice{
+    bottom: 60px;
+}
+
 .languageShown {
     animation: showLanguage 800ms var(--main-bezier);
     animation-fill-mode: forwards;
+    /* height: 200px; */
 }
 
 .languageHidden {
@@ -329,7 +334,7 @@ header>div>div svg:hover {
     animation-fill-mode: forwards;
 }
 
-#languageChoice img:hover {
+.languageChoice img:hover {
     cursor: pointer;
 }
 
