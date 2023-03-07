@@ -205,6 +205,9 @@ thead tr th {
 th,
 td {
     padding: 10px 20px;
+    user-select: text;
+    -webkit-user-select: text;
+    -moz-user-select: text;
 }
 
 tr:nth-child(odd) {
@@ -231,7 +234,7 @@ section {
 
 .box {
     padding: 20px;
-    border-radius: 30px;
+    border-radius: 20px;
     background-color: var(--main-color-blanc-muguet);
     box-shadow: var(--main-shadow-modal);
 }
@@ -663,7 +666,8 @@ a.discreet:hover {
 
 .selectInactive>.selectOption {
     animation: fadeIn 300ms ease-in;
-    display: none;
+    display: none !important;
+    /* FIXME remove important ? */
 }
 
 .selectActive>.selectOption {
